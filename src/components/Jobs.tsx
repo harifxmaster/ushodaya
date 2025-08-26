@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Jobs() {
   return (
-    <section className="relative bg-[#0044ff] text-white overflow-hidden">
+    <section className="relative bg-blue-900 text-white overflow-hidden">
       {/* Main Container */}
       <div className="max-w-[1300px] mx-auto px-6 md:px-10 relative">
         <div className="flex flex-col lg:flex-row items-center lg:items-center min-h-[500px]">
@@ -18,9 +18,9 @@ export default function Jobs() {
             </h1>
           </div>
 
-          {/* Right Side: Semicircular Image */}
+
           <div className="flex justify-end w-full lg:w-[50%] relative">
-            <div className="w-[650px] h-[450px] bg-[#0044ff] rounded-l-[300px] overflow-hidden flex-shrink-0 relative">
+            <div className="w-[650px] h-[450px] bg-blue-900 rounded-l-[300px] overflow-hidden flex-shrink-0 relative">
               <Image
                 src="/images/class.png"
                 alt="Hero"
@@ -34,10 +34,10 @@ export default function Jobs() {
         </div>
       </div>
 
-      {/* Search Box */}
+
       <div className="relative z-20 -mt-16 w-full px-4">
         <div className="max-w-[1100px] mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
-          {/* Search input */}
+
           <div className="relative mb-6 w-full flex justify-center">
             <input
               type="text"
@@ -57,9 +57,9 @@ export default function Jobs() {
             </svg>
           </div>
 
-          {/* Filters */}
+
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
-            {/* Experience */}
+
             <div>
               <label className="block text-gray-600 text-sm font-medium mb-2">
                 Experience Level
