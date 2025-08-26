@@ -4,19 +4,19 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full bg-white mb-16">
-
+    <section className="relative w-full bg-gradient-to-b from-blue-50 to-white mb-10">
+      {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image
-          src="/Girl.png"
+          src="/images/Girl.png"
           alt="Business Woman"
-
           fill
           sizes="100vw"
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0  md:bg-gradient-to-r md:from-white  md:to-transparent"></div>
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90  to-transparent"></div>
       </div>
 
       {/* Text Content */}
@@ -33,10 +33,10 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition">
               Get Quote Now
             </button>
-            <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg">
+            <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition">
               Learn More
             </button>
           </div>
@@ -46,7 +46,7 @@ export default function Hero() {
       {/* Cards Section */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-10 md:mt-[-100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {/* Card 1 */}
-        <div className="bg-white shadow-lg rounded-xl p-6 text-center md:text-left">
+        <div className="bg-gradient-to-br from-blue-100 to-blue-50 shadow-lg rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
           <div className="text-blue-600 mb-4 flex justify-center md:justify-start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -66,14 +66,14 @@ export default function Hero() {
           <h3 className="text-xl font-bold text-gray-900 mb-2">
             Data-Backed Growth
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             Our experts analyse data and use real numbers to boost yours.
           </p>
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white shadow-lg rounded-xl p-6 text-center md:text-left">
-          <div className="text-blue-600 mb-4 flex justify-center md:justify-start">
+        <div className="bg-gradient-to-br from-purple-100 to-purple-50 shadow-lg rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
+          <div className="text-purple-600 mb-4 flex justify-center md:justify-start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -92,14 +92,14 @@ export default function Hero() {
           <h3 className="text-xl font-bold text-gray-900 mb-2">
             Real Results at a Realistic Pace
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-700">
             We don’t provide any timeline for results. We focus on our work and
             results just follow!
           </p>
         </div>
 
         {/* Card 3 */}
-        <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-xl p-6 text-center md:text-left">
+        <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
           <div className="mb-4 flex justify-center md:justify-start">
             <svg
               xmlns="http://www.w3.org/2000/svg"
