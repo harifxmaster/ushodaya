@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Holding from "@/components/Holding";
 import Leader from "@/components/Leader";
-import MeetingSection from "@/components/MeetingSection";
 import Mission from "@/components/Mission";
 import Ready from "@/components/Ready";
 import Sky from "@/components/Sky";
@@ -15,7 +14,7 @@ export default function Aboutpage() {
     <>
      <Header />
      <Holding />
-     <MeetingSection />
+
      <Vision />
      <VisionSection/>
      <Mission />

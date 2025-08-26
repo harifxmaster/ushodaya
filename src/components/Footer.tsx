@@ -5,16 +5,22 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-5 grid grid-cols-1 md:grid-cols-4 gap-6">
-
+    <footer className="bg-white border-t">
+      {/* Main Footer Content */}
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+        {/* Logo & Social Links */}
         <div>
-          <div className="flex items-center gap-3 mb-4">
-            <Image src="/images/Wtlogo.png" alt="WT Softech" className="w-50 h-15" />
-
+          <div className="mb-4 flex justify-center md:justify-start">
+            <Image
+              src="/wtlogo.png"
+              alt="WT Softech"
+              width={180}
+              height={60}
+              className="object-contain"
+            />
           </div>
           <p className="font-semibold mb-3 text-blue-500">Follow Us</p>
-          <div className="flex gap-4 mb-4">
+          <div className="flex justify-center md:justify-start gap-4 mb-6">
             <a href="#" className="text-black hover:text-blue-600 text-xl">
               <FaInstagram />
             </a>
@@ -28,13 +34,13 @@ export default function Footer() {
               <FaXTwitter />
             </a>
           </div>
-          <p className="text-gray-700 text-sm font-semibold">
-            Registered address: Plot No.172, First Floor Kavuri Hills (Phase II),
-            Madhapur,Hydreabad
+          <p className="text-gray-700 text-sm font-semibold leading-relaxed max-w-sm mx-auto md:mx-0">
+            Registered address: Plot No.172, First Floor, Kavuri Hills (Phase II),
+            Madhapur, Hyderabad
           </p>
         </div>
 
-
+        {/* Company Links */}
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Company</h3>
           <ul className="space-y-2 text-gray-700">
@@ -45,7 +51,7 @@ export default function Footer() {
           </ul>
         </div>
 
-
+        {/* Products Links */}
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Products</h3>
           <ul className="space-y-2 text-gray-700">
@@ -55,7 +61,7 @@ export default function Footer() {
           </ul>
         </div>
 
-
+        {/* Support Links */}
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Support</h3>
           <ul className="space-y-2 text-gray-700">
@@ -65,9 +71,9 @@ export default function Footer() {
         </div>
       </div>
 
-
+      {/* Bottom Bar */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-center py-4 text-white text-sm">
-        © 2025 WT Softech All rights reserved.
+        © 2025 WT Softech. All rights reserved.
       </div>
     </footer>
   );
