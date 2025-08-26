@@ -5,22 +5,22 @@ export default function Leader() {
     {
       name: "Jane Doe",
       title: "Chief Executive Officer",
-      image: "/5.png", // Replace with your image path
+      image: "/images/5.png", // Replace with your image path
     },
     {
       name: "John Smith",
       title: "Chief Operating Officer",
-      image: "/3.png",
+      image: "/images/3.png",
     },
     {
       name: "Sarah Johnson",
       title: "Chief Financial Officer",
-      image: "/4.png",
+      image: "/images/4.png",
     },
     {
       name: "Emma Thompson",
       title: "Senior Business Consultant",
-      image: "/1.png",
+      image: "/images/1.png",
     },
   ];
 
