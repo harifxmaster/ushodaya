@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ITFoundationSection() {
   return (
-    <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white py-16 px-6 md:px-20">
+    <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white mb-20 py-16 px-6 md:px-20">
       <div className="grid md:grid-cols-2 items-center gap-20">
 
         {/* === Single Image === */}

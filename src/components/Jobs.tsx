@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Jobs() {
@@ -20,11 +22,15 @@ export default function Jobs() {
           <div className="w-[400px] h-[200px] bg-gradient-to-r from-blue-800 to-blue-600 rounded-t-full absolute bottom-0"></div>
 
           {/* Image inside arc */}
-          <Image
-            src="/Study.png"
-            alt="Hero"
-            className="w-[400px] h-[200px] object-cover rounded-t-full shadow-xl border-4 border-white relative z-10"
-          />
+          <div className="relative w-[400px] h-[200px] z-10">
+            <Image
+              src="/Study.png"
+              alt="Hero"
+              fill
+              className="object-cover rounded-t-full shadow-xl border-4 border-white"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+            />
+          </div>
         </div>
       </div>
 
@@ -65,10 +71,16 @@ export default function Jobs() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
             {/* Experience */}
             <div>
-              <label htmlFor="experience" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="experience"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Experience Level
               </label>
-              <select id="experience" className="w-full border rounded-lg px-4 py-2">
+              <select
+                id="experience"
+                className="w-full border rounded-lg px-4 py-2"
+              >
                 <option>All Experience Level</option>
                 <option>Fresher</option>
                 <option>Mid Level</option>
@@ -78,10 +90,16 @@ export default function Jobs() {
 
             {/* Location */}
             <div>
-              <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="location"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Location
               </label>
-              <select id="location" className="w-full border rounded-lg px-4 py-2">
+              <select
+                id="location"
+                className="w-full border rounded-lg px-4 py-2"
+              >
                 <option>All Location</option>
                 <option>Hyderabad</option>
                 <option>Bangalore</option>
@@ -91,10 +109,16 @@ export default function Jobs() {
 
             {/* Categories */}
             <div>
-              <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+              <label
+                htmlFor="category"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
                 Categories
               </label>
-              <select id="category" className="w-full border rounded-lg px-4 py-2">
+              <select
+                id="category"
+                className="w-full border rounded-lg px-4 py-2"
+              >
                 <option>All Categories</option>
                 <option>Development</option>
                 <option>Design</option>

@@ -2,16 +2,16 @@ import Image from "next/image";
 
 export default function Drop() {
   return (
-    <section className="w-full bg-white py-12 px-6 relative flex justify-center">
-      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center md:items-start">
+    <section className="w-full bg-white py-12 px-4 sm:px-6 relative flex justify-center">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center md:items-start gap-10">
 
         {/* Left Content */}
-        <div className="md:w-1/2 z-10">
-          <h2 className="text-4xl md:text-5xl font-extrabold leading-snug text-gray-900">
+        <div className="md:w-1/2 text-center md:text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-snug text-gray-900">
             We <span className="underline decoration-blue-600">Recognise</span>, Realise & <br />
             Render Results That <br /> Speak Volumes
           </h2>
-          <p className="text-gray-600 mt-6 leading-relaxed max-w-md">
+          <p className="text-gray-600 mt-6 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
             Our motto is simple! We let our work speak for the worth we can add to your business.
             We are quite straightforward in our dealings – understanding your needs, conducting heavy
             discussions, offering inputs, and starting work with zeal and commitment.
@@ -21,11 +21,11 @@ export default function Drop() {
         </div>
 
         {/* Right Images */}
-        <div className="md:w-1/2 flex justify-center relative mt-10 md:mt-0">
-          {/* Images with overlap */}
-          <div className="flex gap-4">
+        <div className="md:w-1/2 flex justify-center md:justify-end relative">
+          <div className="flex flex-col sm:flex-row md:flex-row gap-4">
+
             {/* First Image */}
-            <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md relative z-30">
+            <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md">
               <Image
                 src="/p1.png"
                 alt="Work Desk 1"
@@ -35,8 +35,8 @@ export default function Drop() {
               />
             </div>
 
-            {/* Second Image (slightly down) */}
-            <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md relative z-20 -mt-8">
+            {/* Second Image */}
+            <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md sm:-mt-6 md:-mt-8">
               <Image
                 src="/p2.png"
                 alt="Work Desk 2"
@@ -46,8 +46,8 @@ export default function Drop() {
               />
             </div>
 
-            {/* Third Image (slightly up) */}
-            <div className="w-40 h-80 rounded-2xl overflow-hidden shadow-md relative z-10 mt-8">
+            {/* Third Image */}
+            <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md sm:mt-6 md:mt-8">
               <Image
                 src="/p3.png"
                 alt="Work Desk 3"

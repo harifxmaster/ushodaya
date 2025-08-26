@@ -1,14 +1,17 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Sky() {
   return (
     <div className="flex flex-col md:flex-row items-center md:items-start gap-8 px-6 py-20 max-w-7xl mx-auto">
-
       {/* Image Section */}
       <div className="w-full md:w-1/2">
         <Image
           src="/sky.png"
           alt="Skyscrapers"
+          width={600}   // ✅ Required for Next.js <Image>
+          height={400}  // ✅ Keeps aspect ratio
           className="w-full h-auto rounded-md object-cover shadow-lg"
         />
       </div>

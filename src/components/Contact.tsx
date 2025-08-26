@@ -6,8 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-
-
+        {/* Left Side (Form) */}
         <div>
           <h2 className="text-3xl font-bold text-blue-900 mb-4">Let’s Get In Touch</h2>
           <p className="text-gray-600 mb-8">
@@ -15,7 +14,6 @@ export default function Contact() {
           </p>
 
           <form className="flex flex-col gap-6">
-
             <div>
               <label className="block mb-2 text-gray-700">Name</label>
               <input
@@ -23,7 +21,6 @@ export default function Contact() {
                 className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-
 
             <div>
               <label className="block mb-2 text-gray-700">Email</label>
@@ -33,15 +30,12 @@ export default function Contact() {
               />
             </div>
 
-
             <div>
               <label className="block mb-2 text-gray-700">Message</label>
               <textarea
-
                 className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
               ></textarea>
             </div>
-
 
             <button
               type="submit"
@@ -52,15 +46,16 @@ export default function Contact() {
           </form>
         </div>
 
-
+        {/* Right Side (Image + Contact Info) */}
         <div className="flex flex-col items-center md:items-start">
-
+          {/* ✅ Fixed Image with width & height */}
           <Image
             src="/images/imagee.png"
             alt="Contact"
-            className="rounded-lg shadow-lg w-full max-w-md"
+            width={500}
+            height={400}
+            className="rounded-lg shadow-lg w-full max-w-md h-auto"
           />
-
 
           <div className="mt-8 space-y-4 text-gray-700">
             <p className="flex items-start gap-3">

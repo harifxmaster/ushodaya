@@ -4,70 +4,120 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="w-full bg-white">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 px-6 md:px-12 py-30">
-        {/* Left Content */}
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Holistic Growth <br /> for Your Business
+    <section className="relative w-full bg-white mb-16">
+
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src="/Girl.png"
+          alt="Business Woman"
+
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+          priority
+        />
+        <div className="absolute inset-0  md:bg-gradient-to-r md:from-white  md:to-transparent"></div>
+      </div>
+
+      {/* Text Content */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="z-10 flex flex-col justify-center text-center md:text-left">
+          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+            Holistic Growth <br className="hidden md:block" /> for Your Business
           </h1>
-          <p className="text-gray-600 max-w-lg">
+          <p className="mt-4 text-gray-700 text-base md:text-lg">
             We are the leading full-service digital marketing and IT solutions
-            company in the market. From small–scale to large–scale firms, we&apos;re
+            company in the market. From small-scale to large-scale firms, we’re
             adept at helping you grow.
           </p>
-          <div className="flex gap-4">
-            <button className="bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition">
+
+          {/* Buttons */}
+          <div className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow">
               Get Quote Now
             </button>
-            <button className="border border-blue-600 text-blue-600 px-6 py-3 rounded-md font-medium hover:bg-blue-50 transition">
+            <button className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg">
               Learn More
             </button>
           </div>
         </div>
-
-        {/* Right Image - Full Fit */}
-        <div className="w-full h-full relative">
-          <Image
-            src="/Girl.png" // replace with your image path
-            alt="Business Growth"
-            fill
-            className="object-cover rounded-md"
-            priority
-          />
-        </div>
       </div>
 
-      {/* 3 Cards Section */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-12 pb-16">
+      {/* Cards Section */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-10 md:mt-[-100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {/* Card 1 */}
-        <div className="bg-white shadow-md rounded-xl p-6 space-y-3 hover:shadow-lg transition">
-          <div className="text-blue-600 text-3xl">📊</div>
-          <h3 className="text-xl font-semibold text-gray-900">
+        <div className="bg-white shadow-lg rounded-xl p-6 text-center md:text-left">
+          <div className="text-blue-600 mb-4 flex justify-center md:justify-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-10 h-10"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 7.5V6a1.5 1.5 0 011.5-1.5h4.5A1.5 1.5 0 0115.75 6v1.5m-9 0h10.5m-12 0A2.25 2.25 0 004.5 9.75v7.5A2.25 2.25 0 006.75 19.5h10.5a2.25 2.25 0 002.25-2.25v-7.5A2.25 2.25 0 0017.25 7.5m-12 0V6a3 3 0 013-3h4.5a3 3 0 013 3v1.5"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
             Data-Backed Growth
           </h3>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600">
             Our experts analyse data and use real numbers to boost yours.
           </p>
         </div>
 
         {/* Card 2 */}
-        <div className="bg-white shadow-md rounded-xl p-6 space-y-3 hover:shadow-lg transition">
-          <div className="text-blue-600 text-3xl">📈</div>
-          <h3 className="text-xl font-semibold text-gray-900">
+        <div className="bg-white shadow-lg rounded-xl p-6 text-center md:text-left">
+          <div className="text-blue-600 mb-4 flex justify-center md:justify-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-10 h-10"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M3 3v18h18M9 17V9m4 8V5m4 12v-6"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
             Real Results at a Realistic Pace
           </h3>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600">
             We don’t provide any timeline for results. We focus on our work and
             results just follow!
           </p>
         </div>
 
-        {/* Card 3 - Blue Background */}
-        <div className="bg-blue-600 text-white shadow-md rounded-xl p-6 space-y-3 hover:shadow-lg transition">
-          <div className="text-white text-3xl">🔒</div>
-          <h3 className="text-xl font-semibold">Strength & Security</h3>
-          <p className="text-sm">
+        {/* Card 3 */}
+        <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-xl p-6 text-center md:text-left">
+          <div className="mb-4 flex justify-center md:justify-start">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-10 h-10"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 14.25v6m-3-3h6M4.5 6.75V21h9.75m-6-6.75H15M15 6h.008v.008H15V6z"
+              />
+            </svg>
+          </div>
+          <h3 className="text-xl font-bold mb-2">Strength & Security</h3>
+          <p>
             Our IT solutions solidify your foundation and offer unparalleled
             security for sensitive information.
           </p>

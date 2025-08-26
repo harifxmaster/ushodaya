@@ -1,30 +1,57 @@
-export default function Holding() {
+import Image from "next/image";
+
+export default function HoldingPage() {
   return (
-    <main className="w-full min-h-screen bg-white flex items-start justify-center px-20 py-75">
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+    <main className="w-full bg-white">
+      {/* ---------- Top Section ---------- */}
+      <section className="w-full bg-white py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
 
-        <div className="flex items-start justify-center">
-          <h1 className="text-4xl md:text-5xl font-bold leading-snug">
-            Holding The Reins To <br />
-            Your Success{" "}
-            <span className="text-blue-600">With <br /> Expertise & Innovation</span>
-          </h1>
-        </div>
+          {/* Left: Heading */}
+          <div className="md:w-1/2">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
+              Holding The Reins To <br />
+              Your Success{" "}
+              <span className="text-blue-600">
+                With Expertise &amp; Innovation
+              </span>
+            </h1>
+          </div>
 
-        <div className="border-l-2 border-blue-600 pl-6 text-gray-600 text-sm md:text-base leading-relaxed">
-          <p>
-            WT Softech is where innovation meets technology! We’re a passionate
-            team of problem-solvers, who help businesses thrive with
-            cutting-edge IT solutions. From product development and software
-            testing to IT consulting, staffing, and digital marketing, we craft
-            solutions that drive success. Whether you’re a startup or an
-            enterprise, we bring expertise, creativity, and commitment to every
-            project. Let’s transform your ideas into reality, optimize your
-            operations, and fuel your growth. Ready to elevate your business
-            with smart technology? Let’s make it happen together!
-          </p>
+          {/* Right: Blue Line + Paragraph */}
+          <div className="md:w-1/2 flex gap-4">
+            {/* Blue vertical line (full height of paragraph) */}
+            <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
+
+            {/* Paragraph */}
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+              WT Softech is where innovation meets technology! We’re a passionate
+              team of problem-solvers, who help businesses thrive with
+              cutting-edge IT solutions. From product development and software
+              testing to IT consulting, staffing, and digital marketing, we craft
+              solutions that drive success. Whether you’re a startup or an
+              enterprise, we bring expertise, creativity, and commitment to every
+              project. Let’s transform your ideas into reality, optimise your
+              operations, and fuel your growth. Ready to elevate your business
+              with smart technology? Let’s make it happen together!
+            </p>
+          </div>
+
         </div>
-      </div>
+      </section>
+
+      {/* ---------- Bottom Image ---------- */}
+      <section className="w-full">
+        <div className="relative w-full h-64 sm:h-80 md:h-[500px]">
+          <Image
+            src="/sean.png" // <-- replace with correct path
+            alt="Holding Image"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+      </section>
     </main>
   );
 }
