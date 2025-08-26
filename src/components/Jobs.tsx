@@ -24,7 +24,7 @@ export default function Jobs() {
           {/* Image inside arc */}
           <div className="relative w-[400px] h-[200px] z-10">
             <Image
-              src="/Study.png"
+              src="/images/Study.png"
               alt="Hero"
               fill
               className="object-cover rounded-t-full shadow-xl border-4 border-white"

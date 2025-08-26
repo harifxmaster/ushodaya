@@ -3,13 +3,13 @@ import Image from "next/image";
 export default function HoldingPage() {
   return (
     <main className="w-full bg-white">
-      {/* ---------- Top Section ---------- */}
-      <section className="w-full bg-white py-12 sm:py-16 md:py-20">
+
+      <section className="w-full bg-white py-7 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
 
-          {/* Left: Heading */}
+
           <div className="md:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
               Your Success{" "}
               <span className="text-blue-600">
@@ -44,7 +44,7 @@ export default function HoldingPage() {
       <section className="w-full">
         <div className="relative w-full h-64 sm:h-80 md:h-[500px]">
           <Image
-            src="/sean.png" // <-- replace with correct path
+            src="/images/sean.png" // <-- replace with correct path
             alt="Holding Image"
             fill
             className="object-cover"

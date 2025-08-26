@@ -9,19 +9,21 @@ export default function Header() {
 
   return (
     <header className="w-full shadow-md bg-white fixed top-0 left-0 z-50">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-1">
+
         <div className="flex items-center gap-2">
           <Image
-            src="/images/wtlogo.png"
-            alt="WT Softech"
-            width={150}
-            height={50}
-            className="object-contain"
+            src="/llogo.png"
+            alt="Logo"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-50 h-auto"
           />
+
         </div>
 
-        {/* Desktop Navigation */}
+
         <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
           <Link href="/" className="text-blue-600">
             Home
@@ -43,7 +45,7 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Desktop Buttons */}
+
         <div className="hidden md:flex gap-4">
           <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
             Login
@@ -53,7 +55,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu Button */}
+
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
             {isOpen ? (
