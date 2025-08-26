@@ -43,7 +43,7 @@ export default function Choose() {
           </p>
           <div className="w-full h-64 relative">
             <Image
-              src="/Build.png" // Replace with your image path
+              src="/images/Build.png" // Replace with your image path
               alt="Why Choose Us"
               layout="fill"
               objectFit="cover"

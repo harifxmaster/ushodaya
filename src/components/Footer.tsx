@@ -12,7 +12,7 @@ export default function Footer() {
         <div>
           <div className="mb-4 flex justify-center md:justify-start">
             <Image
-              src="/wtlogo.png"
+              src="/images/llogo.png"
               alt="WT Softech"
               width={180}
               height={60}

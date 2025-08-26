@@ -27,7 +27,7 @@ export default function Drop() {
             {/* First Image */}
             <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md">
               <Image
-                src="/p1.png"
+                src="/images/p1.png"
                 alt="Work Desk 1"
                 width={400}
                 height={800}
@@ -38,7 +38,7 @@ export default function Drop() {
             {/* Second Image */}
             <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md sm:-mt-6 md:-mt-8">
               <Image
-                src="/p2.png"
+                src="/images/p2.png"
                 alt="Work Desk 2"
                 width={400}
                 height={800}
@@ -49,7 +49,7 @@ export default function Drop() {
             {/* Third Image */}
             <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md sm:mt-6 md:mt-8">
               <Image
-                src="/p3.png"
+                src="/images/p3.png"
                 alt="Work Desk 3"
                 width={400}
                 height={800}

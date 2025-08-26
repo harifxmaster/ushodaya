@@ -7,10 +7,10 @@ export default function ITFoundationSection() {
     <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white mb-20 py-16 px-6 md:px-20">
       <div className="grid md:grid-cols-2 items-center gap-20">
 
-        {/* === Single Image === */}
+
         <div className="flex items-center justify-center">
           <Image
-            src="/Three.png" // your single combined image
+            src="/images/Three.png" // your single combined image
             alt="IT Foundation"
             width={800}
             height={600}

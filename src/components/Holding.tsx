@@ -4,7 +4,7 @@ export default function HoldingPage() {
   return (
     <main className="w-full bg-white">
 
-      <section className="w-full bg-white py-7 sm:py-16 md:py-20">
+      <section className="w-full bg-white py-7 sm:py-26 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
 
 

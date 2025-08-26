@@ -13,7 +13,7 @@ export default function Mission() {
           <div className="w-[3px] bg-blue-600 mr-4 mt-1"></div>
 
           {/* Paragraph */}
-          <p className="text-black leading-6 sm:leading-8 text-base sm:text-lg">
+          <p className="text-gray-400 leading-6 sm:leading-8 text-base sm:text-lg">
             At WT Softech, our mission is to empower businesses with
             cutting-edge technology and innovative solutions. We are always
             working to bridge the gap between ideas and execution. Our aim is to
@@ -28,7 +28,7 @@ export default function Mission() {
       {/* Right Image */}
       <div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden">
         <Image
-          src="/Meet.png"
+          src="/images/Meet.png"
           alt="Mission Image"
           fill
           className="object-cover rounded-lg"
