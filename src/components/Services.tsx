@@ -8,7 +8,7 @@ const services = [
   { title: "IT Consulting", img: "/images/ITC.png" },
   { title: "IT Services", img: "/images/ITS.png" },
   { title: "Staffing Solutions", img: "/images/ss.png" },
-  { title: "Digital Marketing", img: "/images/Digital.png" },
+  { title: "Digital Marketing", img:"/images/Digital.png" },
 ];
 
 export default function Services() {

@@ -13,7 +13,7 @@ export default function Header() {
 
         <div className="flex items-center gap-2">
           <Image
-            src="/llogo.png"
+            src="/images/llogo.png"
             alt="Logo"
             width={0}
             height={0}
@@ -59,7 +59,7 @@ export default function Header() {
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
             {isOpen ? (
-              // Close Icon
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-7 h-7 text-gray-700"
@@ -71,7 +71,7 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              // Hamburger Icon
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-7 h-7 text-gray-700"
@@ -87,7 +87,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg transition-all duration-300 ease-in-out">
           <nav className="flex flex-col items-center gap-4 py-6 text-gray-700 font-medium">
