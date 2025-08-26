@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 
 export default function Jobs() {
   return (
@@ -18,12 +19,15 @@ export default function Jobs() {
           </div>
 
           {/* Right Side: Semicircular Image */}
-           <div className="flex justify-end w-full lg:w-[50%] relative">
-            <div className="w-[650px] h-[450px] bg-[#0044ff] rounded-l-[300px] overflow-hidden flex-shrink-0">
-              <img
+          <div className="flex justify-end w-full lg:w-[50%] relative">
+            <div className="w-[650px] h-[450px] bg-[#0044ff] rounded-l-[300px] overflow-hidden flex-shrink-0 relative">
+              <Image
                 src="/images/class.png"
                 alt="Hero"
-                className="w-full h-full object-cover"
+                width={650}   // ✅ Explicit width
+                height={450}  // ✅ Explicit height
+                className="object-cover"
+                priority
               />
             </div>
           </div>
