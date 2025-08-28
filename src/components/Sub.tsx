@@ -13,7 +13,7 @@ export default function Sub() {
       <div className="relative z-10 max-w-4xl mx-auto h-full flex flex-col justify-center px-6">
         {/* Heading */}
         <h2 className="text-white text-2xl md:text-3xl font-semibold mb-3">
-          Sign Up for Our Newsletters
+          Sign up for our Newsettlers
         </h2>
 
         {/* Subheading */}
