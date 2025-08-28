@@ -100,8 +100,8 @@ export default function Header() {
             <Link href="/services" onClick={() => setIsOpen(false)} className="hover:text-blue-600">
               Services
             </Link>
-            <Link href="/blogs" onClick={() => setIsOpen(false)} className="hover:text-blue-600">
-              Blogs
+            <Link href="/Blogs" onClick={() => setIsOpen(false)} className="hover:text-blue-600">
+              blog
             </Link>
             <Link href="/career" onClick={() => setIsOpen(false)} className="hover:text-blue-600">
               Careers

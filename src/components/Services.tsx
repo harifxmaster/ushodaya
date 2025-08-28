@@ -8,7 +8,7 @@ const services = [
   { title: "IT Consulting", img: "/images/ITC.png" },
   { title: "IT Services", img: "/images/ITS.png" },
   { title: "Staffing Solutions", img: "/images/ss.png" },
-  { title: "Digital Marketing", img:"/images/Digital.png" },
+  { title: "Digital Marketing", img: "/images/Digital.png" },
 ];
 
 export default function Services() {
@@ -20,28 +20,33 @@ export default function Services() {
           Services We Offer
         </h2>
         <p className="text-gray-600 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
-          WT Softech has expertise in IT consulting, product development, software testing,
-          digital marketing, staffing solutions, IT services, and more.
+          WT Softech has expertise in IT consulting, product development,
+          software testing, digital marketing, staffing solutions, IT services,
+          and more.
         </p>
       </div>
 
-
+      {/* Services Grid */}
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {services.map((service, index) => (
           <div
             key={index}
-            className="bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+            className="relative bg-white rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
           >
-
-            <div className="relative aspect-[4/3] w-full">
+            {/* Image container */}
+            <div className="relative w-full h-60">
               <Image
                 src={service.img}
                 alt={service.title}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-105"
-                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 28vw"
                 priority={index === 0}
               />
+
+              {/* Overlay text positioned slightly above bottom */}
+              <h3 className="absolute bottom-6 left-4 text-white text-lg font-bold drop-shadow-lg">
+                {service.title}
+              </h3>
             </div>
           </div>
         ))}

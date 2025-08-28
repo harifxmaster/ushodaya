@@ -22,7 +22,7 @@ export default function Wave() {
 
         <div className="absolute right-4 top-16 sm:right-10 sm:top-28 md:right-20 md:top-40">
           <Image
-            src="/wave.png"
+            src="/images/wave.png"
             alt="wave"
             width={80}
             height={50}
