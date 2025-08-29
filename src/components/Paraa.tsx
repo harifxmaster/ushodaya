@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FaPinterestP } from "react-icons/fa";
 import { FiZoomIn } from "react-icons/fi";
 
-export default function BlogPost() {
+export default function Paraa() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
       {/* Title */}
