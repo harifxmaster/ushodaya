@@ -36,25 +36,25 @@ const ARTICLES: Article[] = [
   {
     id: 3,
     title: "Future of Work",
-    image: "/images/article-3.jpg",
+    image: "/images/Bbig.png",
     author: "Lina Hicks",
-    avatar: "/images/author-3.jpg",
+    avatar: "/images/Bigp1.png",
     date: "02 May",
   },
   {
     id: 4,
     title: "Future of Data",
-    image: "/images/article-4.jpg",
+    image: "/images/Big2.png",
     author: "Tyler Murray",
-    avatar: "/images/author-4.jpg",
+    avatar: "/images/Bigp2.png",
     date: "02 May",
   },
   {
     id: 5,
     title: "Future of Learning",
-    image: "/images/article-5.jpg",
+    image: "/images/Big3.png",
     author: "Warren Casey",
-    avatar: "/images/author-5.jpg",
+    avatar: "/images/Bigp3.png",
     date: "02 May",
   },
 ];
@@ -76,7 +76,7 @@ export default function Bigcard(): JSX.Element {
 
         {/* Grid: first row - two big cards; second row - three small cards */}
         <div className="grid grid-cols-12 gap-6">
-          {/* Large featured cards (take 6 columns each on md+) */}
+          {/* Large featured cards */}
           {ARTICLES.filter(a => a.featured).map((a) => (
             <article
               key={a.id}
@@ -85,11 +85,11 @@ export default function Bigcard(): JSX.Element {
               {/* background image */}
               <div className="relative w-full h-80 md:h-96">
                 <Image src={a.image} alt={a.title} fill className="object-cover" />
-                {/* bottom gradient */}
+                {/* gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-800/85 to-transparent" />
               </div>
 
-              {/* content overlay (placed at bottom) */}
+              {/* content overlay */}
               <div className="absolute left-6 right-6 bottom-6 text-white">
                 {/* badge */}
                 <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium mb-3">
@@ -117,24 +117,33 @@ export default function Bigcard(): JSX.Element {
             </article>
           ))}
 
-          {/* Small cards (3 cards - each col-span-12 on small, col-span-4 on md+) */}
+          {/* Small cards */}
           {ARTICLES.filter(a => !a.featured).map((a) => (
             <article
               key={a.id}
               className="col-span-12 md:col-span-4 rounded-lg overflow-hidden relative shadow"
             >
-              <div className="relative w-full h-56">
+              {/* background image */}
+              <div className="relative w-full h-64">
                 <Image src={a.image} alt={a.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-800/75 to-transparent" />
+                {/* gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-800/80 to-transparent" />
               </div>
 
-              <div className="p-4 text-white">
-                <h4 className="text-md font-semibold">{a.title}</h4>
+              {/* content overlay */}
+              <div className="absolute inset-x-4 bottom-4 text-white">
+                <h4 className="text-lg font-semibold">{a.title}</h4>
 
                 <div className="mt-3 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full overflow-hidden ring-2 ring-white">
-                      <Image src={a.avatar} alt={a.author} width={32} height={32} className="object-cover" />
+                      <Image
+                        src={a.avatar}
+                        alt={a.author}
+                        width={32}
+                        height={32}
+                        className="object-cover"
+                      />
                     </div>
                     <div className="text-sm">
                       <div className="font-medium text-white">{a.author}</div>
@@ -149,7 +158,7 @@ export default function Bigcard(): JSX.Element {
           ))}
         </div>
 
-        {/* More articles button centered */}
+        {/* More articles button */}
         <div className="mt-8 flex justify-center">
           <button
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
