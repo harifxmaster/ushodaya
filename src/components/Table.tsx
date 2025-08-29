@@ -6,7 +6,7 @@ import { FaEnvelope, FaFacebookF, FaPinterestP, FaTwitter } from "react-icons/fa
 export default function Table() {
   return (
     <section className="w-full bg-white py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8">
 
         {/* Left Sidebar */}
         <aside className="md:w-1/6 flex flex-col items-center space-y-6">
