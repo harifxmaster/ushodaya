@@ -3,7 +3,7 @@
 export default function Sub() {
   return (
     <section
-      className="relative w-full h-[350px] md:h-[400px] bg-cover bg-center"
+      className="relative w-full h-[500px] md:h-[700px] bg-cover bg-center"
       style={{ backgroundImage: "url('/images/Subgirl.png')" }} // full background
     >
       {/* Overlay */}

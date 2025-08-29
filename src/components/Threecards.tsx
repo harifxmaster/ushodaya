@@ -12,7 +12,7 @@ const blogs = [
     role: "Verified Author",
     date: "02 May",
     img: "/images/c1.png",
-    avatar: "/images/author1.jpg",
+    avatar: "/images/Bigp1.png",
   },
   {
     slug: "future-of-data",
@@ -22,8 +22,8 @@ const blogs = [
     author: "Tyler Murray",
     role: "Verified Author",
     date: "02 May",
-    img: "/images/cell.png",
-    avatar: "/images/author2.jpg",
+    img: "/images/c2.png",
+    avatar: "/images/Bigp2.png",
   },
   {
     slug: "future-of-learning",
@@ -33,8 +33,8 @@ const blogs = [
     author: "Warren Casey",
     role: "Verified Author",
     date: "02 May",
-    img: "/images/googles.png",
-    avatar: "/images/author3.jpg",
+    img: "/images/c3.png",
+    avatar: "/images/Bigp3.png",
   },
 ];
 

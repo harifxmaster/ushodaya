@@ -89,7 +89,7 @@ export default function Scards() {
 
           <div className="border rounded-lg p-4 shadow-sm text-center border-blue-500">
             <p className="italic text-sm mb-4">
-              "You made it so simple. My new site is so much faster & easier to work"
+              &quot;You made it so simple. My new site is so much faster & easier to work&quot;
             </p>
             <div className="flex items-center justify-center gap-2 mb-2">
               <Image
