@@ -1,4 +1,4 @@
-// import Link from "next/link";
+
 import Drop from "../../components/Drop";
 import Footer from "../../components/Footer";
 import Ours from "../../components/Ours";
