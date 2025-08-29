@@ -51,8 +51,7 @@ export default function Scards() {
               className="rounded-md w-full"
             />
           </div>
-
-           <p className="text-gray-700">
+          <p className="text-gray-700">
             People probably wouldn&apos;t click. Create elements that are functional and
             enhance the user experience on your site.
           </p>
@@ -89,7 +88,7 @@ export default function Scards() {
 
           <div className="border rounded-lg p-4 shadow-sm text-center border-blue-500">
             <p className="italic text-sm mb-4">
-              "You made it so simple. My new site is so much faster & easier to work"
+              &qout;You made it so simple. My new site is so much faster & easier to work&qout;
             </p>
             <div className="flex items-center justify-center gap-2 mb-2">
               <Image
