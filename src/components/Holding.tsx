@@ -4,12 +4,11 @@ export default function HoldingPage() {
   return (
     <main className="w-full bg-white">
 
-      <section className="w-full bg-white py-7 sm:py-26 md:py-20">
+      <section className="w-full bg-white py-7 sm:py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
 
-
           <div className="md:w-1/2">
-            <h1 className="text-3xl sm:text-2xl md:text-4xl font-bold leading-snug">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
               Your Success{" "}
               <span className="text-blue-600">
@@ -18,11 +17,8 @@ export default function HoldingPage() {
             </h1>
           </div>
 
-
           <div className="md:w-1/2 flex gap-4">
-
             <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
-
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
               WT Softech is where innovation meets technology! We’re a passionate
@@ -39,7 +35,6 @@ export default function HoldingPage() {
 
         </div>
       </section>
-
 
       <section className="w-full">
         <div className="relative w-full h-64 sm:h-80 md:h-[500px]">

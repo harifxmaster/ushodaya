@@ -14,26 +14,26 @@ type Post = {
 const posts: Post[] = [
   {
     title: "Future of Learning",
-    excerpt: "A constant ability to learn will be one the most crucial skills",
+    excerpt: "A constant ability to learn will be one of the most crucial skills.",
     author: "Warren Casey",
     date: "02 May",
     image: "/images/over.png",
     avatar: "/images/Boy.png",
   },
   {
-    title: "Future of Learning",
-    excerpt: "A constant ability to learn will be one the most crucial skills",
-    author: "Warren Casey",
-    date: "02 May",
-    image: "/images/over.png",
-    avatar: "/images/Boy.png",
+    title: "Future of Work",
+    excerpt: "Majority of people will work in jobs that don’t exist today.",
+    author: "Lina Hicks",
+    date: "08 May",
+    image: "/images/Base.png",
+    avatar: "/images/Avatar.png",
   },
   {
-    title: "Future of Learning",
-    excerpt: "A constant ability to learn will be one the most crucial skills",
-    author: "Warren Casey",
-    date: "02 May",
-    image: "/images/over.png",
+    title: "Future of Technology",
+    excerpt: "AI and automation are redefining industries globally.",
+    author: "John Carter",
+    date: "15 May",
+    image: "/images/tech.png",
     avatar: "/images/Boy.png",
   },
 ];
@@ -46,7 +46,6 @@ export default function Cards() {
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">
           Related Blogs
         </h2>
-
 
         <div className="flex gap-4 sm:gap-6 overflow-x-auto py-2 pr-1 snap-x snap-mandatory scrollbar-hide">
           {posts.map((p, i) => (
@@ -63,7 +62,7 @@ export default function Cards() {
                 hover:-translate-y-0.5
               "
             >
-
+              {/* Background image */}
               <div className="absolute inset-0">
                 <Image
                   src={p.image}
@@ -74,11 +73,11 @@ export default function Cards() {
                 />
               </div>
 
-
+              {/* Gradient overlays */}
               <div className="absolute inset-0 bg-gradient-to-r from-teal-700/80 via-sky-700/65 to-blue-600/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
 
-
+              {/* Content */}
               <div className="relative h-full px-4 sm:px-6 py-3 sm:py-4 flex flex-col justify-between">
                 <div>
                   <h3 className="text-white font-semibold text-base sm:text-lg leading-tight">
@@ -88,7 +87,6 @@ export default function Cards() {
                     {p.excerpt}
                   </p>
                 </div>
-
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
