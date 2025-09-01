@@ -53,7 +53,6 @@ export default function Scards() {
               className="rounded-md w-full object-cover"
             />
           </div>
-
           <p className="text-gray-700">
             People probably wouldn&apos;t click. Create elements that are functional and
             enhance the user experience on your site.

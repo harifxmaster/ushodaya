@@ -36,7 +36,7 @@ const ARTICLES: Article[] = [
   {
     id: 3,
     title: "Future of Work",
-    image: "/images/Bbig.png",
+    image: "/images/Big.png",
     author: "Lina Hicks",
     avatar: "/images/Bigp1.png",
     date: "02 May",
