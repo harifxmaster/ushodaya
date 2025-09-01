@@ -28,7 +28,7 @@ export default function Card() {
           <div className="flex justify-between items-center mt-4">
             <div className="flex items-center space-x-2">
               <Image
-                src="/images/Avatar.png"
+                src="/images/toolg.png"
                 alt="Author"
                 width={32}
                 height={32}

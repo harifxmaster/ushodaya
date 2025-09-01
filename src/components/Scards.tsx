@@ -5,10 +5,10 @@ export default function Scards() {
     <div className="min-h-screen px-4 py-10 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
 
-        {/* Left Content */}
+
         <div className="flex-1 space-y-6">
 
-          {/* Main Image */}
+
           <Image
             src="/images/lap.png"
             alt="Main Workspace"
@@ -29,7 +29,7 @@ export default function Scards() {
             Simple as that.
           </p>
 
-          {/* Grid Images */}
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Image
               src="/images/t1.png"

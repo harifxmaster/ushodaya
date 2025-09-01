@@ -48,7 +48,7 @@ export default function Wave() {
 
         <p className="text-gray-500 max-w-md sm:max-w-xl mt-6 text-sm sm:text-base leading-relaxed">
           We will help a client&apos;s problems to develop the products they
-          have with high quality. Change the appearance.
+          have with high quality. Change the aperance.
         </p>
       </section>
     </main>
