@@ -6,9 +6,9 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/
 export default function Footer() {
   return (
     <footer className="bg-white border-t">
-      {/* Main Footer Content */}
+
       <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-        {/* Logo & Social Links */}
+
         <div>
           <div className="mb-4 flex justify-center md:justify-start">
             <Image
@@ -40,7 +40,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Company Links */}
+
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Company</h3>
           <ul className="space-y-2 text-gray-700">
@@ -51,7 +51,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Products Links */}
+
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Products</h3>
           <ul className="space-y-2 text-gray-700">
@@ -61,7 +61,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Support Links */}
+
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Support</h3>
           <ul className="space-y-2 text-gray-700">
@@ -71,7 +71,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+
       <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-center py-4 text-white text-sm">
         © 2025 WT Softech. All rights reserved.
       </div>

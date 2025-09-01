@@ -13,12 +13,12 @@ export default function Lorem() {
   return (
     <div className="bg-gray-100 flex items-start justify-center py-12">
       <section className="max-w-4xl w-full px-6">
-        {/* Heading */}
+
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-8">
           Frequently Asked Questions
         </h2>
 
-        {/* Rows */}
+
         <div className="space-y-3">
           {items.map((label, i) => (
             <button
@@ -28,7 +28,7 @@ export default function Lorem() {
             >
               <span className="text-sm md:text-base text-gray-700">{label}</span>
 
-              {/* Purple chevron */}
+
               <svg
                 className="w-4 h-3 text-purple-600"
                 viewBox="0 0 20 20"

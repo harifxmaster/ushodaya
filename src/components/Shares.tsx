@@ -6,16 +6,16 @@ import { FaFacebookF, FaGithub, FaInstagram, FaLinkedinIn, FaPinterestP, FaTwitt
 export default function Shares() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10 bg-white shadow-md rounded-md">
-      {/* Top Section */}
+
       <div>
-        {/* Top Row with Shares */}
+
         <div className="flex items-center justify-start mb-6 space-x-6">
           <div className="flex flex-col text-center">
             <span className="text-xl font-bold">10K</span>
             <span className="text-gray-500 text-sm">Shares</span>
           </div>
 
-          {/* Share Buttons */}
+
           <div className="flex space-x-4">
             <button className="flex items-center space-x-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
               <FaFacebookF />
@@ -32,10 +32,10 @@ export default function Shares() {
           </div>
         </div>
 
-        {/* Profile Section */}
+
         <div className="flex items-center space-x-4 mb-4">
           <Image
-            src="/images/Sharesgirl.png" // Replace with your image
+            src="/images/Sharesgirl.png"
             alt="Profile"
             width={60}
             height={60}
@@ -51,7 +51,7 @@ export default function Shares() {
           </div>
         </div>
 
-        {/* Social Icons */}
+
         <div className="flex space-x-3 right-12 mb-6">
           <a href="#" className="text-gray-700 hover:text-black">
             <FaPinterestP size={20} />
@@ -64,7 +64,7 @@ export default function Shares() {
           </a>
         </div>
 
-        {/* View Comments Button - Centered */}
+
         <div className="text-center">
           <button className="bg-gray-800 text-white px-6 py-3 rounded-md hover:bg-gray-900">
             View Comments (0)

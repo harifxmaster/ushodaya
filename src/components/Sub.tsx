@@ -4,24 +4,24 @@ export default function Sub() {
   return (
     <section
       className="relative w-full h-[500px] md:h-[700px] bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/Subgirl.png')" }} // full background
+      style={{ backgroundImage: "url('/images/Subgirl.png')" }}
     >
-      {/* Overlay */}
+
       <div className="absolute inset-0 bg-black/50" />
 
-      {/* Content */}
+
       <div className="relative z-10 max-w-4xl mx-auto h-full flex flex-col justify-center px-6">
-        {/* Heading */}
+
         <h2 className="text-white text-2xl md:text-3xl font-semibold mb-3">
           Sign up for our Newsettlers
         </h2>
 
-        {/* Subheading */}
+
         <p className="text-gray-200 mb-6 text-sm md:text-base">
           Get notified of the best deals on our WordPress themes.
         </p>
 
-        {/* Email + Button */}
+
         <form className="flex items-center bg-white rounded-md overflow-hidden shadow-md mb-4 max-w-xl">
           <input
             type="email"
@@ -36,7 +36,7 @@ export default function Sub() {
           </button>
         </form>
 
-        {/* Checkbox + Terms */}
+
         <label className="flex items-start text-gray-200 text-xs leading-snug max-w-xl">
           <input
             type="checkbox"

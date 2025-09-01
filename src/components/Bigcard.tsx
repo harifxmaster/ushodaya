@@ -7,9 +7,9 @@ import { JSX } from "react";
 type Article = {
   id: number;
   title: string;
-  image: string;         // path under /public/images/
+  image: string;
   author: string;
-  avatar: string;        // path under /public/images/
+  avatar: string;
   date: string;
   featured?: boolean;
 };
@@ -63,7 +63,7 @@ export default function Bigcard(): JSX.Element {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        {/* Header */}
+
         <div className="mb-6">
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900">
             All Articles
@@ -74,22 +74,22 @@ export default function Bigcard(): JSX.Element {
           </p>
         </div>
 
-        {/* Grid: first row - two big cards; second row - three small cards */}
+
         <div className="grid grid-cols-12 gap-6">
-          {/* Large featured cards */}
+
           {ARTICLES.filter(a => a.featured).map((a) => (
             <article
               key={a.id}
               className="col-span-12 md:col-span-6 rounded-xl overflow-hidden relative shadow-lg"
             >
-              {/* background image */}
+
               <div className="relative w-full h-80 md:h-96">
                 <Image src={a.image} alt={a.title} fill className="object-cover" />
-                {/* gradient overlay */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-800/85 to-transparent" />
               </div>
 
-              {/* content overlay */}
+
               <div className="absolute left-6 right-6 bottom-6 text-white">
                 {/* badge */}
                 <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium mb-3">
@@ -117,20 +117,20 @@ export default function Bigcard(): JSX.Element {
             </article>
           ))}
 
-          {/* Small cards */}
+
           {ARTICLES.filter(a => !a.featured).map((a) => (
             <article
               key={a.id}
               className="col-span-12 md:col-span-4 rounded-lg overflow-hidden relative shadow"
             >
-              {/* background image */}
+
               <div className="relative w-full h-64">
                 <Image src={a.image} alt={a.title} fill className="object-cover" />
-                {/* gradient overlay */}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-800/80 to-transparent" />
               </div>
 
-              {/* content overlay */}
+
               <div className="absolute inset-x-4 bottom-4 text-white">
                 <h4 className="text-lg font-semibold">{a.title}</h4>
 
@@ -158,7 +158,7 @@ export default function Bigcard(): JSX.Element {
           ))}
         </div>
 
-        {/* More articles button */}
+
         <div className="mt-8 flex justify-center">
           <button
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition"

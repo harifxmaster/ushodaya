@@ -10,7 +10,7 @@ export default function ITFoundationSection() {
 
         <div className="flex items-center justify-center">
           <Image
-            src="/images/Three.png" // your single combined image
+            src="/images/Three.png"
             alt="IT Foundation"
             width={800}
             height={600}
@@ -19,7 +19,7 @@ export default function ITFoundationSection() {
           />
         </div>
 
-        {/* === Text Section === */}
+
         <div>
           <h2 className="text-3xl md:text-4xl font-bold leading-snug">
             We Create A Goal-Focused IT <br />

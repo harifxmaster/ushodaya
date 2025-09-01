@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <section className="relative w-full bg-gradient-to-b from-blue-50 to-white mb-10">
-      {/* Background Image */}
+
       <div className="absolute inset-0 w-full h-full">
         <Image
           src="/images/Girl.png"
@@ -15,11 +15,11 @@ export default function Hero() {
           className="object-cover object-center"
           priority
         />
-        {/* Gradient overlay */}
+
         <div className="absolute inset-0 bg-gradient-to-r from-white/90  to-transparent"></div>
       </div>
 
-      {/* Text Content */}
+
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="z-10 flex flex-col justify-center text-center md:text-left">
           <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
@@ -31,7 +31,7 @@ export default function Hero() {
             adept at helping you grow.
           </p>
 
-          {/* Buttons */}
+
           <div className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4">
             <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition">
               Get Quote Now
@@ -43,9 +43,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Cards Section */}
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-10 md:mt-[-100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {/* Card 1 */}
+
         <div className="bg-gradient-to-br from-blue-100 to-blue-50 shadow-lg rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
           <div className="text-blue-600 mb-4 flex justify-center md:justify-start">
             <svg
@@ -71,7 +71,7 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Card 2 */}
+
         <div className="bg-gradient-to-br from-purple-100 to-purple-50 shadow-lg rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
           <div className="text-purple-600 mb-4 flex justify-center md:justify-start">
             <svg
@@ -98,7 +98,7 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Card 3 */}
+
         <div className="bg-gradient-to-r from-blue-700 to-blue-500 text-white rounded-xl p-6 text-center md:text-left hover:shadow-xl transition">
           <div className="mb-4 flex justify-center md:justify-start">
             <svg

@@ -4,12 +4,12 @@ export default function Para() {
   return (
     <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-20">
       <div className="max-w-4xl mx-auto">
-        {/* Title */}
+
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
           Eu ridiculus fringilla aenean?
         </h1>
 
-        {/* Paragraph 1 */}
+
         <p className="text-gray-700 leading-relaxed mb-6">
           Eget aenean tellus venenatis. Donec odio tempus. Felis arcu{" "}
           <a href="#" className="text-blue-600 hover:underline">
@@ -22,7 +22,7 @@ export default function Para() {
           condimentum aenean.
         </p>
 
-        {/* Paragraph 2 */}
+
         <p className="text-gray-700 leading-relaxed mb-6">
           Ut eu sem aenean imperdiet. Hendrerit penatibus sem adipiscing aliquet
           consequat nec orci nascetur. Etiam massa quam dolor aenean maecenas
@@ -33,7 +33,7 @@ export default function Para() {
           ullamcorper etiam justo sed in orci eu ridiculus vitae.
         </p>
 
-        {/* Ordered List */}
+
         <ol className="list-decimal list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
           <li>Mollis lorem vitae varius.</li>
           <li>
@@ -57,7 +57,7 @@ export default function Para() {
           </li>
         </ol>
 
-        {/* Paragraph 3 */}
+
         <p className="text-gray-700 leading-relaxed">
           Enim dapibus ante sapien eleifend dis vulputate quis viverra ultricies
           vitae eros. Et nunc aenean a hendrerit quisque eu viverra donec

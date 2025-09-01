@@ -14,7 +14,7 @@ const services = [
 export default function Services() {
   return (
     <section id="services" className="py-8 px-4 sm:px-6 md:px-12 bg-gray-50">
-      {/* Heading */}
+
       <div className="max-w-7xl mx-auto text-center mb-10 px-2">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-900">
           Services We Offer

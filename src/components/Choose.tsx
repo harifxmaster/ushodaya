@@ -32,7 +32,7 @@ export default function Choose() {
   return (
     <section className="bg-white py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* Left Content */}
+
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
             Why Choose Us
@@ -43,7 +43,7 @@ export default function Choose() {
           </p>
           <div className="w-full h-64 relative">
             <Image
-              src="/images/Build.png" // Replace with your image path
+              src="/images/Build.png"
               alt="Why Choose Us"
               layout="fill"
               objectFit="cover"
@@ -52,7 +52,7 @@ export default function Choose() {
           </div>
         </div>
 
-        {/* Right Accordion */}
+
         <div>
           {items.map((item, index) => (
             <div
@@ -75,7 +75,7 @@ export default function Choose() {
                 </span>
               </button>
 
-              {/* Accordion Content */}
+
               <div
                 className={`overflow-hidden transition-all duration-300 ${
                   openIndex === index ? "max-h-40 mt-2" : "max-h-0"
