@@ -89,7 +89,7 @@ export default function Blogpic(): JSX.Element {
 
 
           <div
-            className="absolute right-90 bottom-0 z-50 pointer-events-none
+            className="absolute right-0 bottom-0 z-50 pointer-events-none
                        translate-x-4 md:translate-x-10 lg:translate-x-20"
             aria-hidden
           >

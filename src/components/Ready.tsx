@@ -6,7 +6,7 @@ export default function Ready() {
 
       <div className="absolute inset-0">
         <Image
-          src="/images/cta-bg.jpg"
+          src="/images/Ask.png"
           alt="Call to Action"
           layout="fill"
           objectFit="cover"

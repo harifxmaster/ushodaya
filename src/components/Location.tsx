@@ -81,7 +81,7 @@ export default function Location() {
                 {job.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-gray-200 px-2 py-1 rounded-md"
+                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
                   >
                     {tag}
                   </span>
@@ -100,11 +100,11 @@ export default function Location() {
             <h2 className="text-xl font-bold text-blue-900">
               {selectedJob.title}
             </h2>
-            <div className="flex gap-8 my-2 flex-wrap">
+            <div className="flex gap-2 my-2 flex-wrap">
               {selectedJob.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="text-xs bg-gray-200 px-2 py-1 rounded-md"
+                  className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
                 >
                   {tag}
                 </span>

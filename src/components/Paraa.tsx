@@ -6,9 +6,9 @@ import { FiZoomIn } from "react-icons/fi";
 
 export default function Paraa() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-10">
+    <div className="max-w-4xl bg-white mx-auto px-4 py-10">
 
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <h1 className="text-3xl md:text-4xl font-bold text-gray-500 mb-4">
         Tincidunt veni tellus orci aenean consectetuer ?
       </h1>
 

@@ -11,7 +11,7 @@ const blogs = [
     author: "Lina Hicks",
     role: "Verified Author",
     date: "02 May",
-    img: "/images/c1.png",
+    img: "/images/c3.png",
     avatar: "/images/Bigp1.png",
   },
   {

@@ -18,7 +18,6 @@ export default function Wave() {
           />
         </div>
 
-
         <div className="absolute right-4 top-16 sm:right-10 sm:top-28 md:right-20 md:top-40">
           <Image
             src="/images/wave.png"
@@ -29,7 +28,7 @@ export default function Wave() {
           />
         </div>
 
-
+        {/* Breadcrumb */}
         <h2 className="text-sm sm:text-base md:text-lg text-blue-900 font-medium flex flex-wrap gap-1">
           <Link href="/" className="hover:underline hover:text-blue-600">
             Home
@@ -37,21 +36,19 @@ export default function Wave() {
           <span>/</span>
           <Link
             href="/services/service2"
-            className="hover:underline hover:text-blue-600"
+            className="underline text-blue-600 hover:text-blue-800"
           >
             Services
           </Link>
         </h2>
 
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-3">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-700 mt-3">
           Services
         </h1>
 
-
         <p className="text-gray-500 max-w-md sm:max-w-xl mt-6 text-sm sm:text-base leading-relaxed">
           We will help a client&apos;s problems to develop the products they
-          have with high quality. Change the appearance.
+          have with high quality. Change the aperance.
         </p>
       </section>
     </main>

@@ -15,7 +15,7 @@ export default function F() {
   return (
     <div className="bg-gray-100 py-10 px-4">
       <div className="max-w-4xl mx-auto border border-blue-500 p-6">
-        <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+        <h2 className="text-2xl text-gray-800 font-bold mb-6">Frequently Asked Questions</h2>
 
         <div className="space-y-3">
           {faqs.map((question, index) => (
