@@ -5,7 +5,7 @@ export default function Leader() {
     {
       name: "Jane Doe",
       title: "Chief Executive Officer",
-      image: "/images/5.png", // Replace with your image path
+      image: "/images/5.png",
     },
     {
       name: "John Smith",
@@ -26,7 +26,7 @@ export default function Leader() {
 
   return (
     <section className="bg-white py-16 px-4 md:px-8 text-center">
-      {/* Heading */}
+
       <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Meet Our Leadership Team
       </h2>
@@ -35,7 +35,7 @@ export default function Leader() {
         solutions, keeping you at the peak of your business.
       </p>
 
-      {/* Team Grid */}
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1 mb-10">
         {team.map((member, index) => (
           <div key={index} className="text-center">
@@ -56,7 +56,7 @@ export default function Leader() {
         ))}
       </div>
 
-      {/* Button */}
+
       <button className="border border-gray-700 text-gray-800 px-6 py-2 rounded-md hover:bg-gray-100 transition">
         Meet Our Team
       </button>

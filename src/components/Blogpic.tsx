@@ -10,7 +10,7 @@ export default function Blogpic(): JSX.Element {
   return (
     <section className="bg-white overflow-visible">
       <div className="w-full mx-auto px-6 md:px-8 relative text-center">
-        {/* Header + Explore button (centered on one line) */}
+
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-20">
           <h1 className="text-2xl md:text-4xl font-extrabold leading-tight">
             Insights, News &amp; Articles by{" "}
@@ -25,10 +25,10 @@ export default function Blogpic(): JSX.Element {
           </button>
         </div>
 
-        {/* Search / Category / Share (centered) */}
+
         <div className="mt-8 md:mt-10 flex justify-center">
           <div className="w-full max-w-2xl">
-            {/* Search input */}
+
             <div className="relative">
               <input
                 type="search"
@@ -43,7 +43,7 @@ export default function Blogpic(): JSX.Element {
               </button>
             </div>
 
-            {/* Category + Share */}
+
             <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-8">
               <select className="w-full sm:w-60 rounded-md border border-gray-200 px-4 py-2 bg-white">
                 <option>Search any category</option>
@@ -71,9 +71,9 @@ export default function Blogpic(): JSX.Element {
           </div>
         </div>
 
-        {/* Banner (buildings) + girl image */}
+
         <div className="mt-10 relative overflow-visible">
-          {/* Buildings background */}
+
           <div className="w-full h-64 md:h-80 lg:h-96 relative overflow-hidden">
             <Image
               src="/images/Deloite.png"
@@ -83,11 +83,11 @@ export default function Blogpic(): JSX.Element {
               priority
             />
 
-            {/* blue fade bottom */}
+
             <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-blue-800/90 to-transparent pointer-events-none" />
           </div>
 
-          {/* Girl image */}
+
           <div
             className="absolute right-90 bottom-0 z-50 pointer-events-none
                        translate-x-4 md:translate-x-10 lg:translate-x-20"

@@ -5,7 +5,7 @@ export default function Drop() {
     <section className="w-full bg-white py-12 px-4 sm:px-6 relative flex justify-center">
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center md:items-start gap-10">
 
-        {/* Text Section */}
+
         <div className="md:w-1/2 text-center md:text-left">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-snug text-gray-900">
             We <span className="underline decoration-blue-600">Recognise</span>, Realise & <br />
@@ -20,9 +20,9 @@ export default function Drop() {
           </p>
         </div>
 
-        {/* Images Section */}
+
         <div className="md:w-1/2 flex justify-center md:justify-end relative">
-          {/* 👇 Changed flex-col → flex-row on mobile */}
+
           <div className="flex flex-row sm:flex-row md:flex-row gap-4">
 
             <div className="w-32 sm:w-36 md:w-40 h-60 sm:h-72 md:h-80 rounded-2xl overflow-hidden shadow-md">

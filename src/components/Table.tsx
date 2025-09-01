@@ -8,7 +8,7 @@ export default function Table() {
     <section className="w-full bg-white py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-8">
 
-        {/* Left Sidebar */}
+
         <aside className="md:w-1/6 flex flex-col items-center space-y-6">
           <div className="text-center">
             <p className="text-2xl font-bold">966</p>
@@ -16,7 +16,7 @@ export default function Table() {
           </div>
 
           <div className="flex flex-col space-y-4">
-            {/* Facebook */}
+
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
                 <FaFacebookF className="text-blue-600" />
@@ -24,12 +24,12 @@ export default function Table() {
               <span className="text-gray-600 text-sm">528</span>
             </div>
 
-            {/* Twitter */}
+
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
               <FaTwitter className="text-sky-500" />
             </div>
 
-            {/* Pinterest */}
+
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
                 <FaPinterestP className="text-red-600" />
@@ -37,14 +37,14 @@ export default function Table() {
               <span className="text-gray-600 text-sm">528</span>
             </div>
 
-            {/* Gmail */}
+
             <div className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
               <FaEnvelope className="text-yellow-500" />
             </div>
           </div>
         </aside>
 
-        {/* Middle Content - Table of Contents */}
+
         <main className="md:w-2/3 border-t border-b py-4">
           <h3 className="text-blue-700 font-bold tracking-wider uppercase text-sm mb-4">
             Table of Contents
@@ -77,7 +77,7 @@ export default function Table() {
           </ol>
         </main>
 
-        {/* Right Sidebar - Author Box */}
+
         <aside className="md:w-1/4">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm text-center md:text-left">
             <h4 className="text-xs uppercase tracking-wider text-gray-500 mb-2">
@@ -85,7 +85,7 @@ export default function Table() {
             </h4>
             <div className="flex flex-col items-center md:items-start gap-3">
               <Image
-                src="/images/Author.png" // replace with real path
+                src="/images/Author.png"
                 alt="Author"
                 width={60}
                 height={60}

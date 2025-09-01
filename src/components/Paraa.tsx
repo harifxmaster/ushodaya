@@ -7,12 +7,12 @@ import { FiZoomIn } from "react-icons/fi";
 export default function Paraa() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
-      {/* Title */}
+
       <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
         Tincidunt veni tellus orci aenean consectetuer ?
       </h1>
 
-      {/* First paragraph */}
+
       <p className="text-gray-700 leading-relaxed mb-6">
         Sociis consequat adipiscing sit curabitur donec sem luctus cras natoque
         vulputate dolor eget dapibus. Nec vitae eros ullamcorper laoreet dapibus
@@ -21,16 +21,16 @@ export default function Paraa() {
         venenatis dui ante luctus ultricies tellus montes. Quis in sapien tempus.
       </p>
 
-      {/* Image Section */}
+
       <div className="relative mb-3">
         <Image
-          src="/images/27.png" // Replace with your image path
+          src="/images/27.png"
           alt="Beautiful house by lake"
           width={800}
           height={500}
           className="rounded-md object-cover"
         />
-        {/* Pinterest Icon */}
+
         <button className="absolute top-3 left-3 bg-white rounded-full p-2 shadow-md hover:bg-gray-100">
           <FaPinterestP className="text-gray-700 text-lg" />
         </button>

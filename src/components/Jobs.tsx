@@ -5,11 +5,11 @@ import Image from "next/image";
 export default function Jobs() {
   return (
     <section className="relative bg-blue-900 text-white overflow-hidden">
-      {/* Main Container */}
+
       <div className="max-w-[1300px] mx-auto px-6 md:px-10 relative">
         <div className="flex flex-col lg:flex-row items-center lg:items-center min-h-[500px]">
 
-          {/* Left Side: Text */}
+
           <div className="flex-1 flex flex-col justify-center py-12 lg:py-20 z-10">
             <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-extrabold leading-snug max-w-[550px]">
               Carve the Path
@@ -24,8 +24,8 @@ export default function Jobs() {
               <Image
                 src="/images/class.png"
                 alt="Hero"
-                width={650}   // ✅ Explicit width
-                height={450}  // ✅ Explicit height
+                width={650}
+                height={450}
                 className="object-cover"
                 priority
               />
