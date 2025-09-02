@@ -28,9 +28,9 @@ export default function Wave() {
           />
         </div>
 
-        {/* Breadcrumb */}
-        <h2 className="text-sm sm:text-base md:text-lg text-blue-900 font-medium flex flex-wrap gap-1">
-          <Link href="/" className="hover:underline hover:text-blue-600">
+
+        <h2 className="text-sm sm:text-base md:text-lg text-blue-600 font-medium flex flex-wrap gap-1">
+          <Link href="/" className="hover:underline hover:text-blue-800">
             Home
           </Link>
           <span>/</span>
@@ -42,11 +42,11 @@ export default function Wave() {
           </Link>
         </h2>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-700 mt-3">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-3">
           Services
         </h1>
 
-        <p className="text-gray-500 max-w-md sm:max-w-xl mt-6 text-sm sm:text-base leading-relaxed">
+        <p className="text-gray-600 max-w-md sm:max-w-xl mt-6 text-sm sm:text-base leading-relaxed">
           We will help a client&apos;s problems to develop the products they
           have with high quality. Change the aperance.
         </p>
