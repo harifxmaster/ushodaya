@@ -3,22 +3,21 @@ import Image from "next/image";
 export default function Ready() {
   return (
     <section className="relative bg-blue-900 text-white">
-
+      {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/Ask.png"
+          src="/images/Readypic.png"
           alt="Call to Action"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-50"
+          fill
+          className="object-cover opacity-50"
           priority
         />
       </div>
 
-
+      {/* Blue Overlay */}
       <div className="absolute inset-0 bg-blue-900 bg-opacity-70"></div>
 
-
+      {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto text-center px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-semibold mb-4">
           Are You Ready for a Leap that Takes You to the Next Level?
@@ -27,7 +26,6 @@ export default function Ready() {
           Get in touch with our team and let&apos;s generate ideas and execute plans
           for your ultimate transformation.
         </p>
-
 
         <div className="flex justify-center gap-4 flex-wrap">
           <button className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">

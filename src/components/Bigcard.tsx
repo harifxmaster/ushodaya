@@ -36,7 +36,7 @@ const ARTICLES: Article[] = [
   {
     id: 3,
     title: "Future of Work",
-    image: "/images/Big.png",
+    image: "/images/card3.png",
     author: "Lina Hicks",
     avatar: "/images/Bigp1.png",
     date: "02 May",
@@ -74,76 +74,87 @@ export default function ArticlesSection(): JSX.Element {
           </p>
         </div>
 
-        {/* Articles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Featured Articles (Top Row, 2 cols) */}
-          {ARTICLES.filter((a) => a.featured).map((a) => (
-            <article
-              key={a.id}
-              className="md:col-span-6 rounded-xl overflow-hidden relative shadow-md"
-            >
-              {/* Image */}
-              <div className="relative w-full h-[380px]">
-                <Image src={a.image} alt={a.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <div className="absolute left-6 right-6 bottom-6 text-white">
-                <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium mb-3">
-                  FEATURED
+        <div className="space-y-8">
+          {/* Featured Articles (Top Row, 2 cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {ARTICLES.filter((a) => a.featured).map((a) => (
+              <article
+                key={a.id}
+                className="rounded-xl overflow-hidden relative shadow-md"
+              >
+                <div className="relative w-full h-[320px] md:h-[360px]">
+                  <Image src={a.image} alt={a.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold leading-snug drop-shadow-sm">
-                  {a.title}
-                </h3>
 
-                <div className="mt-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
-                      <Image src={a.avatar} alt={a.author} width={40} height={40} className="object-cover" />
-                    </div>
-                    <div className="text-sm">
-                      <div className="font-medium">{a.author}</div>
-                      <div className="text-blue-100 text-xs">Verified writer</div>
-                    </div>
+                <div className="absolute left-6 right-6 bottom-6 text-white">
+                  <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium mb-3">
+                    FEATURED
                   </div>
-                  <div className="text-sm text-blue-100">{a.date}</div>
-                </div>
-              </div>
-            </article>
-          ))}
-
-          {/* Normal Articles (Bottom Row, 3 cols) */}
-          {ARTICLES.filter((a) => !a.featured).map((a) => (
-            <article
-              key={a.id}
-              className="md:col-span-4 rounded-xl overflow-hidden relative shadow-md"
-            >
-              {/* Image */}
-              <div className="relative w-full h-[280px]">
-                <Image src={a.image} alt={a.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/75 to-transparent" />
-              </div>
-
-              {/* Content */}
-              <div className="absolute inset-x-5 bottom-5 text-white">
-                <h4 className="text-lg font-semibold leading-snug">{a.title}</h4>
-
-                <div className="mt-3 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white">
-                      <Image src={a.avatar} alt={a.author} width={36} height={36} className="object-cover" />
+                  <h3 className="text-xl md:text-2xl font-semibold leading-snug drop-shadow-sm">
+                    {a.title}
+                  </h3>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
+                        <Image
+                          src={a.avatar}
+                          alt={a.author}
+                          width={40}
+                          height={40}
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-sm">
+                        <div className="font-medium">{a.author}</div>
+                        <div className="text-blue-100 text-xs">Verified writer</div>
+                      </div>
                     </div>
-                    <div className="text-sm">
-                      <div className="font-medium">{a.author}</div>
-                      <div className="text-blue-100 text-xs">Verified writer</div>
-                    </div>
+                    <div className="text-sm text-blue-100">{a.date}</div>
                   </div>
-                  <div className="text-sm text-blue-100">{a.date}</div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
+          </div>
+
+          {/* Normal Articles (Bottom Row, 3 equal cards) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ARTICLES.filter((a) => !a.featured).map((a) => (
+              <article
+                key={a.id}
+                className="relative rounded-xl overflow-hidden shadow-md"
+              >
+                {/* Image */}
+                <div className="relative w-full h-[260px]">
+                  <Image src={a.image} alt={a.title} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-900/75 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="absolute inset-x-5 bottom-5 text-white">
+                  <h4 className="text-lg font-semibold leading-snug">{a.title}</h4>
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white">
+                        <Image
+                          src={a.avatar}
+                          alt={a.author}
+                          width={36}
+                          height={36}
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="text-sm">
+                        <div className="font-medium">{a.author}</div>
+                        <div className="text-blue-100 text-xs">Verified writer</div>
+                      </div>
+                    </div>
+                    <div className="text-sm text-blue-100">{a.date}</div>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* Button */}

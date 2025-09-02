@@ -26,14 +26,14 @@ const posts: Post[] = [
     author: "Lina Hicks",
     date: "08 May",
     image: "/images/Base.png",
-    avatar: "/images/Avatar.png",
+    avatar: "/images/Avatar2.png",
   },
   {
     title: "Future of Technology",
     excerpt: "AI and automation are redefining industries globally.",
     author: "John Carter",
     date: "15 May",
-    image: "/images/tech.png",
+    image: "/images/vrcamera.png",
     avatar: "/images/Boy.png",
   },
 ];

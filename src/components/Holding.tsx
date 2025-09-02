@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function HoldingPage() {
   return (
     <main className="w-full bg-white">
-
-      <section className="w-full bg-white py-7 sm:py-16 md:py-20">
+      {/* Hero Text Section */}
+      <section className="w-full bg-white pt-24 sm:pt-28 md:pt-32 pb-7 sm:pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
-
+          {/* Left Text */}
           <div className="md:w-1/2">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
@@ -17,6 +17,7 @@ export default function HoldingPage() {
             </h1>
           </div>
 
+          {/* Right Paragraph */}
           <div className="md:w-1/2 flex gap-4">
             <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
 
@@ -32,10 +33,10 @@ export default function HoldingPage() {
               with smart technology? Let’s make it happen together!
             </p>
           </div>
-
         </div>
       </section>
 
+      {/* Image Section */}
       <section className="w-full">
         <div className="relative w-full h-64 sm:h-80 md:h-[500px]">
           <Image

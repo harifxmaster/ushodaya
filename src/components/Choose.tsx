@@ -9,30 +9,30 @@ export default function Choose() {
   const items = [
     {
       title: "Innovative Excellence",
-      content: "We bring cutting-edge solutions that drive business success."
+      content: "We bring cutting-edge solutions that drive business success.",
     },
     {
       title: "Unparalleled Expertise",
-      content: "Our team consists of top professionals with years of experience."
+      content: "Our team consists of top professionals with years of experience.",
     },
     {
       title: "Client-Centric Approach",
-      content: "We prioritize your needs to deliver customized strategies."
+      content: "We prioritize your needs to deliver customized strategies.",
     },
     {
       title: "Proven Track Record",
-      content: "Our portfolio showcases successful projects and happy clients."
+      content: "Our portfolio showcases successful projects and happy clients.",
     },
     {
       title: "Future-Ready Solutions",
-      content: "We prepare your business for upcoming challenges and growth."
-    }
+      content: "We prepare your business for upcoming challenges and growth.",
+    },
   ];
 
   return (
     <section className="bg-white py-16 px-4 md:px-8">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-
+        {/* Left Side */}
         <div>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
             Why Choose Us
@@ -45,20 +45,17 @@ export default function Choose() {
             <Image
               src="/images/Build.png"
               alt="Why Choose Us"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg"
+              fill
+              className="object-cover rounded-lg"
+              priority
             />
           </div>
         </div>
 
-
+        {/* Right Side (Accordion) */}
         <div>
           {items.map((item, index) => (
-            <div
-              key={index}
-              className="border-b border-gray-200 py-4"
-            >
+            <div key={index} className="border-b border-gray-200 py-4">
               <button
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
@@ -74,7 +71,6 @@ export default function Choose() {
                   +
                 </span>
               </button>
-
 
               <div
                 className={`overflow-hidden transition-all duration-300 ${
