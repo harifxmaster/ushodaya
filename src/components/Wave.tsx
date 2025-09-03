@@ -42,7 +42,7 @@ export default function Wave() {
           </Link>
         </h2>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mt-3">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-600 mt-3">
           Services
         </h1>
 

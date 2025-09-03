@@ -5,9 +5,7 @@ export default function Scards() {
     <div className="min-h-screen px-4 py-10 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
 
-
         <div className="flex-1 space-y-6">
-
 
           <Image
             src="/images/lap.png"
@@ -18,10 +16,13 @@ export default function Scards() {
             priority
           />
 
+
           <h2 className="text-2xl font-bold">
             1. Design functional website fast?
           </h2>
-          <p className="text-gray-700">
+
+
+          <p className="text-gray-600">
             Got a groundbreaking idea? We turn napkin sketches into fully functional,
             market-ready products. From concept to code, our team builds sleek, scalable,
             and future–proof solutions—without the drama. Whether it’s a next-gen app or
@@ -53,16 +54,17 @@ export default function Scards() {
               className="rounded-md w-full object-cover"
             />
           </div>
+
+
           <p className="text-gray-700">
             People probably wouldn&apos;t click. Create elements that are functional and
             enhance the user experience on your site.
           </p>
         </div>
 
-        {/* Right Sidebar */}
-        <div className="w-full lg:w-1/3 space-y-6">
 
-          {/* Categories */}
+        <div className="w-full lg:w-1/3 space-y-6">
+          {/* Categories Section */}
           <div className="border rounded-lg p-4 shadow-sm">
             <h3 className="font-semibold mb-3 border-b pb-2">Category</h3>
             <ul className="text-sm space-y-2">
@@ -75,11 +77,8 @@ export default function Scards() {
               ].map((item, index) => (
                 <li
                   key={index}
-                  className={`flex justify-between items-center px-2 py-1 rounded-md ${
-                    index === 0
-                      ? "bg-gradient-to-r from-blue-600 to-purple-400 text-white font-semibold"
-                      : "hover:bg-gradient-to-r from-blue-600 to-purple-400 hover:text-white"
-                  }`}
+                  className="flex justify-between items-center px-3 py-2 rounded-md bg-gray-100 text-gray-800 cursor-pointer
+                             hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-400 hover:text-white transition duration-300 ease-in-out"
                 >
                   {item}
                   <span className="text-xs">{'»'}</span>
@@ -88,7 +87,6 @@ export default function Scards() {
             </ul>
           </div>
 
-          {/* Testimonial */}
           <div className="border rounded-lg p-4 shadow-sm text-center border-blue-500">
             <p className="italic text-sm mb-4">
               &quot;You made it so simple. My new site is so much faster & easier to work&quot;
@@ -110,7 +108,7 @@ export default function Scards() {
             </div>
           </div>
 
-          {/* Consulting Section with Background */}
+
           <div className="relative rounded-lg overflow-hidden shadow-md text-white text-center p-6 h-48">
             <Image
               src="/images/Hell.png"
