@@ -4,11 +4,10 @@ export default function Para() {
   return (
     <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-20">
       <div className="max-w-4xl mx-auto">
-
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-snug">
+        {/* Header with gradient color */}
+        <h1 className="text-3xl sm:text-4xl font-bold mb-6 leading-snug text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
           Eu ridiculus fringilla aenean?
         </h1>
-
 
         <p className="text-gray-700 leading-relaxed mb-6">
           Eget aenean tellus venenatis. Donec odio tempus. Felis arcu{" "}
@@ -22,7 +21,6 @@ export default function Para() {
           condimentum aenean.
         </p>
 
-
         <p className="text-gray-700 leading-relaxed mb-6">
           Ut eu sem aenean imperdiet. Hendrerit penatibus sem adipiscing aliquet
           consequat nec orci nascetur. Etiam massa quam dolor aenean maecenas
@@ -32,7 +30,6 @@ export default function Para() {
           elit aliquet pede in enim. Quam tempus dolor sem consectetur
           ullamcorper etiam justo sed in orci eu ridiculus vitae.
         </p>
-
 
         <ol className="list-decimal list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
           <li>Mollis lorem vitae varius.</li>
@@ -56,7 +53,6 @@ export default function Para() {
             feugiat. Faucibus enim venenatis mus semper.
           </li>
         </ol>
-
 
         <p className="text-gray-700 leading-relaxed">
           Enim dapibus ante sapien eleifend dis vulputate quis viverra ultricies

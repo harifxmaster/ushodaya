@@ -8,7 +8,7 @@ export default function HoldingPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
           {/* Left Text */}
           <div className="md:w-1/2">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
+            <h1 className="text-3xl text-gray-700 sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
               Your Success{" "}
               <span className="text-blue-600">

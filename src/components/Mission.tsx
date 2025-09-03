@@ -5,7 +5,7 @@ export default function Mission() {
     <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
       <div>
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-600 mb-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
           Our Mission
         </h2>
         <div className="flex items-start">

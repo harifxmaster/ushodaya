@@ -25,7 +25,7 @@ export default function Header() {
 
 
         <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
-          <Link href="/" className="text-blue-600">
+          <Link href="/" className="hover:text-blue-600">
             Home
           </Link>
           <Link href="/about" className="hover:text-blue-600">
