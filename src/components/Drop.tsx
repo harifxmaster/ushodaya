@@ -16,7 +16,7 @@ export default function Drop() {
             We are quite straightforward in our dealings – understanding your needs, conducting heavy
             discussions, offering inputs, and starting work with zeal and commitment.
             We don’t promise 6x results in 30 days. We keep it real! Things take time!
-            But the result is always the sweetest deal you cannot miss.
+            But the results is always the sweetest deal you cannot miss.
           </p>
         </div>
 
