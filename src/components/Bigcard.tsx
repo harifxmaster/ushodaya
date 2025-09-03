@@ -75,26 +75,34 @@ export default function ArticlesSection(): JSX.Element {
         </div>
 
         <div className="space-y-8">
-          {/* Featured Articles (Top Row, 2 cards) */}
+          {/* ---------- Featured Articles (Top Row, 2 cards) ---------- */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ARTICLES.filter((a) => a.featured).map((a) => (
               <article
                 key={a.id}
                 className="rounded-xl overflow-hidden relative shadow-md"
               >
+                {/* Image Background */}
                 <div className="relative w-full h-[320px] md:h-[360px]">
                   <Image src={a.image} alt={a.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
+
+                  {/* FEATURED Button */}
+                  <button
+                    className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-emerald-700 transition"
+                    aria-label="Featured Article"
+                  >
+                    FEATURED
+                  </button>
                 </div>
 
+                {/* Card Content */}
                 <div className="absolute left-6 right-6 bottom-6 text-white">
-                  <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium mb-3">
-                    FEATURED
-                  </div>
                   <h3 className="text-xl md:text-2xl font-semibold leading-snug drop-shadow-sm">
                     {a.title}
                   </h3>
                   <div className="mt-4 flex items-center justify-between">
+                    {/* Author Info */}
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
                         <Image
@@ -117,7 +125,7 @@ export default function ArticlesSection(): JSX.Element {
             ))}
           </div>
 
-          {/* Normal Articles (Bottom Row, 3 equal cards) */}
+          {/* ---------- Normal Articles (Bottom Row, 3 equal cards) ---------- */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ARTICLES.filter((a) => !a.featured).map((a) => (
               <article
@@ -134,6 +142,7 @@ export default function ArticlesSection(): JSX.Element {
                 <div className="absolute inset-x-5 bottom-5 text-white">
                   <h4 className="text-lg font-semibold leading-snug">{a.title}</h4>
                   <div className="mt-3 flex items-center justify-between">
+                    {/* Author Info */}
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white">
                         <Image
@@ -157,7 +166,7 @@ export default function ArticlesSection(): JSX.Element {
           </div>
         </div>
 
-        {/* Button */}
+        {/* ---------- "More Articles" Button ---------- */}
         <div className="mt-10 flex justify-center">
           <button
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
