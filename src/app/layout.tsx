@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "ERP development",
   ],
 
-  authors: [{ name: "WT Softech", url: "https://wtsoftech.com" }],
+  authors: [{ name: "WT Softech", url: "https://wt-softtech.vercel.app" }],
   creator: "WT Softech",
   publisher: "WT Softech",
 
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
 
-  metadataBase: new URL("https://wtsoftech.com"),
+  metadataBase: new URL("https://wt-softtech.vercel.app"),
 
   alternates: {
     canonical: "/",
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "WT SOFTECH - Leading IT Services & Digital Marketing Solutions",
     description:
       "Transform your business with our comprehensive IT services, digital marketing strategies, and consulting solutions. Data-backed growth for businesses of all scales in Hyderabad and beyond.",
-    url: "https://wtsoftech.com",
+    url: "https://wt-softtech.vercel.app",
     siteName: "WT Softech",
     locale: "en_US",
     type: "website",
@@ -130,9 +130,9 @@ export const metadata: Metadata = {
     "business:contact_data:region": "Telangana",
     "business:contact_data:postal_code": "500081",
     "business:contact_data:country_name": "India",
-    "business:contact_data:email": "hr@wtsoftech.com",
+    "business:contact_data:email": "hr@wt-softtech.vercel.app",
     "business:contact_data:phone_number": "+20-34 4040 3030",
-    "business:contact_data:website": "https://wtsoftech.com",
+    "business:contact_data:website": "https://wt-softtech.vercel.app",
     company: "WT Softech",
     industry: "Information Technology",
     coverage: "Worldwide",
@@ -230,8 +230,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "WT Softech",
-              url: "https://wtsoftech.com",
-              logo: "https://wtsoftech.com/og-image.png",
+              url: "https://wt-softtech.vercel.app",
+              logo: "https://wt-softtech.vercel.app/og-image.png",
               description:
                 "Leading full-service digital marketing and IT solutions company providing data-backed growth strategies and secure IT foundations.",
               address: {
@@ -247,7 +247,7 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 telephone: "+20-34 4040 3030",
                 contactType: "customer service",
-                email: "hr@wtsoftech.com",
+                email: "hr@wt-softtech.vercel.app",
                 availableLanguage: ["English", "Hindi"],
               },
               sameAs: [
@@ -324,10 +324,10 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "WT Softech",
-              image: "https://wtsoftech.com/og-image.png",
+              image: "https://wt-softtech.vercel.app/og-image.png",
               telephone: "+20-34 4040 3030",
-              email: "hr@wtsoftech.com",
-              url: "https://wtsoftech.com",
+              email: "hr@wt-softtech.vercel.app",
+              url: "https://wt-softtech.vercel.app",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
@@ -391,7 +391,7 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://wtsoftech.com",
+                  item: "https://wt-softtech.vercel.app",
                 },
               ],
             }),
