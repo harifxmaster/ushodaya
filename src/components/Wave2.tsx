@@ -16,7 +16,7 @@ export default function Wave2() {
       </Link>
 
 
-      <h1 className="text-3xl font-extrabold mb-3">Service Details</h1>
+      <h1 className="text-3xl text-gray-600 font-extrabold mb-3">Service Details</h1>
 
 
       <p className="text-gray-500 text-sm max-w-md">
