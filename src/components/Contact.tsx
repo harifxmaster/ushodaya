@@ -113,7 +113,7 @@ export default function Contact() {
             </p>
             <p className="flex items-center gap-3">
               <span className="text-blue-600 text-lg">✉️</span>
-              hr@wt-softtech.vercel.app
+              hr@wtsoftech.com
             </p>
           </div>
         </div>
