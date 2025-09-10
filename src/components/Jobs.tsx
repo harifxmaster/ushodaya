@@ -1,15 +1,57 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
+
+// Sample jobs data
+type Job = {
+  title: string;
+  location: string;
+  experience: string;
+  category: string;
+};
+
+const jobsData: Job[] = [
+  { title: "Frontend Developer", location: "Bangalore", experience: "Junior", category: "Engineering" },
+  { title: "UI/UX Designer", location: "Remote", experience: "Mid", category: "Design" },
+  { title: "Marketing Specialist", location: "Hyderabad", experience: "Senior", category: "Marketing" },
+  { title: "Backend Developer", location: "Pune", experience: "Mid", category: "Engineering" },
+  { title: "Full Stack Developer", location: "Bangalore", experience: "Senior", category: "Engineering" },
+];
 
 export default function Jobs() {
+  const [experience, setExperience] = useState("All Experience Level");
+  const [location, setLocation] = useState("All Location");
+  const [category, setCategory] = useState("All Categories");
+  const [search, setSearch] = useState("");
+  const [filteredJobs, setFilteredJobs] = useState<Job[] | null>(null);
+
+  const handleViewJobs = () => {
+    let results = jobsData;
+
+    if (experience !== "All Experience Level") {
+      results = results.filter(job => job.experience === experience);
+    }
+    if (location !== "All Location") {
+      results = results.filter(job => job.location === location);
+    }
+    if (category !== "All Categories") {
+      results = results.filter(job => job.category === category);
+    }
+    if (search.trim() !== "") {
+      results = results.filter(job =>
+        job.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    setFilteredJobs(results);
+  };
+
   return (
     <section className="relative bg-blue-900 text-white overflow-hidden">
 
       <div className="max-w-[1300px] mx-auto px-6 md:px-10 relative">
         <div className="flex flex-col lg:flex-row items-center lg:items-center min-h-[500px]">
-
-
           <div className="flex-1 flex flex-col justify-center py-12 lg:py-20 z-10">
             <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-extrabold leading-snug max-w-[550px]">
               Carve the Path
@@ -17,7 +59,6 @@ export default function Jobs() {
               <br />Future with Us
             </h1>
           </div>
-
 
           <div className="flex justify-end w-full lg:w-[50%] relative">
             <div className="w-[650px] h-[450px] bg-blue-900 rounded-l-[300px] overflow-hidden flex-shrink-0 relative">
@@ -34,14 +75,15 @@ export default function Jobs() {
         </div>
       </div>
 
-
       <div className="relative z-20 -mt-16 w-full px-4">
-        <div className="max-w-[1100px] mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8">
+        <div className="max-w-[1100px] mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 text-gray-700">
 
           <div className="relative mb-6 w-full flex justify-center">
             <input
               type="text"
               placeholder="Search for jobs..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
               className="w-full sm:w-[60%] rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 pr-12 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-[#3155ff]"
             />
             <svg
@@ -57,14 +99,17 @@ export default function Jobs() {
             </svg>
           </div>
 
-
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-6">
 
             <div>
               <label className="block text-gray-600 text-sm font-medium mb-2">
                 Experience Level
               </label>
-              <select className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700">
+              <select
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
+                value={experience}
+                onChange={e => setExperience(e.target.value)}
+              >
                 <option>All Experience Level</option>
                 <option>Fresher</option>
                 <option>Junior</option>
@@ -73,12 +118,15 @@ export default function Jobs() {
               </select>
             </div>
 
-            {/* Location */}
             <div>
               <label className="block text-gray-600 text-sm font-medium mb-2">
                 Location
               </label>
-              <select className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700">
+              <select
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
+                value={location}
+                onChange={e => setLocation(e.target.value)}
+              >
                 <option>All Location</option>
                 <option>Remote</option>
                 <option>Bangalore</option>
@@ -87,12 +135,15 @@ export default function Jobs() {
               </select>
             </div>
 
-            {/* Category */}
             <div>
               <label className="block text-gray-600 text-sm font-medium mb-2">
                 Categories
               </label>
-              <select className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700">
+              <select
+                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
+                value={category}
+                onChange={e => setCategory(e.target.value)}
+              >
                 <option>All Categories</option>
                 <option>Engineering</option>
                 <option>Design</option>
@@ -100,13 +151,35 @@ export default function Jobs() {
               </select>
             </div>
 
-            {/* Button */}
             <div className="flex items-end">
-              <button className="w-full bg-[#3155ff] text-white font-semibold rounded-lg px-6 py-3 hover:bg-[#2647f7]">
+              <button
+                onClick={handleViewJobs}
+                className="w-full bg-[#3155ff] text-white font-semibold rounded-lg px-6 py-3 hover:bg-[#2647f7]"
+              >
                 View Jobs
               </button>
             </div>
           </div>
+
+          {/* Display Jobs */}
+          {filteredJobs && (
+            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {filteredJobs.length > 0 ? (
+                filteredJobs.map((job, idx) => (
+                  <div key={idx} className="p-4 border rounded-lg shadow-sm hover:shadow-md transition bg-white text-gray-800">
+                    <h3 className="text-lg font-bold">{job.title}</h3>
+                    <p className="text-sm">
+                      <strong>Location:</strong> {job.location} <br />
+                      <strong>Experience:</strong> {job.experience} <br />
+                      <strong>Category:</strong> {job.category}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-gray-500">No jobs found.</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </section>

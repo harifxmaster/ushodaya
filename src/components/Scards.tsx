@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Scards() {
   return (
@@ -16,11 +19,9 @@ export default function Scards() {
             priority
           />
 
-
           <h2 className="text-2xl font-bold">
             1. Design functional website fast?
           </h2>
-
 
           <p className="text-gray-600">
             Got a groundbreaking idea? We turn napkin sketches into fully functional,
@@ -29,7 +30,6 @@ export default function Scards() {
             an AI-powered platform, we bring your vision to life. You dream it, we develop it.
             Simple as that.
           </p>
-
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <Image
@@ -55,15 +55,14 @@ export default function Scards() {
             />
           </div>
 
-
           <p className="text-gray-700">
             People probably wouldn&apos;t click. Create elements that are functional and
             enhance the user experience on your site.
           </p>
         </div>
 
-
         <div className="w-full lg:w-1/3 space-y-6">
+
           {/* Categories Section */}
           <div className="border rounded-lg p-4 shadow-sm">
             <h3 className="font-semibold mb-3 border-b pb-2">Category</h3>
@@ -87,6 +86,7 @@ export default function Scards() {
             </ul>
           </div>
 
+          {/* Testimonial Section */}
           <div className="border rounded-lg p-4 shadow-sm text-center border-blue-500">
             <p className="italic text-sm mb-4">
               &quot;You made it so simple. My new site is so much faster & easier to work&quot;
@@ -108,7 +108,7 @@ export default function Scards() {
             </div>
           </div>
 
-
+          {/* Consulting Section */}
           <div className="relative rounded-lg overflow-hidden shadow-md text-white text-center p-6 h-48">
             <Image
               src="/images/Hell.png"
@@ -120,11 +120,15 @@ export default function Scards() {
               <p className="font-semibold text-lg">
                 Do You Need Any Consulting Service?
               </p>
-              <button className="bg-white text-blue-900 px-4 py-2 rounded hover:bg-gray-200 transition">
+              <Link
+                href="/contact"
+                className="bg-white text-blue-900 px-4 py-2 rounded hover:bg-gray-200 transition"
+              >
                 Contact us
-              </button>
+              </Link>
             </div>
           </div>
+
         </div>
       </div>
     </div>

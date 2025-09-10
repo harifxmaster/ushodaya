@@ -62,7 +62,7 @@ export default function Cards() {
                 hover:-translate-y-0.5
               "
             >
-              {/* Background image */}
+
               <div className="absolute inset-0">
                 <Image
                   src={p.image}
@@ -73,7 +73,7 @@ export default function Cards() {
                 />
               </div>
 
-              {/* Gradient overlays */}
+
               <div className="absolute inset-0 bg-gradient-to-r from-teal-700/80 via-sky-700/65 to-blue-600/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
 
