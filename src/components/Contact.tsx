@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Contact() {
@@ -101,19 +102,35 @@ export default function Contact() {
             height={400}
             className="rounded-lg shadow-lg w-full max-w-md h-auto"
           />
+
           <div className="mt-8 space-y-4 text-gray-700">
+            {/* Address */}
             <p className="flex items-start gap-3">
               <span className="text-blue-600 text-lg">📍</span>
               Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur,
               Hyderabad, 500081
             </p>
+
+
             <p className="flex items-center gap-3">
               <span className="text-blue-600 text-lg">📞</span>
-              +20-34 4040 3030
+              <Link
+                href="tel:+203440403030"
+                className="hover:text-blue-600 transition-colors"
+              >
+                +20-34 4040 3030
+              </Link>
             </p>
+
+
             <p className="flex items-center gap-3">
               <span className="text-blue-600 text-lg">✉️</span>
-              hr@wtsoftech.com
+              <Link
+                href="mailto:hr@wtsoftech.com"
+                className="hover:text-blue-600 transition-colors"
+              >
+                hr@wtsoftech.com
+              </Link>
             </p>
           </div>
         </div>
