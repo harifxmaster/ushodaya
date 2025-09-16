@@ -1,7 +1,26 @@
 "use client";
 import { useState } from "react";
 
-const jobs = [
+// Define types
+type JobDetails = {
+  responsibility: string;
+  specification: string[];
+  type: string;
+  mode: string;
+  salary: string;
+  experience: string;
+  location: string;
+};
+
+type Job = {
+  title: string;
+  tags: string[];
+  shortDesc: string;
+  details: JobDetails | null;
+};
+
+// Jobs array
+const jobs: Job[] = [
   {
     title: "Full Stack Developer",
     tags: ["Mid-Level", "Chennai", "Madurai"],
@@ -39,27 +58,58 @@ const jobs = [
     title: "Flutter Developer",
     tags: ["Mid-Level", "Chennai", "Madurai"],
     shortDesc:
-      "Primary Responsibility: Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular...",
+      "Primary Responsibility: Designing and implementing mobile apps using Flutter and Dart...",
     details: null,
   },
   {
-    title: "Php Developer",
+    title: "PHP Developer",
     tags: ["Mid-Level", "Chennai", "Madurai"],
     shortDesc:
-      "Primary Responsibility: Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular...",
+      "Primary Responsibility: Developing and maintaining server-side applications using PHP and related frameworks...",
     details: null,
   },
   {
-    title: "Mern Stack Developer",
+    title: "MERN Stack Developer",
     tags: ["Mid-Level", "Chennai", "Madurai"],
     shortDesc:
-      "Primary Responsibility: Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular...",
+      "Primary Responsibility: Developing full-stack applications using MongoDB, Express, React, and Node.js...",
     details: null,
   },
 ];
 
 export default function Location() {
-  const [selectedJob, setSelectedJob] = useState(jobs[0]);
+  const [selectedJob, setSelectedJob] = useState<Job>(jobs[0]);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    resume: null as File | null,
+    location: "",
+    experience: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, files } = e.target;
+    if (name === "resume" && files) {
+      setFormData({ ...formData, resume: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
+    alert("Application submitted successfully!");
+    setShowModal(false);
+    setFormData({
+      name: "",
+      email: "",
+      resume: null,
+      location: "",
+      experience: "",
+    });
+  };
 
   return (
     <main className="min-h-screen bg-white p-6 flex justify-center">
@@ -127,8 +177,7 @@ export default function Location() {
 
                 <div className="mt-4 text-sm text-gray-700 space-y-1">
                   <p>
-                    <strong>Employment Type:</strong>{" "}
-                    {selectedJob.details.type}
+                    <strong>Employment Type:</strong> {selectedJob.details.type}
                   </p>
                   <p>
                     <strong>Workplace Type:</strong> {selectedJob.details.mode}
@@ -137,12 +186,10 @@ export default function Location() {
                     <strong>Salary:</strong> {selectedJob.details.salary}
                   </p>
                   <p>
-                    <strong>Experience Required:</strong>{" "}
-                    {selectedJob.details.experience}
+                    <strong>Experience Required:</strong> {selectedJob.details.experience}
                   </p>
                   <p>
-                    <strong>Job Location:</strong>{" "}
-                    {selectedJob.details.location}
+                    <strong>Job Location:</strong> {selectedJob.details.location}
                   </p>
                 </div>
               </>
@@ -160,13 +207,85 @@ export default function Location() {
           </div>
 
           {/* Apply Now Button */}
-          <div className="mt-6 justify-center">
-            <button className="w-40 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+          <div className="mt-6 justify-center flex">
+            <button
+              onClick={() => setShowModal(true)}
+              className="w-40 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
               Apply Now
             </button>
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+            >
+              ✖
+            </button>
+            <h2 className="text-xl font-bold text-blue-900 mb-4">
+              Apply for {selectedJob.title}
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+              <input
+                type="file"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+              <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+              <input
+                type="text"
+                name="experience"
+                placeholder="Experience"
+                value={formData.experience}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+              >
+                Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

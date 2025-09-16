@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Ready() {
   return (
@@ -28,12 +29,12 @@ export default function Ready() {
         </p>
 
         <div className="flex justify-center gap-4 flex-wrap">
-          <button className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
+          <Link href="/contact" className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition">
             Contact Us
-          </button>
-          <button className="border border-white px-6 py-3 rounded-md hover:bg-white hover:text-blue-900 transition">
+          </Link>
+          <Link href="/contact" className="border border-white px-6 py-3 rounded-md hover:bg-white hover:text-blue-900 transition">
             Get Your Free Consultation
-          </button>
+          </Link>
         </div>
       </div>
     </section>
