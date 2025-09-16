@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-28 px-6 bg-white">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
-        {/* Left Side - Form */}
+
         <div>
           <h2 className="text-3xl font-bold text-blue-900 mb-4">
             Let’s Get In Touch
@@ -93,7 +93,7 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* Right Side - Image + Info */}
+
         <div className="flex flex-col items-center md:items-start">
           <Image
             src="/images/imagee.png"
