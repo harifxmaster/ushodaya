@@ -1,13 +1,22 @@
+"use client";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function HoldingPage() {
   return (
-    <main className="w-full bg-white">
+    <main className="w-full bg-white overflow-hidden">
       {/* Hero Text Section */}
       <section className="w-full bg-white pt-24 sm:pt-28 md:pt-32 pb-7 sm:pb-16 md:pb-20">
         <div className="max-w-7xl mx-auto px-6 md:px-20 flex flex-col md:flex-row items-start gap-8 md:gap-12">
-          {/* Left Text */}
-          <div className="md:w-1/2">
+
+          {/* Left Heading - Slide from Left */}
+          <motion.div
+            className="md:w-1/2"
+            initial={{ opacity: 0, x: -80 }} // Start hidden & to the left
+            whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to position
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <h1 className="text-3xl text-gray-700 sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
               Your Success{" "}
@@ -15,10 +24,16 @@ export default function HoldingPage() {
                 With Expertise &amp; Innovation
               </span>
             </h1>
-          </div>
+          </motion.div>
 
-          {/* Right Paragraph */}
-          <div className="md:w-1/2 flex gap-4">
+          {/* Right Paragraph - Slide from Right */}
+          <motion.div
+            className="md:w-1/2 flex gap-4"
+            initial={{ opacity: 0, x: 80 }} // Start hidden & to the right
+            whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to position
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }} // Slight delay
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
 
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
@@ -32,13 +47,19 @@ export default function HoldingPage() {
               operations, and fuel your growth. Ready to elevate your business
               with smart technology? Let’s make it happen together!
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Image Section */}
       <section className="w-full">
-        <div className="relative w-full h-64 sm:h-80 md:h-[500px]">
+        <motion.div
+          className="relative w-full h-64 sm:h-80 md:h-[500px]"
+          initial={{ opacity: 0, y: 50 }} // Start hidden and below
+          whileInView={{ opacity: 1, y: 0 }} // Fade in and slide up
+          transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <Image
             src="/images/sean.png"
             alt="Holding Image"
@@ -46,7 +67,7 @@ export default function HoldingPage() {
             className="object-cover"
             priority
           />
-        </div>
+        </motion.div>
       </section>
     </main>
   );

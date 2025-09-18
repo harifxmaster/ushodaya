@@ -33,7 +33,7 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Desktop Menu */}
+
         <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href} className="hover:text-blue-600">
@@ -42,7 +42,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
             {isOpen ? (
@@ -72,7 +72,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+
       {isOpen && (
         <div className="md:hidden bg-white shadow-lg transition-all duration-300 ease-in-out">
           <nav className="flex flex-col items-center gap-4 py-6 text-gray-700 font-medium">
