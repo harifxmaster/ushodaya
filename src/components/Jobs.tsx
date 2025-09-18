@@ -1,67 +1,40 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
-// Sample jobs data
-type Job = {
-  title: string;
-  location: string;
-  experience: string;
-  category: string;
-};
-
-const jobsData: Job[] = [
-  { title: "Frontend Developer", location: "Bangalore", experience: "Junior", category: "Engineering" },
-  { title: "UI/UX Designer", location: "Remote", experience: "Mid", category: "Design" },
-  { title: "Marketing Specialist", location: "Hyderabad", experience: "Senior", category: "Marketing" },
-  { title: "Backend Developer", location: "Pune", experience: "Mid", category: "Engineering" },
-  { title: "Full Stack Developer", location: "Bangalore", experience: "Senior", category: "Engineering" },
-];
-
-export default function Jobs() {
+export default function JobSearchHero() {
   const [experience, setExperience] = useState("All Experience Level");
   const [location, setLocation] = useState("All Location");
   const [category, setCategory] = useState("All Categories");
-  const [search, setSearch] = useState("");
-  const [filteredJobs, setFilteredJobs] = useState<Job[] | null>(null);
-
-  const handleViewJobs = () => {
-    let results = jobsData;
-
-    if (experience !== "All Experience Level") {
-      results = results.filter(job => job.experience === experience);
-    }
-    if (location !== "All Location") {
-      results = results.filter(job => job.location === location);
-    }
-    if (category !== "All Categories") {
-      results = results.filter(job => job.category === category);
-    }
-    if (search.trim() !== "") {
-      results = results.filter(job =>
-        job.title.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    setFilteredJobs(results);
-  };
 
   return (
-    <section className="relative bg-blue-900 text-white overflow-hidden">
+    <section className="relative bg-[#113D8F] text-white py-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        {/* Hero Row */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          {/* Heading */}
+          <motion.div
+            className="flex-1 text-center lg:text-left"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
+              Carve the Path <br /> to a Brighter <br /> Future with Us
+            </h2>
+          </motion.div>
 
-      <div className="max-w-[1300px] mx-auto px-6 md:px-10 relative">
-        <div className="flex flex-col lg:flex-row items-center lg:items-center min-h-[500px]">
-          <div className="flex-1 flex flex-col justify-center py-12 lg:py-20 z-10">
-            <h1 className="text-[36px] sm:text-[44px] md:text-[52px] font-extrabold leading-snug max-w-[550px]">
-              Carve the Path
-              <br />to a Brighter
-              <br />Future with Us
-            </h1>
-          </div>
-
-          <div className="flex justify-end w-full lg:w-[50%] relative">
-            <div className="w-[650px] h-[450px] bg-blue-900 rounded-l-[300px] overflow-hidden flex-shrink-0 relative">
+          {/* Right Image Section */}
+          <motion.div
+            className="flex justify-end w-full lg:w-[50%] relative"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <div className="w-[650px] h-[450px] bg-blue-900 rounded-l-[300px] overflow-hidden flex-shrink-0 relative shadow-lg">
               <Image
                 src="/images/class.png"
                 alt="Hero"
@@ -71,44 +44,53 @@ export default function Jobs() {
                 priority
               />
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
 
-      <div className="relative z-20 -mt-16 w-full px-4">
-        <div className="max-w-[1100px] mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 text-gray-700">
-
-          <div className="relative mb-6 w-full flex justify-center">
-            <input
-              type="text"
-              placeholder="Search for jobs..."
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="w-full sm:w-[60%] rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 pr-12 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-[#3155ff]"
-            />
-            <svg
-              className="absolute right-8 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+        {/* Job Search Box */}
+        <motion.div
+          className="bg-white shadow-lg rounded-lg p-6 mt-12 w-full max-w-6xl mx-auto"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+            {/* Search Input with Inline SVG Icon */}
+            <motion.div
+              className="md:col-span-2 relative"
+              whileHover={{ scale: 1.02 }}
             >
-              <circle cx="11" cy="11" r="8"></circle>
-              <path d="M21 21l-4.3-4.3"></path>
-            </svg>
-          </div>
+              <label className="block text-gray-600 text-sm font-medium mb-1">
+                Search
+              </label>
+              <input
+                type="text"
+                placeholder="Search for jobs..."
+                className="w-full border border-gray-300 rounded-md px-4 py-2 pr-10 text-gray-700"
+              />
+              <svg
+                className="absolute right-3 top-9 w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-6 mb-6">
-
-            <div>
-              <label className="block text-gray-600 text-sm font-medium mb-2">
+            {/* Experience Level */}
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <label className="block text-gray-600 text-sm font-medium mb-1">
                 Experience Level
               </label>
               <select
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
                 value={experience}
-                onChange={e => setExperience(e.target.value)}
+                onChange={(e) => setExperience(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700"
               >
                 <option>All Experience Level</option>
                 <option>Fresher</option>
@@ -116,71 +98,57 @@ export default function Jobs() {
                 <option>Mid</option>
                 <option>Senior</option>
               </select>
-            </div>
+            </motion.div>
 
-            <div>
-              <label className="block text-gray-600 text-sm font-medium mb-2">
+            {/* Location */}
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <label className="block text-gray-600 text-sm font-medium mb-1">
                 Location
               </label>
               <select
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
                 value={location}
-                onChange={e => setLocation(e.target.value)}
+                onChange={(e) => setLocation(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700"
               >
                 <option>All Location</option>
-                <option>Remote</option>
+                <option>Chennai</option>
+                <option>Madurai</option>
                 <option>Bangalore</option>
-                <option>Hyderabad</option>
-                <option>Pune</option>
               </select>
-            </div>
+            </motion.div>
 
-            <div>
-              <label className="block text-gray-600 text-sm font-medium mb-2">
+            {/* Categories */}
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <label className="block text-gray-600 text-sm font-medium mb-1">
                 Categories
               </label>
               <select
-                className="w-full rounded-lg border border-gray-300 bg-gray-50 px-4 py-3 text-gray-700"
                 value={category}
-                onChange={e => setCategory(e.target.value)}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-700"
               >
                 <option>All Categories</option>
                 <option>Engineering</option>
                 <option>Design</option>
                 <option>Marketing</option>
               </select>
-            </div>
+            </motion.div>
 
-            <div className="flex items-end">
-              <button
-                onClick={handleViewJobs}
-                className="w-full bg-[#3155ff] text-white font-semibold rounded-lg px-6 py-3 hover:bg-[#2647f7]"
+            {/* Button */}
+            <motion.div
+              className="flex items-end"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                href="/jobs"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md px-6 py-2 text-center"
               >
                 View Jobs
-              </button>
-            </div>
+              </Link>
+            </motion.div>
           </div>
-
-          {/* Display Jobs */}
-          {filteredJobs && (
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {filteredJobs.length > 0 ? (
-                filteredJobs.map((job, idx) => (
-                  <div key={idx} className="p-4 border rounded-lg shadow-sm hover:shadow-md transition bg-white text-gray-800">
-                    <h3 className="text-lg font-bold">{job.title}</h3>
-                    <p className="text-sm">
-                      <strong>Location:</strong> {job.location} <br />
-                      <strong>Experience:</strong> {job.experience} <br />
-                      <strong>Category:</strong> {job.category}
-                    </p>
-                  </div>
-                ))
-              ) : (
-                <p className="text-center text-gray-500">No jobs found.</p>
-              )}
-            </div>
-          )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

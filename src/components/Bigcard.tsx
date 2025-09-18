@@ -1,6 +1,6 @@
-// app/components/ArticlesSection.tsx
 "use client";
 
+import { motion, Transition, Variants } from "framer-motion";
 import Image from "next/image";
 import { JSX } from "react";
 
@@ -59,6 +59,30 @@ const ARTICLES: Article[] = [
   },
 ];
 
+// Transition config
+const transition: Transition = { duration: 0.6, ease: [0.42, 0, 0.58, 1] };
+
+// Variants
+const featuredVariants: Variants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition },
+};
+
+const normalVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.95, y: 30 },
+  visible: (custom: number) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { ...transition, delay: custom * 0.2 },
+  }),
+};
+
+const buttonVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition },
+};
+
 export default function ArticlesSection(): JSX.Element {
   return (
     <section className="py-12 bg-white">
@@ -75,19 +99,21 @@ export default function ArticlesSection(): JSX.Element {
         </div>
 
         <div className="space-y-8">
-          {/* ---------- Featured Articles (Top Row, 2 cards) ---------- */}
+          {/* Featured Articles */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {ARTICLES.filter((a) => a.featured).map((a) => (
-              <article
+              <motion.article
                 key={a.id}
                 className="rounded-xl overflow-hidden relative shadow-md"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={featuredVariants}
               >
-                {/* Image Background */}
                 <div className="relative w-full h-[320px] md:h-[360px]">
                   <Image src={a.image} alt={a.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent" />
 
-                  {/* FEATURED Button */}
                   <button
                     className="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-semibold px-4 py-2 rounded-full shadow-lg hover:bg-emerald-700 transition"
                     aria-label="Featured Article"
@@ -96,22 +122,14 @@ export default function ArticlesSection(): JSX.Element {
                   </button>
                 </div>
 
-                {/* Card Content */}
                 <div className="absolute left-6 right-6 bottom-6 text-white">
                   <h3 className="text-xl md:text-2xl font-semibold leading-snug drop-shadow-sm">
                     {a.title}
                   </h3>
                   <div className="mt-4 flex items-center justify-between">
-                    {/* Author Info */}
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-white">
-                        <Image
-                          src={a.avatar}
-                          alt={a.author}
-                          width={40}
-                          height={40}
-                          className="object-cover"
-                        />
+                        <Image src={a.avatar} alt={a.author} width={40} height={40} className="object-cover" />
                       </div>
                       <div className="text-sm">
                         <div className="font-medium">{a.author}</div>
@@ -121,37 +139,33 @@ export default function ArticlesSection(): JSX.Element {
                     <div className="text-sm text-blue-100">{a.date}</div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
 
-          {/* ---------- Normal Articles (Bottom Row, 3 equal cards) ---------- */}
+          {/* Normal Articles */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {ARTICLES.filter((a) => !a.featured).map((a) => (
-              <article
+            {ARTICLES.filter((a) => !a.featured).map((a, index) => (
+              <motion.article
                 key={a.id}
                 className="relative rounded-xl overflow-hidden shadow-md"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                custom={index}
+                variants={normalVariants}
               >
-                {/* Image */}
                 <div className="relative w-full h-[260px]">
                   <Image src={a.image} alt={a.title} fill className="object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-blue-900/75 to-transparent" />
                 </div>
 
-                {/* Content */}
                 <div className="absolute inset-x-5 bottom-5 text-white">
                   <h4 className="text-lg font-semibold leading-snug">{a.title}</h4>
                   <div className="mt-3 flex items-center justify-between">
-                    {/* Author Info */}
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-full overflow-hidden ring-2 ring-white">
-                        <Image
-                          src={a.avatar}
-                          alt={a.author}
-                          width={36}
-                          height={36}
-                          className="object-cover"
-                        />
+                        <Image src={a.avatar} alt={a.author} width={36} height={36} className="object-cover" />
                       </div>
                       <div className="text-sm">
                         <div className="font-medium">{a.author}</div>
@@ -161,16 +175,23 @@ export default function ArticlesSection(): JSX.Element {
                     <div className="text-sm text-blue-100">{a.date}</div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
 
-        {/* ---------- "More Articles" Button ---------- */}
-        <div className="mt-10 flex justify-center">
-          <button
+        {/* More Articles Button */}
+        <motion.div
+          className="mt-10 flex justify-center"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={buttonVariants}
+        >
+          <motion.button
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
-            aria-label="More articles"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             More articles
             <svg
@@ -183,8 +204,8 @@ export default function ArticlesSection(): JSX.Element {
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
             </svg>
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );

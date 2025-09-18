@@ -21,97 +21,107 @@ type Job = {
   details: JobDetails | null;
 };
 
-// Sample Jobs (with full content from screenshot)
+// Jobs Array
 const jobs: Job[] = [
   {
-    title: "Full Stack Developer",
-    tags: ["Mid-Level", "Chennai", "Madurai"],
+    title: "Sales Executive",
+    tags: ["2-5 Years", "Hyderabad"],
     shortDesc:
-      "Designing and implementing user interfaces, backend systems, APIs, and databases to deliver scalable applications...",
+      "Responsible for driving sales, building client relationships, and achieving revenue targets...",
     details: {
       responsibility:
-        "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases and APIs using technologies such as Node.js, Python, Ruby, or Java. Designing, implementing, and managing databases (SQL or NoSQL) to ensure data integrity and efficient retrieval. Using version control systems like Git to manage code changes and collaborate with other developers. Implementing security best practices to protect applications from vulnerabilities and threats. Automating deployment processes and managing CI/CD pipelines to streamline development and release cycles. Working with cross-functional teams, including designers, product managers, and other developers, to deliver high-quality software.",
+        "Identify and generate new business opportunities by reaching out to potential clients. Build and maintain strong client relationships. Understand customer needs and present appropriate solutions. Meet and exceed sales targets. Prepare sales reports and collaborate with internal teams to ensure customer satisfaction.",
       specification: [
-        "Proficiency in front-end technologies HTML, CSS, JavaScript frameworks like React or Angular.",
-        "Proficiency in back-end technologies Node.js, Python, Ruby, Java, etc.",
-        "Experience in designing and managing databases (SQL and NoSQL).",
-        "Proficiency in schema design and query optimization.",
-        "Strong knowledge of version control systems, particularly Git.",
-        "Expertise in managing and collaborating on code repositories.",
-        "Knowledge of web security best practices.",
-        "Experience with performance optimization techniques.",
-        "Excellent collaboration skills for working effectively in a team environment.",
-        "Ability to communicate technical concepts to non-technical stakeholders.",
+        "Proven experience in sales (2–5 years).",
+        "Strong communication, negotiation, and interpersonal skills.",
+        "Ability to build and maintain client relationships.",
+        "Goal-oriented and self-motivated to achieve targets.",
+        "Knowledge of CRM tools and sales reporting.",
+        "Willingness to travel within assigned territory.",
       ],
       type: "Full-time",
-      mode: "Hybrid",
-      salary: "Commensurate with experience and skills",
-      experience: "Minimum 3 Years",
-      location: "Chennai, Madurai, Coimbatore",
+      mode: "On-site",
+      salary: "Competitive + Incentives",
+      experience: "2–5 years",
+      location: "Hyderabad",
     },
   },
   {
-    title: "React Developer",
-    tags: ["Mid-Level", "Chennai", "Madurai"],
+    title: "Front End Developer",
+    tags: ["2-5 Years", "Hyderabad"],
     shortDesc:
-      "Designing and implementing user interfaces using React and related JavaScript frameworks...",
+      "Responsible for building responsive and user-friendly web interfaces using modern frontend technologies...",
     details: {
       responsibility:
-        "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases...",
-      specification: [],
+        "Develop and maintain responsive web interfaces using HTML, CSS, and JavaScript frameworks. Collaborate with designers and backend developers to deliver high-quality, user-friendly applications. Optimize applications for maximum performance and scalability. Ensure cross-browser compatibility and adherence to accessibility standards. Participate in code reviews and follow best practices for clean, maintainable code.",
+      specification: [
+        "2–5 years of proven experience in frontend development.",
+        "Strong proficiency in HTML, CSS, and JavaScript (ES6+).",
+        "Hands-on experience with React.js (preferred) or other modern frameworks like Angular/Vue.",
+        "Experience with responsive design and CSS frameworks (Tailwind, Bootstrap).",
+        "Familiarity with API integration (REST/GraphQL).",
+        "Knowledge of version control systems (Git/GitHub).",
+        "Understanding of performance optimization and accessibility best practices.",
+        "Strong problem-solving skills and teamwork abilities.",
+      ],
       type: "Full-time",
-      mode: "Hybrid",
-      salary: "Industry Standard",
-      experience: "3+ years",
-      location: "Chennai, Madurai",
+      mode: "On-site",
+      salary: "Competitive / Industry Standard",
+      experience: "2–5 years",
+      location: "Hyderabad",
     },
   },
   {
-    title: "Flutter Developer",
-    tags: ["Mid-Level", "Chennai", "Madurai"],
+    title: "Technical SEO Manager",
+    tags: ["10-15 Years", "Hyderabad"],
     shortDesc:
-      "Designing and implementing user interfaces for cross-platform mobile apps using Flutter...",
+      "Lead and manage all aspects of technical SEO, ensuring websites are optimized for search engines, speed, and scalability...",
     details: {
       responsibility:
-        "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases...",
-      specification: [],
+        "Develop and implement advanced technical SEO strategies to maximize organic search visibility. Conduct technical audits of websites to identify crawl issues, indexing problems, site speed issues, and schema markup optimization. Collaborate with development teams to ensure SEO best practices are implemented in new code and site architecture. Monitor and analyze site performance using tools such as Google Search Console, Screaming Frog, Ahrefs, and SEMrush. Stay updated with algorithm changes and SEO trends, providing actionable insights to stakeholders. Lead and mentor SEO specialists and collaborate with cross-functional teams (Content, Product, Engineering) to achieve KPIs.",
+      specification: [
+        "10–15 years of proven experience in Technical SEO with leadership responsibilities.",
+        "Deep understanding of search engine algorithms, ranking factors, and site architecture best practices.",
+        "Proficiency with SEO tools like Google Search Console, Ahrefs, SEMrush, Screaming Frog, and GA4.",
+        "Strong knowledge of HTML, CSS, JavaScript rendering, and web technologies.",
+        "Experience in managing site migrations, canonicalization, structured data, and hreflang implementation.",
+        "Hands-on expertise in page speed optimization and Core Web Vitals improvements.",
+        "Ability to lead SEO audits, create roadmaps, and work with engineering teams for implementation.",
+        "Excellent analytical, problem-solving, and leadership skills.",
+        "Strong communication and stakeholder management abilities.",
+      ],
       type: "Full-time",
-      mode: "Hybrid",
-      salary: "Industry Standard",
-      experience: "3+ years",
-      location: "Chennai, Madurai",
+      mode: "On-site",
+      salary: "Competitive / Industry Standard",
+      experience: "10–15 years",
+      location: "Hyderabad",
     },
   },
   {
-    title: "Php Developer",
-    tags: ["Mid-Level", "Chennai", "Madurai"],
+    title: "Senior QA Manager",
+    tags: ["7-15 Years", "Hyderabad"],
     shortDesc:
-      "Building dynamic server-side applications using PHP frameworks...",
+      "Lead the Quality Assurance team to ensure software products meet the highest standards of reliability, performance, and user satisfaction...",
     details: {
       responsibility:
-        "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases...",
-      specification: [],
+        "Define and drive the overall QA strategy, ensuring alignment with product and business goals. Lead and mentor a team of QA engineers, providing technical guidance and fostering career growth. Establish best practices for test automation, performance testing, and CI/CD integration. Collaborate with product managers, developers, and stakeholders to ensure quality is embedded throughout the development lifecycle. Conduct risk analysis and implement mitigation strategies to reduce defects in production. Ensure compliance with industry standards and regulatory requirements. Continuously improve QA processes, tools, and metrics for efficiency and scalability.",
+      specification: [
+        "7–15 years of experience in Quality Assurance, with at least 3+ years in a leadership/management role.",
+        "Strong understanding of QA methodologies, tools, and processes (manual and automation).",
+        "Experience with test automation frameworks (Selenium, Cypress, Playwright, or similar).",
+        "Knowledge of CI/CD pipelines, version control (Git), and DevOps practices.",
+        "Experience with performance and load testing tools (JMeter, Locust, etc.).",
+        "Ability to manage multiple projects, prioritize tasks, and ensure on-time delivery.",
+        "Strong problem-solving skills with attention to detail and analytical thinking.",
+        "Excellent leadership, communication, and stakeholder management skills.",
+        "Experience in Agile/Scrum development environments.",
+        "Knowledge of cloud platforms (AWS, Azure, GCP) is a plus.",
+      ],
       type: "Full-time",
-      mode: "Hybrid",
-      salary: "Industry Standard",
-      experience: "3+ years",
-      location: "Chennai, Madurai",
-    },
-  },
-  {
-    title: "Mern Stack Developer",
-    tags: ["Mid-Level", "Chennai", "Madurai"],
-    shortDesc:
-      "Building scalable applications using MongoDB, Express.js, React, and Node.js...",
-    details: {
-      responsibility:
-        "Designing and implementing user interfaces using HTML, CSS, and JavaScript frameworks like React or Angular. Building and maintaining server-side application logic, databases...",
-      specification: [],
-      type: "Full-time",
-      mode: "Hybrid",
-      salary: "Industry Standard",
-      experience: "3+ years",
-      location: "Chennai, Madurai",
+      mode: "On-site",
+      salary: "Competitive / Industry Standard",
+      experience: "7–15 years",
+      location: "Hyderabad",
     },
   },
 ];
@@ -119,10 +129,16 @@ const jobs: Job[] = [
 export default function Location() {
   const [selectedJob, setSelectedJob] = useState<Job>(jobs[0]);
   const [showModal, setShowModal] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    resume: File | null;
+    location: string;
+    experience: string;
+  }>({
     name: "",
     email: "",
-    resume: null as File | null,
+    resume: null,
     location: "",
     experience: "",
   });
@@ -147,7 +163,6 @@ export default function Location() {
         return;
       }
 
-      // 1. Upload resume to Supabase Storage
       const fileExt = formData.resume.name.split(".").pop();
       const fileName = `${Date.now()}.${fileExt}`;
       const filePath = `resumes/${fileName}`;
@@ -158,14 +173,12 @@ export default function Location() {
 
       if (uploadError) throw uploadError;
 
-      // 2. Get public URL of uploaded resume
       const { data: publicUrlData } = supabase.storage
         .from("resumes")
         .getPublicUrl(filePath);
 
       const resumeUrl = publicUrlData.publicUrl;
 
-      // 3. Insert application into Applications table
       const { error: insertError } = await supabase
         .from("Applications")
         .insert([
@@ -184,7 +197,6 @@ export default function Location() {
 
       alert(`✅ Application submitted successfully for ${selectedJob.title}!`);
 
-      // Reset Form
       setShowModal(false);
       setFormData({
         name: "",
@@ -211,7 +223,7 @@ export default function Location() {
             <div
               key={idx}
               onClick={() => setSelectedJob(job)}
-              className={`p-4 border rounded-lg cursor-pointer transition ${
+              className={`p-4 border rounded-lg cursor-pointer shadow-sm transition ${
                 selectedJob.title === job.title
                   ? "border-blue-600 bg-blue-50"
                   : "border-gray-300 bg-gray-100 hover:bg-gray-200"
@@ -222,7 +234,7 @@ export default function Location() {
                 {job.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
+                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md"
                   >
                     {tag}
                   </span>
@@ -245,7 +257,7 @@ export default function Location() {
               {selectedJob.tags.map((tag, i) => (
                 <span
                   key={i}
-                  className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
+                  className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md"
                 >
                   {tag}
                 </span>
@@ -290,8 +302,8 @@ export default function Location() {
 
       {/* Modal */}
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md relative">
+        <div className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg">
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"

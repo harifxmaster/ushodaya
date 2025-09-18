@@ -1,5 +1,6 @@
 "use client";
 
+import { motion, Transition, Variants } from "framer-motion";
 import Image from "next/image";
 
 type Post = {
@@ -38,19 +39,40 @@ const posts: Post[] = [
   },
 ];
 
+// Transition settings
+const transition: Transition = { duration: 0.6, ease: [0.42, 0, 0.58, 1] };
+
+// Card variants
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.95 },
+  visible: (custom: number) => ({
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { ...transition, delay: custom * 0.15 },
+  }),
+};
+
 export default function Cards() {
   return (
     <section className="w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 mb-4">
           Related Blogs
         </h2>
 
-        <div className="flex gap-4 sm:gap-6 overflow-x-auto py-2 pr-1 snap-x snap-mandatory scrollbar-hide">
+        <motion.div
+          className="flex gap-4 sm:gap-6 overflow-x-auto py-2 pr-1 snap-x snap-mandatory scrollbar-hide"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {posts.map((p, i) => (
-            <article
+            <motion.article
               key={i}
+              custom={i}
+              variants={cardVariants}
+              whileHover={{ scale: 1.03, y: -3 }}
               className="
                 relative snap-start
                 min-w-[85%] sm:min-w-[420px] md:min-w-[520px]
@@ -59,10 +81,8 @@ export default function Cards() {
                 shadow-[0_10px_30px_rgba(2,6,23,0.15)]
                 hover:shadow-[0_12px_36px_rgba(2,6,23,0.22)]
                 transition-transform duration-300
-                hover:-translate-y-0.5
               "
             >
-
               <div className="absolute inset-0">
                 <Image
                   src={p.image}
@@ -73,11 +93,9 @@ export default function Cards() {
                 />
               </div>
 
-
               <div className="absolute inset-0 bg-gradient-to-r from-teal-700/80 via-sky-700/65 to-blue-600/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 via-transparent to-transparent" />
 
-              {/* Content */}
               <div className="relative h-full px-4 sm:px-6 py-3 sm:py-4 flex flex-col justify-between">
                 <div>
                   <h3 className="text-white font-semibold text-base sm:text-lg leading-tight">
@@ -126,9 +144,9 @@ export default function Cards() {
                   </span>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
