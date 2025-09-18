@@ -16,14 +16,14 @@ export default function VisionSection() {
         {stats.map((stat, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 80 }} // Start hidden and shifted to the right
-            whileInView={{ opacity: 1, x: 0 }} // Fade in and slide to final position
+            initial={{ opacity: 0, y: 50 }} // Start hidden & below
+            whileInView={{ opacity: 1, y: 0 }} // Move up to position
             transition={{
               duration: 0.7,
               ease: "easeOut",
-              delay: index * 0.2, // staggered animation
+              delay: index * 0.2, // staggered
             }}
-            viewport={{ once: true, amount: 0.3 }} // Trigger when 30% visible
+            viewport={{ once: true, amount: 0.3 }}
             className="relative"
           >
             <h2 className="text-3xl sm:text-4xl font-bold">{stat.value}</h2>
