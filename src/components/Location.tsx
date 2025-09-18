@@ -206,12 +206,11 @@ export default function Location() {
         location: "",
         experience: "",
       });
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.error("❌ Error submitting:", err.message);
-      } else {
-        console.error("❌ Error submitting:", JSON.stringify(err));
-      }
+    } catch (err) {
+      console.error(
+        "❌ Error submitting:",
+        err instanceof Error ? err.message : JSON.stringify(err)
+      );
       alert("Failed to submit application. Please try again.");
     }
   };
@@ -246,7 +245,9 @@ export default function Location() {
                   </span>
                 ))}
               </div>
-              <p className="text-sm text-gray-600 line-clamp-2">{job.shortDesc}</p>
+              <p className="text-sm text-gray-600 line-clamp-2">
+                {job.shortDesc}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -262,7 +263,9 @@ export default function Location() {
             className="border rounded-lg p-6 shadow-sm flex flex-col"
           >
             <div className="flex-1 overflow-y-auto">
-              <h2 className="text-xl font-bold text-blue-900">{selectedJob.title}</h2>
+              <h2 className="text-xl font-bold text-blue-900">
+                {selectedJob.title}
+              </h2>
               <div className="flex gap-2 my-2 flex-wrap">
                 {selectedJob.tags.map((tag, i) => (
                   <span
