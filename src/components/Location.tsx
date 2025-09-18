@@ -1,7 +1,6 @@
 "use client";
 
 import { supabase } from "@/lib/supabaseClient";
-import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 
 // Job Types
@@ -221,13 +220,9 @@ export default function Location() {
         {/* Job List */}
         <div className="space-y-4">
           {jobs.map((job, idx) => (
-            <motion.div
+            <div
               key={idx}
               onClick={() => setSelectedJob(job)}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
               className={`p-4 border rounded-lg cursor-pointer shadow-sm transition ${
                 selectedJob.title === job.title
                   ? "border-blue-600 bg-blue-50"
@@ -239,7 +234,7 @@ export default function Location() {
                 {job.tags.map((tag, i) => (
                   <span
                     key={i}
-                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
+                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md"
                   >
                     {tag}
                   </span>
@@ -248,160 +243,138 @@ export default function Location() {
               <p className="text-sm text-gray-600 line-clamp-2">
                 {job.shortDesc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Job Details & Apply Button */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={selectedJob.title}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -50 }}
-            transition={{ duration: 0.4 }}
-            className="border rounded-lg p-6 shadow-sm flex flex-col"
-          >
-            <div className="flex-1 overflow-y-auto">
-              <h2 className="text-xl font-bold text-blue-900">
-                {selectedJob.title}
-              </h2>
-              <div className="flex gap-2 my-2 flex-wrap">
-                {selectedJob.tags.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md hover:bg-blue-600 hover:text-white transition"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+        <div className="border rounded-lg p-6 shadow-sm flex flex-col">
+          <div className="flex-1 overflow-y-auto">
+            <h2 className="text-xl font-bold text-blue-900">
+              {selectedJob.title}
+            </h2>
+            <div className="flex gap-2 my-2 flex-wrap">
+              {selectedJob.tags.map((tag, i) => (
+                <span
+                  key={i}
+                  className="text-xs font-semibold text-blue-800 bg-blue-100 px-3 py-1 rounded-md"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
-              {selectedJob.details ? (
-                <>
-                  <h3 className="font-semibold mt-4">Responsibilities</h3>
-                  <p className="text-sm text-gray-700 mt-2 leading-relaxed">
-                    {selectedJob.details.responsibility}
-                  </p>
-
-                  {selectedJob.details.specification.length > 0 && (
-                    <>
-                      <h3 className="font-semibold mt-4">Job Specifications</h3>
-                      <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
-                        {selectedJob.details.specification.map((spec, idx) => (
-                          <li key={idx}>{spec}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                </>
-              ) : (
-                <p className="mt-4 text-gray-500 italic">
-                  Detailed job description will be updated soon.
+            {selectedJob.details ? (
+              <>
+                <h3 className="font-semibold mt-4">Responsibilities</h3>
+                <p className="text-sm text-gray-700 mt-2 leading-relaxed">
+                  {selectedJob.details.responsibility}
                 </p>
-              )}
-            </div>
 
-            <div className="mt-6 justify-center flex">
-              <button
-                onClick={() => setShowModal(true)}
-                className="w-40 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
-              >
-                Apply Now
-              </button>
-            </div>
-          </motion.div>
-        </AnimatePresence>
+                {selectedJob.details.specification.length > 0 && (
+                  <>
+                    <h3 className="font-semibold mt-4">Job Specifications</h3>
+                    <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
+                      {selectedJob.details.specification.map((spec, idx) => (
+                        <li key={idx}>{spec}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </>
+            ) : (
+              <p className="mt-4 text-gray-500 italic">
+                Detailed job description will be updated soon.
+              </p>
+            )}
+          </div>
+
+          <div className="mt-6 justify-center flex">
+            <button
+              onClick={() => setShowModal(true)}
+              className="w-40 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Modal */}
-      <AnimatePresence>
-        {showModal && (
-          <motion.div
-            className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.3 }}
+      {showModal && (
+        <div className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
             >
+              ✖
+            </button>
+
+            <h2 className="text-xl font-bold text-blue-900 mb-4">
+              Apply for {selectedJob.title}
+            </h2>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+
+              <input
+                type="file"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+
+              <input
+                type="text"
+                name="location"
+                placeholder="Location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+
+              <input
+                type="text"
+                name="experience"
+                placeholder="Experience"
+                value={formData.experience}
+                onChange={handleChange}
+                required
+                className="w-full border rounded-md px-3 py-2"
+              />
+
               <button
-                onClick={() => setShowModal(false)}
-                className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
               >
-                ✖
+                Submit Application
               </button>
-
-              <h2 className="text-xl font-bold text-blue-900 mb-4">
-                Apply for {selectedJob.title}
-              </h2>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="w-full border rounded-md px-3 py-2"
-                />
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full border rounded-md px-3 py-2"
-                />
-
-                <input
-                  type="file"
-                  name="resume"
-                  accept=".pdf,.doc,.docx"
-                  onChange={handleChange}
-                  required
-                  className="w-full border rounded-md px-3 py-2"
-                />
-
-                <input
-                  type="text"
-                  name="location"
-                  placeholder="Location"
-                  value={formData.location}
-                  onChange={handleChange}
-                  required
-                  className="w-full border rounded-md px-3 py-2"
-                />
-
-                <input
-                  type="text"
-                  name="experience"
-                  placeholder="Experience"
-                  value={formData.experience}
-                  onChange={handleChange}
-                  required
-                  className="w-full border rounded-md px-3 py-2"
-                />
-
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
-                >
-                  Submit Application
-                </button>
-              </form>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
