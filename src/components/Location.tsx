@@ -193,7 +193,7 @@ export default function Location() {
         location: "",
         experience: "",
       });
-    } catch (err: any) {
+    } catch (err) {
       console.error(
         "❌ Error submitting:",
         err instanceof Error ? err.message : JSON.stringify(err)
@@ -238,7 +238,9 @@ export default function Location() {
         {/* Job Details & Apply Button */}
         <div className="border rounded-lg p-6 shadow-sm flex flex-col">
           <div className="flex-1 overflow-y-auto">
-            <h2 className="text-xl font-bold text-blue-900">{selectedJob.title}</h2>
+            <h2 className="text-xl font-bold text-blue-900">
+              {selectedJob.title}
+            </h2>
             <div className="flex gap-2 my-2 flex-wrap">
               {selectedJob.tags.map((tag, i) => (
                 <span
