@@ -2,7 +2,6 @@ import Choose from "@/components/Choose";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Holding from "@/components/Holding";
-import Leader from "@/components/Leader";
 import Mission from "@/components/Mission";
 import Ready from "@/components/Ready";
 import Sky from "@/components/Sky";
@@ -19,7 +18,7 @@ export default function Aboutpage() {
      <VisionSection/>
      <Mission />
      <Sky />
-     <Leader />
+     {/* <Leader /> */}
      <Choose />
      <Ready />
      <Footer />
