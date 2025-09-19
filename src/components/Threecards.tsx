@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
+// Dummy blog data
 const blogs = [
   {
     slug: "future-of-work",
@@ -16,11 +17,11 @@ const blogs = [
     img: "/images/c3.png",
     avatar: "/images/Bigp1.png",
   },
+  // Uncomment or add more blogs here
   // {
   //   slug: "future-of-data",
   //   title: "Future of Data",
-  //   description:
-  //     "Thanks to never-ending piles of data & the amount of insight.",
+  //   description: "Thanks to never-ending piles of data & the amount of insight.",
   //   author: "Tyler Murray",
   //   role: "Verified Author",
   //   date: "02 May",
@@ -30,8 +31,7 @@ const blogs = [
   // {
   //   slug: "future-of-learning",
   //   title: "Future of Learning",
-  //   description:
-  //     "A constant ability to learn will be one the most crucial skills.",
+  //   description: "A constant ability to learn will be one the most crucial skills.",
   //   author: "Warren Casey",
   //   role: "Verified Author",
   //   date: "02 May",
@@ -40,7 +40,8 @@ const blogs = [
   // },
 ];
 
-export default function ThreeCards() {
+// Component that uses useSearchParams
+function BlogCardsContent() {
   const searchParams = useSearchParams();
   const [filteredBlogs, setFilteredBlogs] = useState<typeof blogs>([]);
 
@@ -60,9 +61,7 @@ export default function ThreeCards() {
   return (
     <section className="w-full bg-white py-12 md:py-16">
       <div className="mx-auto w-full max-w-[1180px] px-4 md:px-6">
-        <h2 className="text-[24px] font-bold text-[#1A3C8C] mb-6">
-          Search Results
-        </h2>
+        <h2 className="text-[24px] font-bold text-[#1A3C8C] mb-6">Search Results</h2>
 
         {filteredBlogs.length === 0 ? (
           <p className="text-gray-500 text-center text-lg">No blogs present</p>
@@ -74,6 +73,7 @@ export default function ThreeCards() {
                 href={`/blogs/${blog.slug}`}
                 className="group relative isolate overflow-hidden rounded-2xl shadow-lg h-[360px] ring-1 ring-black/5 transition hover:shadow-xl"
               >
+                {/* Blog Image */}
                 <Image
                   src={blog.img}
                   alt={blog.title}
@@ -81,8 +81,10 @@ export default function ThreeCards() {
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
 
+                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
+                {/* Blog Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
                   <h3 className="text-xl font-semibold">{blog.title}</h3>
                   <p className="text-sm text-white/90 mb-3">{blog.description}</p>
@@ -110,5 +112,16 @@ export default function ThreeCards() {
         )}
       </div>
     </section>
+  );
+}
+
+// Final export wrapped with Suspense
+export default function ThreeCardsPage() {
+  return (
+    <main>
+      <Suspense fallback={<p className="text-center py-10">Loading blogs...</p>}>
+        <BlogCardsContent />
+      </Suspense>
+    </main>
   );
 }
