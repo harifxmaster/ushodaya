@@ -2,11 +2,12 @@
 
 import { motion, Transition, Variants } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 // TypeScript-friendly transition
 const transition: Transition = { duration: 0.7, ease: [0.42, 0, 0.58, 1] };
 
-// Variants for different elements
+// Variants for text and cards
 const textVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0, transition },
@@ -30,7 +31,7 @@ export default function Hero() {
       text: "Our experts analyse data and use real numbers to boost yours.",
       iconColor: "text-blue-600",
       svgPath:
-        "M8.25 7.5V6a1.5 1.5 0 011.5-1.5h4.5A1.5 1.5 0 0115.75 6v1.5m-9 0h10.5m-12 0A2.25 2.25 0 004.5 9.75v7.5A2.25 2.25 0 006.75 19.5h10.5a2.25 2.25 0 002.25-2.25v-7.5A2.25 2.25 0 0017.25 7.5m-12 0V6a3 3 0 013-3h4.5a3 3 0 013 3v1.5",
+        "M8.25 7.5V6a1.5 1.5 0 011.5-1.5h4.5A1.5 1.5 0 0115.75 6v1.5m-9 0h10.5",
     },
     {
       color: "from-purple-100 to-purple-50",
@@ -44,8 +45,7 @@ export default function Hero() {
       title: "Strength & Security",
       text: "Our IT solutions solidify your foundation and offer unparalleled security for sensitive information.",
       iconColor: "text-white",
-      svgPath:
-        "M19.5 14.25v6m-3-3h6M4.5 6.75V21h9.75m-6-6.75H15M15 6h.008v.008H15V6z",
+      svgPath: "M19.5 14.25v6m-3-3h6M4.5 6.75V21h9.75m-6-6.75H15M15 6h.008v.008H15V6z",
     },
   ];
 
@@ -64,8 +64,8 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-transparent"></div>
       </div>
 
+      {/* Hero Text & Buttons */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Text Section */}
         <motion.div
           className="z-10 flex flex-col justify-center text-center md:text-left"
           initial="hidden"
@@ -86,20 +86,25 @@ export default function Hero() {
             className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4"
             variants={buttonVariants}
           >
-            <motion.button
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Get Quote Now
-            </motion.button>
-            <motion.button
-              className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Learn More
-            </motion.button>
+            {/* Get Quote button -> Contact page */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/contact"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition inline-block text-center"
+              >
+                Get Quote Now
+              </Link>
+            </motion.div>
+
+            {/* Learn More button -> About Us page */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/about"
+                className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition inline-block text-center"
+              >
+                Learn More
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

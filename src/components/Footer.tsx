@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
+// import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -23,7 +23,10 @@ export default function Footer() {
             />
           </div>
 
-          <p className="font-semibold mb-3 text-blue-500">Follow Us</p>
+          {/* <p className="font-semibold mb-3 text-blue-500">Follow Us</p> */}
+
+          {/* Social Icons Section - Commented Out */}
+          {/*
           <div className="flex justify-center md:justify-start gap-4 mb-6 text-xl">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-blue-600 transition">
               <FaInstagram />
@@ -38,6 +41,7 @@ export default function Footer() {
               <FaXTwitter />
             </a>
           </div>
+          */}
 
           <p className="text-gray-700 text-sm font-semibold leading-relaxed max-w-sm mx-auto md:mx-0">
             Registered address: Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur, Hyderabad
@@ -49,9 +53,10 @@ export default function Footer() {
           <h3 className="text-lg font-bold text-blue-900 mb-3">Products</h3>
           <ul className="space-y-2 text-gray-700">
             <li>
-              <a href="https://fxmaster.co.uk/index.html" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
+              {/* Internal navigation using Link */}
+              <Link href="/contact" className="hover:text-blue-600 transition">
                 Send Money to India
-              </a>
+              </Link>
             </li>
             <li>
               <a href="https://www.calculator.net/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">

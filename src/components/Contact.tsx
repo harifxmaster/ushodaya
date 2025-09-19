@@ -184,7 +184,7 @@ export default function Contact() {
                 href="tel:+203440403030"
                 className="hover:text-blue-600 transition-colors"
               >
-                +20-34 4040 3030
+                {/* +20-34 4040 3030 */}
               </Link>
             </motion.p>
 
