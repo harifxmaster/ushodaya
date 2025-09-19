@@ -16,28 +16,28 @@ const blogs = [
     img: "/images/c3.png",
     avatar: "/images/Bigp1.png",
   },
-  {
-    slug: "future-of-data",
-    title: "Future of Data",
-    description:
-      "Thanks to never-ending piles of data & the amount of insight.",
-    author: "Tyler Murray",
-    role: "Verified Author",
-    date: "02 May",
-    img: "/images/c2.png",
-    avatar: "/images/Bigp2.png",
-  },
-  {
-    slug: "future-of-learning",
-    title: "Future of Learning",
-    description:
-      "A constant ability to learn will be one the most crucial skills.",
-    author: "Warren Casey",
-    role: "Verified Author",
-    date: "02 May",
-    img: "/images/vrcamera.png",
-    avatar: "/images/Bigp3.png",
-  },
+  // {
+  //   slug: "future-of-data",
+  //   title: "Future of Data",
+  //   description:
+  //     "Thanks to never-ending piles of data & the amount of insight.",
+  //   author: "Tyler Murray",
+  //   role: "Verified Author",
+  //   date: "02 May",
+  //   img: "/images/c2.png",
+  //   avatar: "/images/Bigp2.png",
+  // },
+  // {
+  //   slug: "future-of-learning",
+  //   title: "Future of Learning",
+  //   description:
+  //     "A constant ability to learn will be one the most crucial skills.",
+  //   author: "Warren Casey",
+  //   role: "Verified Author",
+  //   date: "02 May",
+  //   img: "/images/vrcamera.png",
+  //   avatar: "/images/Bigp3.png",
+  // },
 ];
 
 export default function ThreeCards() {
