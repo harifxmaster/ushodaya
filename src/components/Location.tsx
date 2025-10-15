@@ -1,7 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabaseClient";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Job Types
 type JobDetails = {
@@ -143,6 +143,12 @@ export default function Location() {
     experience: "",
   });
 
+  // Debug: Log Supabase URL on component mount
+  useEffect(() => {
+    console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
+    console.log("Supabase Client URL:", (supabase as any).supabaseUrl);
+  }, []);
+
   // Handle Form Changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
@@ -163,38 +169,63 @@ export default function Location() {
         return;
       }
 
+      // Validate file size (5MB max)
+      const maxSize = 5 * 1024 * 1024; // 5MB
+      if (formData.resume.size > maxSize) {
+        alert("Resume file size should be less than 5MB.");
+        return;
+      }
+
       const fileExt = formData.resume.name.split(".").pop();
       const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `resumes/${fileName}`;
+      const filePath = `${fileName}`; // Changed: removed "resumes/" prefix since bucket is already "resumes"
 
-      const { error: uploadError } = await supabase.storage
+      console.log("Uploading resume to bucket 'resumes' with path:", filePath);
+
+      // Try to upload the file
+      const { data: uploadData, error: uploadError } = await supabase.storage
         .from("resumes")
-        .upload(filePath, formData.resume);
+        .upload(filePath, formData.resume, {
+          cacheControl: "3600",
+          upsert: false,
+        });
 
-      if (uploadError) throw uploadError;
+      if (uploadError) {
+        console.error("Upload error details:", uploadError);
+        throw new Error(`Resume upload failed: ${uploadError.message}`);
+      }
+
+      console.log("Upload successful:", uploadData);
 
       const { data: publicUrlData } = supabase.storage
         .from("resumes")
         .getPublicUrl(filePath);
 
       const resumeUrl = publicUrlData.publicUrl;
+      console.log("Resume URL:", resumeUrl);
 
-      const { error: insertError } = await supabase
-        .from("Applications")
-        .insert([
-          {
-            full_name: formData.name,
-            email: formData.email,
-            location: formData.location,
-            experience: formData.experience,
-            job_title: selectedJob.title,
-            resume_url: resumeUrl,
-            created_at: new Date().toISOString(),
-          },
-        ]);
+      const applicationData = {
+        name: formData.name,
+        email: formData.email,
+        location: formData.location,
+        experience: formData.experience,
+        job_title: selectedJob.title,
+        resume_url: resumeUrl,
+      };
 
-      if (insertError) throw insertError;
+      console.log("Inserting application:", applicationData);
 
+      const { data: insertData, error: insertError } = await supabase
+        .from("applications")
+        .insert([applicationData])
+        .select();
+
+      if (insertError) {
+        console.error("Insert error details:", insertError);
+        throw new Error(`Database insert failed: ${insertError.message}`);
+      }
+
+      console.log("Application inserted successfully:", insertData);
       alert(`✅ Application submitted successfully for ${selectedJob.title}!`);
 
       setShowModal(false);
@@ -206,11 +237,9 @@ export default function Location() {
         experience: "",
       });
     } catch (err) {
-      console.error(
-        "❌ Error submitting:",
-        err instanceof Error ? err.message : JSON.stringify(err)
-      );
-      alert("Failed to submit application. Please try again.");
+      const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
+      console.error("❌ Error submitting application:", errorMessage, err);
+      alert(`Failed to submit application: ${errorMessage}\n\nPlease check the console for more details.`);
     }
   };
 
