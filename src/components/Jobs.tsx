@@ -31,30 +31,29 @@ export default function JobSearchHero() {
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.8, y: 50 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="p-6 rounded-lg shadow-lg mt-10
-          bg-gradient-to-br from-blue-50 via-white to-blue-100"
+        className="p-6 rounded-lg shadow-2xl mt-10 bg-white border-2 border-gray-200"
       >
         {/* Back button */}
         <button
           onClick={onBack}
-          className="mb-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-all duration-300"
+          className="mb-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-all duration-300 shadow-md"
         >
           Back
         </button>
 
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">
+        <h2 className="text-2xl font-bold mb-4 text-gray-900">
           Available Jobs for {job}
         </h2>
 
-        <div className="bg-white p-4 rounded-lg shadow space-y-2 border border-gray-200">
-          <p className="text-gray-700">
-            <strong>Experience Level:</strong> {experience}
+        <div className="bg-gray-50 p-4 rounded-lg shadow-sm space-y-2 border border-gray-300">
+          <p className="text-gray-900">
+            <strong className="text-gray-900">Experience Level:</strong> {experience}
           </p>
-          <p className="text-gray-700">
-            <strong>Location:</strong> {location}
+          <p className="text-gray-900">
+            <strong className="text-gray-900">Location:</strong> {location}
           </p>
-          <p className="text-gray-700">
-            <strong>Category:</strong> {category}
+          <p className="text-gray-900">
+            <strong className="text-gray-900">Category:</strong> {category}
           </p>
         </div>
 
@@ -64,26 +63,26 @@ export default function JobSearchHero() {
           transition={{ delay: 0.3, duration: 0.4 }}
           className="mt-6"
         >
-          <h3 className="text-xl font-semibold mb-2 text-gray-800">
+          <h3 className="text-xl font-semibold mb-2 text-gray-900">
             Job Listings
           </h3>
           <ul className="space-y-3">
             <motion.li
               whileHover={{ scale: 1.02 }}
-              className="bg-blue-50 p-4 rounded-md shadow transition-transform"
+              className="bg-gray-50 p-4 rounded-md shadow-sm border border-gray-200 transition-transform"
             >
               <p className="font-semibold text-gray-900">Senior {job}</p>
-              <p className="text-gray-600 text-sm">Location: {location}</p>
-              <p className="text-gray-600 text-sm">Category: {category}</p>
+              <p className="text-gray-700 text-sm">Location: {location}</p>
+              <p className="text-gray-700 text-sm">Category: {category}</p>
             </motion.li>
 
             <motion.li
               whileHover={{ scale: 1.02 }}
-              className="bg-blue-50 p-4 rounded-md shadow transition-transform"
+              className="bg-gray-50 p-4 rounded-md shadow-sm border border-gray-200 transition-transform"
             >
               <p className="font-semibold text-gray-900">Junior {job}</p>
-              <p className="text-gray-600 text-sm">Location: {location}</p>
-              <p className="text-gray-600 text-sm">Category: {category}</p>
+              <p className="text-gray-700 text-sm">Location: {location}</p>
+              <p className="text-gray-700 text-sm">Category: {category}</p>
             </motion.li>
           </ul>
         </motion.div>
