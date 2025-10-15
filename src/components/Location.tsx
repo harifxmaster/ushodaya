@@ -323,7 +323,7 @@ export default function Location() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
 
               <input
@@ -333,7 +333,7 @@ export default function Location() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
 
               <input
@@ -342,7 +342,7 @@ export default function Location() {
                 accept=".pdf,.doc,.docx"
                 onChange={handleChange}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
 
               <input
@@ -352,7 +352,7 @@ export default function Location() {
                 value={formData.location}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
 
               <input
@@ -362,12 +362,12 @@ export default function Location() {
                 value={formData.experience}
                 onChange={handleChange}
                 required
-                className="w-full border rounded-md px-3 py-2"
+                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition"
+                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition shadow-md"
               >
                 Submit Application
               </button>
