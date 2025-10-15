@@ -4,10 +4,10 @@ import { motion, Transition, Variants } from "framer-motion";
 import Image from "next/image";
 
 const partners = [
-  "/images/memss.png",
+  // "/images/memss.png",
   "/images/fX.png",
-  "/images/san.png",
-  "/images/will.png",
+  "/images/seo.png",
+  "/images/best.png",
   "/images/pixel.png",
   "/images/ush.png",
 ];
