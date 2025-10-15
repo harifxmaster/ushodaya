@@ -64,7 +64,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-blue-600 transition">How it Works</a>
+              <a href="/about" className="hover:text-blue-600 transition">How it Works</a>
             </li>
           </ul>
         </div>
@@ -73,7 +73,7 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Support</h3>
           <ul className="space-y-2 text-gray-700">
-            <li><a href="#" className="hover:text-blue-600 transition">Help</a></li>
+            <li><a href="/contact" className="hover:text-blue-600 transition">Help</a></li>
             <li><Link href="/contact" className="hover:text-blue-600 transition">Contact Us</Link></li>
           </ul>
         </div>
