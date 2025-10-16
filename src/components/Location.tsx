@@ -1,6 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabaseClient";
+import { useUploadThing } from "@/lib/uploadthing";
 import { useEffect, useState } from "react";
 
 // Job Types
@@ -129,6 +130,7 @@ const jobs: Job[] = [
 export default function Location() {
   const [selectedJob, setSelectedJob] = useState<Job>(jobs[0]);
   const [showModal, setShowModal] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
   const [formData, setFormData] = useState<{
     name: string;
     email: string;
@@ -143,14 +145,7 @@ export default function Location() {
     experience: "",
   });
 
-  // Debug: Log Supabase URL on component mount
-  useEffect(() => {
-    console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
-    console.log(
-      "Supabase Client URL:",
-      (supabase as unknown as { supabaseUrl?: string }).supabaseUrl
-    );
-  }, []);
+  const { startUpload } = useUploadThing("resumeUploader");
 
   // Handle Form Changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -166,55 +161,34 @@ export default function Location() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!formData.resume) {
+      alert("Please upload a resume before submitting.");
+      return;
+    }
+
+    // Validate file size (4MB max for UploadThing)
+    const maxSize = 4 * 1024 * 1024; // 4MB
+    if (formData.resume.size > maxSize) {
+      alert("Resume file size should be less than 4MB.");
+      return;
+    }
+
+    setIsUploading(true);
+
     try {
-      if (!formData.resume) {
-        alert("Please upload a resume before submitting.");
-        return;
+      console.log("Uploading resume to UploadThing...");
+
+      // Upload file to UploadThing
+      const uploadResult = await startUpload([formData.resume]);
+
+      if (!uploadResult || uploadResult.length === 0) {
+        throw new Error("Failed to upload resume. Please try again.");
       }
 
-      // Validate file size (5MB max)
-      const maxSize = 5 * 1024 * 1024; // 5MB
-      if (formData.resume.size > maxSize) {
-        alert("Resume file size should be less than 5MB.");
-        return;
-      }
+      const resumeUrl = uploadResult[0].url;
+      console.log("Resume uploaded successfully:", resumeUrl);
 
-      const fileExt = formData.resume.name.split(".").pop();
-      const fileName = `${Date.now()}.${fileExt}`;
-      const filePath = `${fileName}`; // Changed: removed "resumes/" prefix since bucket is already "resumes"
-
-      console.log("Uploading resume to bucket 'resumes' with path:", filePath);
-
-      // Convert File to ArrayBuffer for better cross-environment compatibility
-      const arrayBuffer = await formData.resume.arrayBuffer();
-
-      // Try to upload the file
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from("resumes")
-        .upload(filePath, arrayBuffer, {
-          cacheControl: "3600",
-          upsert: false,
-          contentType: formData.resume.type,
-        });
-
-      if (uploadError) {
-        console.error("Upload error details:", uploadError);
-        console.error("Upload error name:", uploadError.name);
-        console.error("Upload error message:", uploadError.message);
-        console.error("Upload error status:", (uploadError as { statusCode?: number }).statusCode);
-        console.error("Full error object:", JSON.stringify(uploadError, null, 2));
-        throw new Error(`Resume upload failed: ${uploadError.message || 'Unknown error'}`);
-      }
-
-      console.log("Upload successful:", uploadData);
-
-      const { data: publicUrlData } = supabase.storage
-        .from("resumes")
-        .getPublicUrl(filePath);
-
-      const resumeUrl = publicUrlData.publicUrl;
-      console.log("Resume URL:", resumeUrl);
-
+      // Save application to Supabase database
       const applicationData = {
         name: formData.name,
         email: formData.email,
@@ -254,6 +228,8 @@ export default function Location() {
       alert(
         `Failed to submit application: ${errorMessage}\n\nPlease check the console for more details.`
       );
+    } finally {
+      setIsUploading(false);
     }
   };
 
@@ -410,9 +386,10 @@ export default function Location() {
 
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition shadow-md"
+                disabled={isUploading}
+                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                Submit Application
+                {isUploading ? "Uploading..." : "Submit Application"}
               </button>
             </form>
           </div>
