@@ -201,7 +201,7 @@ export default function Location() {
         console.error("Upload error details:", uploadError);
         console.error("Upload error name:", uploadError.name);
         console.error("Upload error message:", uploadError.message);
-        console.error("Upload error status:", (uploadError as any).statusCode);
+        console.error("Upload error status:", (uploadError as { statusCode?: number }).statusCode);
         console.error("Full error object:", JSON.stringify(uploadError, null, 2));
         throw new Error(`Resume upload failed: ${uploadError.message || 'Unknown error'}`);
       }
