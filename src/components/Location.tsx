@@ -1,7 +1,7 @@
 "use client";
 
 import { supabase } from "@/lib/supabaseClient";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 // Job Types
 type JobDetails = {
@@ -146,6 +146,7 @@ export default function Location() {
   // Debug: Log Supabase URL on component mount
   useEffect(() => {
     console.log("Supabase URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
+    console.log("Supabase Client URL:", (supabase as any).supabaseUrl);
   }, []);
 
   // Handle Form Changes
@@ -236,12 +237,9 @@ export default function Location() {
         experience: "",
       });
     } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Unknown error occurred";
+      const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
       console.error("❌ Error submitting application:", errorMessage, err);
-      alert(
-        `Failed to submit application: ${errorMessage}\n\nPlease check the console for more details.`
-      );
+      alert(`Failed to submit application: ${errorMessage}\n\nPlease check the console for more details.`);
     }
   };
 
