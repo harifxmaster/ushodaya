@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-// @ts-ignore
-import "./globals.css";
+import "./globals.css"; // no @ts-expect-error needed
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -157,7 +157,6 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
   },
 };
-
 
 export default function RootLayout({
   children,
