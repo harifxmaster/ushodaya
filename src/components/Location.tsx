@@ -185,17 +185,25 @@ export default function Location() {
 
       console.log("Uploading resume to bucket 'resumes' with path:", filePath);
 
+      // Convert File to ArrayBuffer for better cross-environment compatibility
+      const arrayBuffer = await formData.resume.arrayBuffer();
+
       // Try to upload the file
       const { data: uploadData, error: uploadError } = await supabase.storage
         .from("resumes")
-        .upload(filePath, formData.resume, {
+        .upload(filePath, arrayBuffer, {
           cacheControl: "3600",
           upsert: false,
+          contentType: formData.resume.type,
         });
 
       if (uploadError) {
         console.error("Upload error details:", uploadError);
-        throw new Error(`Resume upload failed: ${uploadError.message}`);
+        console.error("Upload error name:", uploadError.name);
+        console.error("Upload error message:", uploadError.message);
+        console.error("Upload error status:", (uploadError as any).statusCode);
+        console.error("Full error object:", JSON.stringify(uploadError, null, 2));
+        throw new Error(`Resume upload failed: ${uploadError.message || 'Unknown error'}`);
       }
 
       console.log("Upload successful:", uploadData);
