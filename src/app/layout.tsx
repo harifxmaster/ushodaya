@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+// @ts-ignore
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -157,7 +158,6 @@ export const metadata: Metadata = {
   },
 };
 
-declare module "*.css";
 
 export default function RootLayout({
   children,
