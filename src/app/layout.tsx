@@ -157,6 +157,8 @@ export const metadata: Metadata = {
   },
 };
 
+declare module "*.css";
+
 export default function RootLayout({
   children,
 }: {

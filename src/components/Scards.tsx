@@ -19,7 +19,7 @@ export default function Scards() {
             priority
           />
 
-          <h2 className="text-2xl font-bold">
+          <h2 className="text-2xl font-bold" style={{ color: "#121416" }}>
             1. Design functional website fast?
           </h2>
 
@@ -65,7 +65,7 @@ export default function Scards() {
 
           {/* Categories Section */}
           <div className="border rounded-lg p-4 shadow-sm">
-            <h3 className="font-semibold mb-3 border-b pb-2">Category</h3>
+            <h3 className="font-bold mb-3 border-b pb-2">Category</h3>
             <ul className="text-sm space-y-2">
               {[
                 "Product Development",
@@ -88,7 +88,7 @@ export default function Scards() {
 
           {/* Testimonial Section */}
           <div className="border rounded-lg p-4 shadow-sm text-center border-blue-500">
-            <p className="italic text-sm mb-4">
+            <p className="italic text-sm mb-4" style={{ color: "#000" }}>
               &quot;You made it so simple. My new site is so much faster & easier to work&quot;
             </p>
             <div className="flex items-center justify-center gap-2 mb-2">
@@ -99,7 +99,9 @@ export default function Scards() {
                 height={32}
                 className="rounded-full"
               />
-              <span className="text-sm font-semibold">Arianna Craigg</span>
+              <span className="text-sm font-semibold" style={{ color: "#000" }}>
+                Arianna Craigg
+              </span>
             </div>
             <div className="flex justify-center space-x-2">
               <div className="w-3 h-3 rounded-full bg-blue-700" />

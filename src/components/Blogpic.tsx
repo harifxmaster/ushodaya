@@ -37,7 +37,10 @@ export default function Blogpic(): JSX.Element {
       <div className="w-full mx-auto px-6 md:px-8 relative text-center">
         {/* Heading */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-20">
-          <h1 className="text-2xl md:text-4xl font-extrabold leading-tight">
+          <h1
+            className="text-2xl md:text-4xl font-extrabold leading-tight"
+            style={{ color: "#121416" }}
+          >
             Insights, News &amp; Articles by{" "}
             <span className="font-serif">WT Softech</span>
           </h1>
@@ -75,15 +78,16 @@ export default function Blogpic(): JSX.Element {
 
             {/* Category Dropdown */}
             <div className="mt-5 flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-8">
+              <label htmlFor="category-select" className="sr-only">
+                Select blog category
+              </label>
               <select
+                id="category-select"
                 className="w-full sm:w-60 rounded-md border border-gray-200 px-4 py-2 bg-white"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
+                aria-label="Select blog category"
               >
-                {/* <option value="All">Search any category</option>
-                <option value="Technology">Technology</option>
-                <option value="Business">Business</option>
-                <option value="Design">Design</option> */}
                 <option value="Future of Work">Future of Work</option>
               </select>
             </div>
