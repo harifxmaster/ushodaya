@@ -15,5 +15,10 @@ export const supabase = createClient(
       persistSession: true,
       autoRefreshToken: true,
     },
+    global: {
+      headers: {
+        'x-client-info': 'supabase-js-web',
+      },
+    },
   }
 );
