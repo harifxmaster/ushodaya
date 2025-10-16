@@ -33,7 +33,7 @@ const fadeInUp: Variants = {
 export default function Wave2() {
   return (
     <motion.div
-      className="min-w-full flex flex-col items-center justify-start text-center bg-gradient-to-b from-white to-gray-100 relative px-4 pt-20 pb-10 overflow-hidden"
+      className="min-w-full flex flex-col items-center justify-start text-center bg-white relative px-4 pt-20 pb-10 overflow-hidden"
       initial="hidden"
       animate="show"
       variants={fadeInUp}

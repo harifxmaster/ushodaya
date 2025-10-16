@@ -32,8 +32,8 @@ const fadeInUp: Variants = {
 
 export default function Wave() {
   return (
-    <main>
-      <section className="relative flex flex-col items-center text-center py-20 sm:py-28 md:py-40 px-4 overflow-hidden">
+    <main className="bg-white">
+      <section className="relative flex flex-col items-center text-center py-20 sm:py-28 md:py-40 px-4 overflow-hidden bg-white">
         {/* Left Floating Wave */}
         <motion.div
           className="absolute left-4 top-16 sm:left-10 sm:top-28 md:left-20 md:top-40"
