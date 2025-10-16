@@ -202,8 +202,7 @@ export default function Location() {
 
       const { data: insertData, error: insertError } = await supabase
         .from("applications")
-        .insert([applicationData])
-        .select();
+        .insert([applicationData]);
 
       if (insertError) {
         console.error("Insert error details:", insertError);
