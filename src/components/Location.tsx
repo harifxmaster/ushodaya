@@ -1,8 +1,7 @@
 "use client";
 
-import { supabase } from "@/lib/supabaseClient";
 import { useUploadThing } from "@/lib/uploadthing";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 // Job Types
 type JobDetails = {
@@ -188,7 +187,7 @@ export default function Location() {
       const resumeUrl = uploadResult[0].url;
       console.log("Resume uploaded successfully:", resumeUrl);
 
-      // Save application to Supabase database
+      // Save application to MongoDB via API
       const applicationData = {
         name: formData.name,
         email: formData.email,
@@ -198,18 +197,23 @@ export default function Location() {
         resume_url: resumeUrl,
       };
 
-      console.log("Inserting application:", applicationData);
+      console.log("Submitting application:", applicationData);
 
-      const { data: insertData, error: insertError } = await supabase
-        .from("applications")
-        .insert([applicationData]);
+      const response = await fetch("/api/applications", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(applicationData),
+      });
 
-      if (insertError) {
-        console.error("Insert error details:", insertError);
-        throw new Error(`Database insert failed: ${insertError.message}`);
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.error || "Failed to submit application");
       }
 
-      console.log("Application inserted successfully:", insertData);
+      console.log("Application submitted successfully:", result.data);
       alert(`✅ Application submitted successfully for ${selectedJob.title}!`);
 
       setShowModal(false);
