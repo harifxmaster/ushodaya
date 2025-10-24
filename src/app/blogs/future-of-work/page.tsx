@@ -16,7 +16,7 @@ export default function BlogsPage(){
   return(
     <>
     <Card />
-    <Cards />
+    {/* <Cards />
     <Table />
     <Para />
     <Paraa />
@@ -24,7 +24,7 @@ export default function BlogsPage(){
     <Lorem />
     <Sub />
     <Threecards />
-    <Footer />
+    <Footer /> */}
 
     </>
   )
