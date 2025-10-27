@@ -4,10 +4,8 @@ import { motion, Transition, Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-// TypeScript-friendly transition
 const transition: Transition = { duration: 0.7, ease: [0.42, 0, 0.58, 1] };
 
-// Variants for text and cards
 const textVariants: Variants = {
   hidden: { opacity: 0, x: -50 },
   visible: { opacity: 1, x: 0, transition },
@@ -23,29 +21,38 @@ const cardVariants: Variants = {
   visible: { opacity: 1, y: 0, scale: 1, transition },
 };
 
+// ✅ Define type for cards
+interface Card {
+  color: string;
+  title: string;
+  text: string;
+  iconColor: string;
+  iconImage?: string;
+  svgPath?: string; // <-- optional property added
+}
+
 export default function Hero() {
-  const cards = [
+  const cards: Card[] = [
     {
       color: "from-blue-100 to-blue-50",
       title: "Data-Backed Growth",
       text: "Our experts analyse data and use real numbers to boost yours.",
       iconColor: "text-blue-600",
-      svgPath:
-        "M8.25 7.5V6a1.5 1.5 0 011.5-1.5h4.5A1.5 1.5 0 0115.75 6v1.5m-9 0h10.5",
+      iconImage: "/icons/data.png",
     },
     {
       color: "from-purple-100 to-purple-50",
       title: "Real Results at a Realistic Pace",
       text: "We don’t provide any timeline for results. We focus on our work and results just follow!",
       iconColor: "text-purple-600",
-      svgPath: "M3 3v18h18M9 17V9m4 8V5m4 12v-6",
+      iconImage: "/icons/real.png",
     },
     {
       color: "from-blue-700 to-blue-500 text-white",
       title: "Strength & Security",
       text: "Our IT solutions solidify your foundation and offer unparalleled security for sensitive information.",
       iconColor: "text-white",
-      svgPath: "M19.5 14.25v6m-3-3h6M4.5 6.75V21h9.75m-6-6.75H15M15 6h.008v.008H15V6z",
+      iconImage: "/icons/strength.png",
     },
   ];
 
@@ -86,7 +93,6 @@ export default function Hero() {
             className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4"
             variants={buttonVariants}
           >
-            {/* Get Quote button -> Contact page */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
@@ -96,7 +102,6 @@ export default function Hero() {
               </Link>
             </motion.div>
 
-            {/* Learn More button -> About Us page */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/about"
@@ -121,20 +126,45 @@ export default function Hero() {
             transition={{ ...transition, delay: index * 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className={`mb-4 flex justify-center md:justify-start ${card.iconColor}`}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-10 h-10"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d={card.svgPath} />
-              </svg>
+            <div
+              className={`mb-4 flex justify-center md:justify-start ${card.iconColor}`}
+            >
+              {card.iconImage ? (
+                <Image
+                  src={card.iconImage}
+                  alt={card.title}
+                  width={48}
+                  height={48}
+                  className="w-12 h-12 object-contain"
+                />
+              ) : (
+                card.svgPath && (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-10 h-10"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={card.svgPath}
+                    />
+                  </svg>
+                )
+              )}
             </div>
+
             <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-            <p className={card.color.includes("text-white") ? "text-white" : "text-gray-700"}>
+            <p
+              className={
+                card.color.includes("text-white")
+                  ? "text-white"
+                  : "text-gray-700"
+              }
+            >
               {card.text}
             </p>
           </motion.div>

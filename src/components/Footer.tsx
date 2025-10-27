@@ -9,9 +9,9 @@ export default function Footer() {
     <footer className="bg-white border-t">
 
       {/* Top Section */}
-      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
 
-        {/* Logo & Social */}
+        {/* Logo & Address */}
         <div>
           <div className="mb-4 flex justify-center md:justify-start">
             <Image
@@ -23,10 +23,9 @@ export default function Footer() {
             />
           </div>
 
-          {/* <p className="font-semibold mb-3 text-blue-500">Follow Us</p> */}
-
-          {/* Social Icons Section - Commented Out */}
+          {/* Social Icons (Optional) */}
           {/*
+          <p className="font-semibold mb-3 text-blue-500">Follow Us</p>
           <div className="flex justify-center md:justify-start gap-4 mb-6 text-xl">
             <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-blue-600 transition">
               <FaInstagram />
@@ -48,33 +47,48 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Products */}
+        {/* Company Section */}
         <div>
-          <h3 className="text-lg font-bold text-blue-900 mb-3">Products</h3>
+          <h3 className="text-lg font-bold text-blue-900 mb-3">Company</h3>
           <ul className="space-y-2 text-gray-700">
             <li>
-              {/* Internal navigation using Link */}
-              <Link href="/contact" className="hover:text-blue-600 transition">
-                Send Money to India
-              </Link>
+              <Link href="/services" className="hover:text-blue-600 transition">Services</Link>
             </li>
             <li>
-              <a href="https://www.calculator.net/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 transition">
-                Calculator
-              </a>
+              <Link href="/about" className="hover:text-blue-600 transition">About Us</Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-blue-600 transition">How it Works</a>
+              <Link href="/career" className="hover:text-blue-600 transition">Careers</Link>
             </li>
           </ul>
         </div>
 
-        {/* Support */}
+        {/* Support Section */}
         <div>
           <h3 className="text-lg font-bold text-blue-900 mb-3">Support</h3>
           <ul className="space-y-2 text-gray-700">
-            <li><a href="/contact" className="hover:text-blue-600 transition">Help</a></li>
-            <li><Link href="/contact" className="hover:text-blue-600 transition">Contact Us</Link></li>
+            <li>
+              <Link href="/contact" className="hover:text-blue-600 transition">Contact Us</Link>
+            </li>
+            <li>
+              <Link href="/Faqs" className="hover:text-blue-600 transition">FAQs</Link>
+            </li>
+            <li>
+              <Link href="/contact" className="hover:text-blue-600 transition">Help Center</Link>
+            </li>
+          </ul>
+        </div>
+
+       
+        <div>
+          <h3 className="text-lg font-bold text-blue-900 mb-3">Legal</h3>
+          <ul className="space-y-2 text-gray-700">
+            <li>
+              <Link href="/privacy" className="hover:text-blue-600 transition">Privacy Policy</Link>
+            </li>
+            <li>
+              <Link href="/terms" className="hover:text-blue-600 transition">Terms and Conditions</Link>
+            </li>
           </ul>
         </div>
 
