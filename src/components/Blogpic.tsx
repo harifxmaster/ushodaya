@@ -17,7 +17,7 @@ export default function Blogpic(): JSX.Element {
     const query = searchQuery.trim().toLowerCase();
 
     // Directly navigate to the "Future of Work" blog page
-    if (query === "future of work") {
+    if (query === "It services") {
       router.push("/blogs/future-of-work");
       return;
     }
@@ -88,7 +88,17 @@ export default function Blogpic(): JSX.Element {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 aria-label="Select blog category"
               >
-                <option value="Future of Work">Future of Work</option>
+                {/* <option value="All">Search any category</option>
+                <option value="Technology">Technology</option>
+                <option value="Business">Business</option>
+                <option value="Design">Design</option> */}
+                <option value="Future of Work">It consulting</option>
+                <option value="Future of Work">It services</option>
+                <option value="Future of Work">Digital marketing</option>
+                <option value="Future of Work">product development</option>
+                <option value="Future of Work">Software testing</option>
+
+
               </select>
             </div>
           </div>

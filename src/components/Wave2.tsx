@@ -33,7 +33,7 @@ const fadeInUp: Variants = {
 export default function Wave2() {
   return (
     <motion.div
-      className="min-w-full flex flex-col items-center justify-start text-center bg-white relative px-4 pt-20 pb-10 overflow-hidden"
+      className="min-w-full flex flex-col items-center justify-start text-center bg-transparent relative px-4 pt-20 pb-10 overflow-hidden"
       initial="hidden"
       animate="show"
       variants={fadeInUp}
@@ -69,7 +69,7 @@ export default function Wave2() {
 
       {/* Left floating wave */}
       <motion.div
-        className="absolute left-4 top-2/4 transform -translate-y-1/2"
+        className="absolute left-3 top-2/4 transform -translate-y-1/2"
         variants={floatingWave}
         initial="initial"
         animate="animate"
@@ -84,7 +84,7 @@ export default function Wave2() {
 
       {/* Right floating wave */}
       <motion.div
-        className="absolute right-4 top-2/4 transform -translate-y-1/2"
+        className="absolute right-0.5 top-2/4 transform -translate-y-1/2"
         variants={floatingWave}
         initial="initial"
         animate="animate"

@@ -40,7 +40,7 @@ export default function Drop() {
             We <span className="underline decoration-blue-600">Recognise</span>, Realise & <br />
             Render Results That <br /> Speak Volumes
           </h2>
-          <p className="text-gray-600 mt-6 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
+          <p className="text-gray-800 mt-6 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
             Our motto is simple! We let our work speak for the worth we can add to your business.
             We are quite straightforward in our dealings – understanding your needs, conducting heavy
             discussions, offering inputs, and starting work with zeal and commitment.

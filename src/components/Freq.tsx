@@ -7,27 +7,33 @@ import { FaChevronRight } from "react-icons/fa";
 const faqs = [
   {
     question: "What industries do you develop products for?",
-    answer: "We develop products for multiple industries including healthcare, finance, retail, and more. Our solutions are highly customizable."
+    answer:
+      "We develop products for multiple industries including healthcare, finance, retail, and more. Our solutions are highly customizable.",
   },
   {
     question: "How long does product development take?",
-    answer: "The timeline varies depending on project complexity, but typically ranges from 3 to 6 months for a full product."
+    answer:
+      "The timeline varies depending on project complexity, but typically ranges from 3 to 6 months for a full product.",
   },
   {
     question: "Can you help with scaling after the launch?",
-    answer: "Absolutely! We provide ongoing support, scaling strategies, and infrastructure optimization after your product is live."
+    answer:
+      "Absolutely! We provide ongoing support, scaling strategies, and infrastructure optimization after your product is live.",
   },
   {
     question: "Do you offer prototypes before full development?",
-    answer: "Yes, we build clickable prototypes so you can validate the idea before investing in full development."
+    answer:
+      "Yes, we build clickable prototypes so you can validate the idea before investing in full development.",
   },
   {
     question: "What technologies do you use?",
-    answer: "We use modern technologies like React, Next.js, Node.js, NestJS, and cloud services like AWS and Supabase."
+    answer:
+      "We use modern technologies like React, Next.js, Node.js, NestJS, and cloud services like AWS and Supabase.",
   },
   {
     question: "What types of testing do you offer?",
-    answer: "We conduct unit, integration, performance, and security testing to ensure top-notch quality."
+    answer:
+      "We conduct unit, integration, performance, and security testing to ensure top-notch quality.",
   },
 ];
 
@@ -36,7 +42,7 @@ const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15, // staggered reveal
+      staggerChildren: 0.15,
     },
   },
 };
@@ -61,9 +67,9 @@ export default function F() {
   };
 
   return (
-    <div className="bg-gray-100 py-10 px-4">
+    <div className="py-10 px-4">
       <motion.div
-        className="max-w-4xl mx-auto border border-blue-500 rounded-lg p-6 bg-white shadow-lg"
+        className="max-w-4xl mx-auto rounded-lg p-6 bg-white shadow-lg"
         initial="hidden"
         animate="show"
         variants={containerVariants}
@@ -81,7 +87,7 @@ export default function F() {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-gray-50 rounded-lg overflow-hidden shadow-sm cursor-pointer"
+              className="bg-white rounded-lg overflow-hidden shadow-sm cursor-pointer border border-gray-200"
               variants={itemVariants}
               onClick={() => toggleFAQ(index)}
               whileHover={{ scale: 1.02 }}
@@ -103,7 +109,7 @@ export default function F() {
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
-                    className="px-4 pb-3 text-sm text-gray-700 bg-gray-50"
+                    className="px-4 pb-3 text-sm text-gray-700 bg-white"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}

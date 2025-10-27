@@ -44,7 +44,7 @@ export default function Choose() {
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-4">
             Why Choose Us
           </h2>
-          <p className="text-gray-600 mb-6">
+          <p className="text-gray-800 mb-6">
             The value and expertise we bring cannot be found anywhere. For the
             ultimate digital impression and IT growth, you need to contact us.
           </p>
@@ -90,7 +90,7 @@ export default function Choose() {
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
                 }
-                className="w-full flex items-center justify-between text-left text-gray-700 font-medium focus:outline-none"
+                className="w-full flex items-center justify-between text-left text-gray-800 font-medium focus:outline-none"
               >
                 {item.title}
                 <motion.span

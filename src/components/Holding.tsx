@@ -17,7 +17,7 @@ export default function HoldingPage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <h1 className="text-3xl text-gray-700 sm:text-4xl md:text-5xl font-bold leading-snug">
+            <h1 className="text-3xl text-gray-900 sm:text-4xl md:text-5xl font-bold leading-snug">
               Holding The Reins To <br />
               Your Success{" "}
               <span className="text-blue-600">
@@ -36,7 +36,7 @@ export default function HoldingPage() {
           >
             <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
 
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
               WT Softech is where innovation meets technology! We’re a passionate
               team of problem-solvers, who help businesses thrive with
               cutting-edge IT solutions. From product development and software

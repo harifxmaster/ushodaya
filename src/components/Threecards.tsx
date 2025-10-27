@@ -9,12 +9,12 @@ import { Suspense, useEffect, useState } from "react";
 const blogs = [
   {
     slug: "future-of-work",
-    title: "Future of Work",
-    description: "Majority of people will work in jobs that don’t exist today.",
-    author: "Lina Hicks",
+    title: "Top 5 IT Trends Transforming Businesses in 2025.",
+    // description: "Majority of people will work in jobs that don’t exist today.",
+    author: "Sakshi",
     role: "Verified Author",
-    date: "02 May",
-    img: "/images/c3.png",
+    date: "23 october",
+    img: "/images/top1.jpg",
     avatar: "/images/Bigp1.png",
   },
   // Uncomment or add more blogs here
@@ -86,8 +86,8 @@ function BlogCardsContent() {
 
                 {/* Blog Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                  <h3 className="text-xl font-semibold">{blog.title}</h3>
-                  <p className="text-sm text-white/90 mb-3">{blog.description}</p>
+                  <h3 className="text-xl p-17 font-semibold">{blog.title}</h3>
+                  {/* <p className="text-sm text-white/90 mb-3">{blog.description}</p> */}
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center">
@@ -122,6 +122,6 @@ export default function ThreeCardsPage() {
       <Suspense fallback={<p className="text-center py-10">Loading blogs...</p>}>
         <BlogCardsContent />
       </Suspense>
-    </main>
+    </main>   
   );
 }

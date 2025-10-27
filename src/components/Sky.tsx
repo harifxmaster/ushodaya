@@ -53,7 +53,7 @@ export default function Sky() {
                   Our Vision
                 </h3>
 
-                <p className="text-gray-600 text-xl md:text-[15px] leading-7">
+                <p className="text-gray-800 text-[18px] md:text-[18px] leading-7">
                   Our vision is to be a global leader in technology-driven transformation.
                   The way businesses operate and grow needs a radical transformation, which we power.
                   We aim to create a future where innovation, collaboration, and smart solutions

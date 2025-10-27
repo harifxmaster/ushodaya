@@ -31,7 +31,7 @@ export default function Vision() {
             visible: { opacity: 1, y: 0 },
           }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-gray-600 text-base md:text-lg leading-relaxed"
+          className="text-gray-800 text-base md:text-lg leading-relaxed"
         >
           At WT Softech, innovation isn’t just a goal—it’s our foundation. Since our inception,
           we’ve been empowering businesses with smart, tailored solutions that drive real results.

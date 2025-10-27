@@ -72,32 +72,31 @@ export default function Ready() {
         </motion.h2>
 
         {/* Subheading */}
-        <motion.p
-          className="text-gray-200 mb-8"
-          variants={fadeInUp}
-        >
-          Get in touch with our team and let&apos;s generate ideas and execute plans
-          for your ultimate transformation.
+        <motion.p className="text-gray-200 mb-8" variants={fadeInUp}>
+          Get in touch with our team and let&apos;s generate ideas and execute
+          plans for your ultimate transformation.
         </motion.p>
 
         {/* Buttons */}
         <motion.div
-          className="flex justify-center gap-4 flex-wrap"
+          className="flex justify-center flex-wrap gap-6 md:gap-8" // ✅ Ensures spacing between buttons at all widths
           variants={fadeInUp}
         >
+          {/* Contact Us Button */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/contact"
-              className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition"
+              className="bg-white text-blue-900 font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition inline-block"
             >
               Contact Us
             </Link>
           </motion.div>
 
+          {/* Get Consultation Button */}
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
               href="/contact"
-              className="border border-white px-6 py-3 rounded-md hover:bg-white hover:text-blue-900 transition"
+              className="border border-white px-6 py-3 rounded-md hover:bg-white hover:text-blue-900 transition inline-block"
             >
               Get Your Free Consultation
             </Link>
