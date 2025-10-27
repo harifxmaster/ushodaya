@@ -11,7 +11,7 @@ export default function Mission() {
       <motion.div
         initial={{ opacity: 0, x: 100 }} // start from right
         whileInView={{ opacity: 1, x: 0 }} // move to original position
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
         viewport={{ once: true, amount: 0.2 }}
       >
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-600 mb-6">
@@ -34,17 +34,18 @@ export default function Mission() {
 
       {/* Image - Slides from Left */}
       <motion.div
-        className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] rounded-lg overflow-hidden"
+        className="relative w-full h-[300px] sm:h-[400px] md:h-[450px] rounded-xl overflow-hidden bg-white"
         initial={{ opacity: 0, x: -100 }} // start from left
         whileInView={{ opacity: 1, x: 0 }} // move to original position
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         viewport={{ once: true, amount: 0.2 }}
       >
         <Image
           src="/images/Meet.png"
           alt="Mission Image"
           fill
-          className="object-cover rounded-lg"
+          className="object-cover object-center rounded-xl"
+          sizes="(max-width: 768px) 100vw, 50vw"
           priority
         />
       </motion.div>

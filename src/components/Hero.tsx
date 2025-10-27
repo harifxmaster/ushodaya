@@ -68,25 +68,23 @@ export default function Hero() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-white/60 to-transparent"></div>
       </div>
 
       {/* Hero Text & Buttons */}
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
         <motion.div
-          className="z-10 flex flex-col justify-center text-center md:text-left"
+          className="flex flex-col justify-center text-center md:text-left"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={textVariants}
         >
-          <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#252B42] leading-tight">
             Holistic Growth <br className="hidden md:block" /> for Your Business
           </h1>
-          <p className="mt-4 text-gray-700 text-base md:text-lg">
-            We are the leading full-service digital marketing and IT solutions
-            company in the market. From small-scale to large-scale firms, we’re
-            adept at helping you grow.
+          <p className="mt-4 text-gray-700 text-base sm:text-lg md:text-lg">
+            We are the leading full-service digital marketing and IT solutions company. From small-scale to large-scale firms, we help you grow.
           </p>
 
           <motion.div
@@ -96,7 +94,7 @@ export default function Hero() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition inline-block text-center"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
               >
                 Get Quote Now
               </Link>
@@ -105,7 +103,7 @@ export default function Hero() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/about"
-                className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition inline-block text-center"
+                className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition"
               >
                 Learn More
               </Link>

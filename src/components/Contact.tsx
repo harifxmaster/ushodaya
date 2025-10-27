@@ -104,6 +104,8 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
+                placeholder="Enter your name"
+                title="Name"
               />
             </motion.div>
 
@@ -120,6 +122,8 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
+                placeholder="Enter your email"
+                title="Email"
               />
             </motion.div>
 
@@ -135,6 +139,8 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
+                placeholder="Enter your message"
+                title="Message"
               ></textarea>
             </motion.div>
 
