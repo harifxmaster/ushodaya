@@ -2,94 +2,107 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { useState } from "react";
 
-// Dummy blog data
 const blogs = [
   {
     slug: "future-of-work",
     title: "Top 5 IT Trends Transforming Businesses in 2025.",
-    // description: "Majority of people will work in jobs that don’t exist today.",
     author: "Sakshi",
     role: "Verified Author",
-    date: "23 october",
+    date: "23 October",
     img: "/images/top1.jpg",
     avatar: "/images/Bigp1.png",
+    category: "IT Services",
   },
-  // Uncomment or add more blogs here
-  // {
-  //   slug: "future-of-data",
-  //   title: "Future of Data",
-  //   description: "Thanks to never-ending piles of data & the amount of insight.",
-  //   author: "Tyler Murray",
-  //   role: "Verified Author",
-  //   date: "02 May",
-  //   img: "/images/c2.png",
-  //   avatar: "/images/Bigp2.png",
-  // },
-  // {
-  //   slug: "future-of-learning",
-  //   title: "Future of Learning",
-  //   description: "A constant ability to learn will be one the most crucial skills.",
-  //   author: "Warren Casey",
-  //   role: "Verified Author",
-  //   date: "02 May",
-  //   img: "/images/vrcamera.png",
-  //   avatar: "/images/Bigp3.png",
-  // },
+  {
+    slug: "it-consulting",
+    title: "Tech Stacks Audit: Asset or Legacy Trap",
+    description:
+      "Audit, modernise, and optimise your tech stack to boost performance with expert IT consulting services.",
+    author: "Sakshi",
+    role: "Verified Author",
+    date: "28 October",
+    img: "/images/a2.jpg",
+    avatar: "/images/Bigp1.png",
+    category: "IT Consulting",
+  },
+  // ✅ Add more blogs later under other categories
 ];
 
-// Component that uses useSearchParams
-function BlogCardsContent() {
-  const searchParams = useSearchParams();
-  const [filteredBlogs, setFilteredBlogs] = useState<typeof blogs>([]);
+const categories = [
+  "All",
+  "IT Consulting",
+  "IT Services",
+  "Product Development",
+  "Digital Marketing",
+  "Staffing Solutions",
+];
 
-  useEffect(() => {
-    const search = searchParams.get("search")?.toLowerCase() || "";
-    const category = searchParams.get("category")?.toLowerCase() || "";
+export default function BlogTabsPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
 
-    const results = blogs.filter((blog) => {
-      const titleMatch = blog.title.toLowerCase().includes(search);
-      const categoryMatch = !category || blog.title.toLowerCase().includes(category);
-      return titleMatch && categoryMatch;
-    });
-
-    setFilteredBlogs(results);
-  }, [searchParams]);
+  // ✅ Filter blogs by active category
+  const filteredBlogs =
+    activeCategory === "All"
+      ? blogs
+      : blogs.filter(
+          (blog) =>
+            blog.category.toLowerCase() === activeCategory.toLowerCase()
+        );
 
   return (
-    <section className="w-full bg-white py-12 md:py-16">
+    <main className="bg-white w-full pt-10 md:pt-14">
       <div className="mx-auto w-full max-w-[1180px] px-4 md:px-6">
-        <h2 className="text-[24px] font-bold text-[#1A3C8C] mb-6">Search Results</h2>
+        {/* ✅ Category Tabs */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-3 mb-10">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2.5 rounded-full text-sm md:text-base font-medium transition-all duration-300
+                ${
+                  activeCategory === category
+                    ? "bg-[#1A3C8C] text-white shadow-md"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+            >
+              {category}
+            </button>
+            ))}
+          </div>
 
+        {/* ✅ Section Title */}
+        <h2 className="text-[24px] font-bold text-[#1A3C8C] mb-6">
+          {activeCategory === "All"
+            ? "All Blogs"
+            : `${activeCategory} Blogs`}
+        </h2>
+
+        {/* ✅ Blog Cards */}
         {filteredBlogs.length === 0 ? (
-          <p className="text-gray-500 text-center text-lg">No blogs present</p>
+          <p className="text-gray-500 text-center text-lg mb-0 pb-0">
+            Thank you for your patience! We’re updating this article soon check
+          check back later. 🙏
+          </p>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 mb-0 pb-0">
             {filteredBlogs.map((blog) => (
               <Link
                 key={blog.slug}
                 href={`/blogs/${blog.slug}`}
                 className="group relative isolate overflow-hidden rounded-2xl shadow-lg h-[360px] ring-1 ring-black/5 transition hover:shadow-xl"
               >
-                {/* Blog Image */}
                 <Image
                   src={blog.img}
                   alt={blog.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                 />
-
-                {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-
-                {/* Blog Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                  <h3 className="text-xl p-17 font-semibold">{blog.title}</h3>
-                  {/* <p className="text-sm text-white/90 mb-3">{blog.description}</p> */}
-
-                  <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{blog.title}</h3>
+                  <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center">
                       <Image
                         src={blog.avatar}
@@ -111,17 +124,6 @@ function BlogCardsContent() {
           </div>
         )}
       </div>
-    </section>
-  );
-}
-
-// Final export wrapped with Suspense
-export default function ThreeCardsPage() {
-  return (
-    <main>
-      <Suspense fallback={<p className="text-center py-10">Loading blogs...</p>}>
-        <BlogCardsContent />
-      </Suspense>
-    </main>   
+    </main>
   );
 }

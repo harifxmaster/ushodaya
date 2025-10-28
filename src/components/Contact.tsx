@@ -96,13 +96,15 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700">Name</label>
+              <label className="block mb-2 text-gray-700 font-medium">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border-2 border-blue-900 rounded-lg p-3 text-gray-900 placeholder-gray-600 md:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
                 placeholder="Enter your name"
                 title="Name"
@@ -114,13 +116,15 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700">Email</label>
+              <label className="block mb-2 text-gray-700 font-medium">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border-2 border-blue-900 rounded-lg p-3 text-gray-900 placeholder-gray-600 md:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
                 placeholder="Enter your email"
                 title="Email"
@@ -132,15 +136,18 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700">Message</label>
+              <label className="block mb-2 text-gray-700 font-medium">
+                Message
+              </label>
               <textarea
                 name="message"
                 value={form.message}
                 onChange={handleChange}
-                className="w-full border-2 border-blue-900 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                className="w-full border-2 border-blue-900 rounded-lg p-3 text-gray-900 placeholder-gray-600 md:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                 required
                 placeholder="Enter your message"
                 title="Message"
+                rows={5}
               ></textarea>
             </motion.div>
 
@@ -195,7 +202,7 @@ export default function Contact() {
                 href="tel:+203440403030"
                 className="hover:text-blue-600 transition-colors"
               >
-               
+
               </Link>
             </motion.p>
 
@@ -223,7 +230,6 @@ export default function Contact() {
         transition={{ type: "spring", stiffness: 150, damping: 12 }}
         suppressHydrationWarning
       >
-       
         <div className="relative w-full h-[450px]">
           <iframe
             title="Company Location Map"
@@ -236,10 +242,8 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
 
-          
           <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent pointer-events-none"></div>
 
-          
           <motion.div
             className="absolute bottom-6 left-6 bg-white/80 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg"
             initial={{ opacity: 0, y: 20 }}
@@ -250,7 +254,7 @@ export default function Contact() {
               📍 WTSoftech Pvt. Ltd.
             </h3>
             <p className="text-gray-700 text-sm">
-              Plot No.172, First Floor, Kavuri Hills (Phase II),Madhapur,
+              Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur,
               Hyderabad, 500081
             </p>
           </motion.div>

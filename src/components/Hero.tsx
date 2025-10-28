@@ -84,11 +84,12 @@ export default function Hero() {
             Holistic Growth <br className="hidden md:block" /> for Your Business
           </h1>
           <p className="mt-4 text-gray-700 text-base sm:text-lg md:text-lg">
-            We are the leading full-service digital marketing and IT solutions company. From small-scale to large-scale firms, we help you grow.
+            We are the leading full-service digital marketing and IT solutions
+            company. From small-scale to large-scale firms, we help you grow.
           </p>
 
           <motion.div
-            className="mt-6 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-4"
+            className="mt-9 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-9"
             variants={buttonVariants}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -155,12 +156,20 @@ export default function Hero() {
               )}
             </div>
 
-            <h3 className="text-xl font-bold mb-2">{card.title}</h3>
+            <h3
+              className={`text-xl font-bold mb-2 ${
+                card.color.includes("text-white")
+                  ? "text-white"
+                  : "text-gray-900"
+              }`}
+            >
+              {card.title}
+            </h3>
             <p
               className={
                 card.color.includes("text-white")
-                  ? "text-white"
-                  : "text-gray-700"
+                  ? "text-white/90"
+                  : "text-gray-800"
               }
             >
               {card.text}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 interface FAQ {
   question: string;
@@ -13,7 +13,7 @@ const FAQSection = ({ faqs }: { faqs: FAQ[] }) => {
   return (
     <div className="space-y-4 mt-6">
       {faqs.map((faq, index) => (
-        <div key={index} className="border-b pb-3">
+        <div key={index} className="border-b pb-3 bg-white">
           <button
             onClick={() => setOpenIndex(openIndex === index ? null : index)}
             className="flex justify-between items-center w-full text-left"
@@ -34,7 +34,7 @@ const FAQSection = ({ faqs }: { faqs: FAQ[] }) => {
 
 export default function ServicesPage() {
   return (
-    <div className="bg-transparent text-gray-800">
+    <div className="bg-white text-gray-800 min-h-screen">
       {/* Page Header */}
       <section className="text-center py-16 bg-white border-b">
         <h1 className="text-4xl font-bold text-gray-900">Our Services</h1>
@@ -43,9 +43,9 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-20">
+      <main className="max-w-5xl mx-auto px-6 py-12 space-y-20 bg-white">
         {/* Product Development */}
-        <section id="product-development">
+        <section id="product-development" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Product Development
           </h2>
@@ -93,7 +93,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Software Testing */}
-        <section id="software-testing">
+        <section id="software-testing" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Software Testing
           </h2>
@@ -148,7 +148,7 @@ export default function ServicesPage() {
         </section>
 
         {/* IT Consulting */}
-        <section id="it-consulting">
+        <section id="it-consulting" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             IT Consulting
           </h2>
@@ -203,7 +203,7 @@ export default function ServicesPage() {
         </section>
 
         {/* IT Services */}
-        <section id="it-services">
+        <section id="it-services" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">IT Services</h2>
           <p className="text-gray-700">
             Tech should work for you, not against you. Whether it’s cloud
@@ -254,7 +254,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Staffing Solutions */}
-        <section id="staffing-solutions">
+        <section id="staffing-solutions" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Staffing Solutions
           </h2>
@@ -307,7 +307,7 @@ export default function ServicesPage() {
         </section>
 
         {/* Digital Marketing */}
-        <section id="digital-marketing">
+        <section id="digital-marketing" className="bg-white">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
             Digital Marketing
           </h2>
