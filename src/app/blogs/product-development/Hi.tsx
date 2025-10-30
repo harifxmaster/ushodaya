@@ -123,7 +123,7 @@ export default function GenerativeAIConsultingPage() {
 
         <p className="text-gray-600 leading-relaxed">
           In a world where every firm is increasingly AI-driven, those who build
-          generative AI today will define tomorrow's competitive edge — one in
+          generative AI today will define tomorrows competitive edge — one in
           which human inventiveness and machine intelligence collaborate to
           create the future.
         </p>
