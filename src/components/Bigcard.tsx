@@ -24,7 +24,7 @@ const ARTICLES: Article[] = [
     title: "IT Services",
     slug: "future-of-work",
     image: "/images/a1.jpg",
-    author: "sakshi",
+    author: "Sakshi",
     avatar: "/images/Bigp1.png",
     date: "23 October",
     featured: true,
@@ -57,7 +57,7 @@ const ARTICLES: Article[] = [
     avatar: "/images/Bigp2.png",
     date: "02 May",
   },
-    {
+  {
     id: 5,
     title: "Software Testing",
     slug: "software-testing",
@@ -97,7 +97,12 @@ export default function ArticlesSection(): JSX.Element {
 
   // ✅ Handle Clicks
   const handleRedirect = (slug: string) => {
-    if (slug === "future-of-work" || slug === "it-consulting") {
+    if (
+      slug === "future-of-work" ||
+      slug === "it-consulting" ||
+      slug === "software-testing"||
+      slug === "product-development"
+    ) {
       router.push(`/blogs/${slug}`);
     } else {
       setShowMessage(true);
@@ -230,34 +235,6 @@ export default function ArticlesSection(): JSX.Element {
             ))}
           </div>
         </div>
-
-        {/* ✅ More Articles Button */}
-        {/* <motion.div
-          className="mt-10 flex justify-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={buttonVariants}
-        >
-          <motion.button
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-600 text-blue-600 hover:bg-blue-50 transition"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => router.push("/blogs")}
-          >
-            More articles
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </motion.button>
-        </motion.div> */}
       </div>
 
       {/* ✅ Popup Message */}

@@ -37,7 +37,7 @@ export default function Drop() {
           variants={textVariants}
         >
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-snug text-gray-900">
-            We <span className="underline decoration-blue-600">Recognise</span>, Realise & <br />
+            We <span className="underline decoration-blue-600">Recognize</span>, Realise & <br />
             Render Results That <br /> Speak Volumes
           </h2>
           <p className="text-gray-800 mt-6 leading-relaxed text-sm sm:text-base max-w-md mx-auto md:mx-0">
