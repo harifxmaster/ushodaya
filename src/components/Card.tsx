@@ -1,9 +1,9 @@
 // app/page.tsx
 "use client";
 
-import React, { JSX, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
+import { JSX, useState } from "react";
 
 /**
  * Single-file page (client component) that:
@@ -11,8 +11,7 @@ import Image from "next/image";
  * - renders the full article content
  * - includes an interactive FAQ implemented locally
  *
- * Drop this file into `app/page.tsx`. (If you prefer App Router metadata,
- * we can split into server + client later — but you asked for a single file.)
+ * Drop this file into `app/page.tsx`.
  */
 
 const faqs = [
@@ -92,7 +91,23 @@ export default function Card(): JSX.Element {
         />
       </Head>
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 md:px-19 py-17 md:py-20 text-gray-800">
+      {/* Global styles to ensure white background on all devices (removes black background on mobile). */}
+      <style jsx global>{`
+        html,
+        body,
+        #__next {
+          background: #ffffff !important;
+          color: #111827 !important; /* text-gray-900 */
+        }
+        /* Ensure full-height so main's min-h-screen behaves consistently */
+        html,
+        body,
+        #__next {
+          height: 100%;
+        }
+      `}</style>
+
+      <main className="min-h-screen max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-gray-800 bg-white">
         {/* Header */}
         <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-snug sm:leading-snug md:leading-tight">
           Top 5 IT Trends Transforming Businesses in 2025

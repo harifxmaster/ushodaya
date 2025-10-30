@@ -289,14 +289,14 @@ export default function Location() {
             {selectedJob.details ? (
               <>
                 <h3 className="font-semibold mt-4">Responsibilities</h3>
-                <p className="text-sm text-gray-700 mt-2 leading-relaxed">
+                <p className="text-sm text-gray-900 mt-2 leading-relaxed">
                   {selectedJob.details.responsibility}
                 </p>
 
                 {selectedJob.details.specification.length > 0 && (
                   <>
                     <h3 className="font-semibold mt-4">Job Specifications</h3>
-                    <ul className="list-disc list-inside text-sm text-gray-700 mt-2 space-y-1">
+                    <ul className="list-disc list-inside text-sm text-gray-900 mt-2 space-y-1">
                       {selectedJob.details.specification.map((spec, idx) => (
                         <li key={idx}>{spec}</li>
                       ))}

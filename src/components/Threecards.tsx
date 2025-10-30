@@ -27,7 +27,30 @@ const blogs = [
     avatar: "/images/Bigp1.png",
     category: "IT Consulting",
   },
-  // ✅ Add more blogs later under other categories
+  {
+    slug: "software-testing",
+    title: "Role of SaaS Software Testing in Building Secure Products",
+    description:
+      "Discover how WT Softech’s expert software testing ensures SaaS reliability and why regular testing is essential",
+    author: "Sai Teja",
+    role: "Verified Author",
+    date: "30 October",
+    img: "/images/a5.jpg",
+    avatar: "/images/sai.png",
+    category: "Software Testing",
+  },
+  {
+    slug: "product-development",
+    title: "How CTOs Can Build Powerful Generative AI Products",
+    description:
+      "Discover how CTOs can build innovative Generative AI products beyond ChatGPT with strategic AI consulting for scalable, future-ready solutions.",
+    author: "Priyajeet",
+    role: "Verified Author",
+    date: "03 November",
+    img: "/images/a4.jpg",
+    avatar: "/images/sai.png",
+    category: "Product Development",
+  },
 ];
 
 const categories = [
@@ -36,13 +59,12 @@ const categories = [
   "IT Services",
   "Product Development",
   "Digital Marketing",
-  "Staffing Solutions",
+  "Software Testing",
 ];
 
 export default function BlogTabsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  // ✅ Filter blogs by active category
   const filteredBlogs =
     activeCategory === "All"
       ? blogs
@@ -69,21 +91,18 @@ export default function BlogTabsPage() {
             >
               {category}
             </button>
-            ))}
-          </div>
+          ))}
+        </div>
 
         {/* ✅ Section Title */}
         <h2 className="text-[24px] font-bold text-[#1A3C8C] mb-6">
-          {activeCategory === "All"
-            ? "All Blogs"
-            : `${activeCategory} Blogs`}
+          {activeCategory === "All" ? "All Blogs" : `${activeCategory} Blogs`}
         </h2>
 
         {/* ✅ Blog Cards */}
         {filteredBlogs.length === 0 ? (
           <p className="text-gray-500 text-center text-lg mb-0 pb-0">
-            Thank you for your patience! We’re updating this article soon check
-          check back later. 🙏
+            Thank you for your patience! We’re updating this article soon — check back later. 🙏
           </p>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7 mb-0 pb-0">
@@ -91,24 +110,26 @@ export default function BlogTabsPage() {
               <Link
                 key={blog.slug}
                 href={`/blogs/${blog.slug}`}
-                className="group relative isolate overflow-hidden rounded-2xl shadow-lg h-[360px] ring-1 ring-black/5 transition hover:shadow-xl"
+                className="group relative isolate overflow-hidden rounded-2xl shadow-lg h-[320px] ring-1 ring-black/5 transition hover:shadow-xl"
               >
                 <Image
                   src={blog.img}
                   alt={blog.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                  <h3 className="text-xl font-semibold">{blog.title}</h3>
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                  <h3 className="text-lg font-semibold leading-snug">
+                    {blog.title}
+                  </h3>
                   <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center">
                       <Image
                         src={blog.avatar}
                         alt={blog.author}
-                        width={28}
-                        height={28}
+                        width={26}
+                        height={26}
                         className="rounded-full"
                       />
                       <div className="ml-2">

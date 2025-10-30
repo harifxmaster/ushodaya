@@ -96,9 +96,7 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700 font-medium">
-                Name
-              </label>
+              <label className="block mb-2 text-gray-700 font-medium">Name</label>
               <input
                 type="text"
                 name="name"
@@ -116,9 +114,7 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700 font-medium">
-                Email
-              </label>
+              <label className="block mb-2 text-gray-700 font-medium">Email</label>
               <input
                 type="email"
                 name="email"
@@ -136,9 +132,7 @@ export default function Contact() {
               suppressHydrationWarning
               transition={{ type: "spring", stiffness: 200, damping: 12 }}
             >
-              <label className="block mb-2 text-gray-700 font-medium">
-                Message
-              </label>
+              <label className="block mb-2 text-gray-700 font-medium">Message</label>
               <textarea
                 name="message"
                 value={form.message}
@@ -192,14 +186,14 @@ export default function Contact() {
           >
             <motion.p className="flex items-start gap-3" variants={fadeInUp}>
               <span className="text-blue-600 text-lg">📍</span>
-              Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur,
-              Hyderabad, 500081
+              Ratnam Chambers, H.No. 1-62/172, Plot No.172, 1st Floor, Phase II,
+              Kavuri Hills, Madhapur, Hyderabad 500033, Telangana
             </motion.p>
 
             <motion.p className="flex items-center gap-3" variants={fadeInUp}>
               <span className="text-blue-600 text-lg">📞</span>
               <Link
-                href="tel:+203440403030"
+                href="tel:+9193440403030"
                 className="hover:text-blue-600 transition-colors"
               >
 
@@ -215,6 +209,17 @@ export default function Contact() {
                 hr@wtsoftech.com
               </Link>
             </motion.p>
+
+            <motion.div className="pt-2" variants={fadeInUp}>
+              <Link
+                href="https://www.google.com/maps/dir/?api=1&destination=Ratnam+Chambers,+Kavuri+Hills,+Madhapur,+Hyderabad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                🧭 Get Directions
+              </Link>
+            </motion.div>
           </motion.div>
         </motion.div>
       </motion.div>
@@ -233,7 +238,7 @@ export default function Contact() {
         <div className="relative w-full h-[450px]">
           <iframe
             title="Company Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.301320953436!2d78.39548087461064!3d17.437389983455116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91b3a93b2a8f%3A0xa90e0c3b262a9c8e!2sPlot%20No.172%2C%20Kavuri%20Hills%20Phase%202%2C%20Madhapur%2C%20Hyderabad%2C%20Telangana%20500081!5e0!3m2!1sen!2sin!4v1730027894510!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.302089139918!2d78.395620075!3d17.437410071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91b3a93b2a8f%3A0xa90e0c3b262a9c8e!2sRatnam%20Chambers%2C%20H.No.%201-62%2F172%2C%20Plot%20No.172%2C%201st%20Floor%2C%20Phase%20II%2C%20Kavuri%20Hills%2C%20Madhapur%2C%20Hyderabad%20500033%2C%20Telangana!5e0!3m2!1sen!2sin!4v1730304500000!5m2!1sen!2sin"
             width="100%"
             height="100%"
             allowFullScreen
@@ -242,10 +247,19 @@ export default function Contact() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
 
+          {/* Overlay Marker */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="bg-blue-600 text-white text-sm font-semibold px-3 py-1 rounded-full shadow-lg animate-bounce">
+              📍 WTSoftech Pvt. Ltd.
+            </div>
+          </div>
+
+          {/* Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent pointer-events-none"></div>
 
+          {/* Address Tag */}
           <motion.div
-            className="absolute bottom-6 left-6 bg-white/80 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg"
+            className="absolute bottom-6 left-6 bg-white/85 backdrop-blur-sm px-5 py-3 rounded-xl shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.42, 0, 0.58, 1] }}
@@ -254,8 +268,8 @@ export default function Contact() {
               📍 WTSoftech Pvt. Ltd.
             </h3>
             <p className="text-gray-700 text-sm">
-              Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur,
-              Hyderabad, 500081
+              Ratnam Chambers, H.No. 1-62/172, Plot No.172, 1st Floor, Phase II,
+              Kavuri Hills, Madhapur, Hyderabad 500033, Telangana
             </p>
           </motion.div>
         </div>
