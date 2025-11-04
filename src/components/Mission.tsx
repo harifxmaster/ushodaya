@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Mission() {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden bg-white">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-12 grid grid-cols-1 md:grid-cols-2 gap-10 items-center overflow-hidden bg-transparent">
       {/* Text Content - Slides from Right */}
       <motion.div
         initial={{ opacity: 0, x: 100 }} // start from right

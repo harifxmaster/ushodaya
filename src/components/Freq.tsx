@@ -4,6 +4,7 @@ import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 
+// FAQ Data
 const faqs = [
   {
     question: "What industries do you develop products for?",
@@ -37,7 +38,7 @@ const faqs = [
   },
 ];
 
-// Animation variants
+// Animation Variants
 const containerVariants: Variants = {
   hidden: {},
   show: {
@@ -59,7 +60,7 @@ const itemVariants: Variants = {
   },
 };
 
-export default function F() {
+export default function FAQSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -67,49 +68,48 @@ export default function F() {
   };
 
   return (
-    <div className="py-10 px-4">
+    <div className="py-10 px-4 bg-transparent">
       <motion.div
-        className="max-w-4xl mx-auto rounded-lg p-6 bg-white shadow-lg"
+        className="max-w-4xl mx-auto rounded-lg p-6 bg-transparent shadow-none"
         initial="hidden"
         animate="show"
         variants={containerVariants}
       >
-        {/* Section Title */}
+        {/* Title */}
         <motion.h2
-          className="text-2xl text-gray-800 font-bold mb-6 text-center"
+          className="text-3xl font-bold text-center text-gray-900 mb-8"
           variants={itemVariants}
         >
           Frequently Asked Questions
         </motion.h2>
 
         {/* FAQ Items */}
-        <motion.div className="space-y-3">
+        <motion.div className="space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-sm cursor-pointer border border-gray-200"
+              className="rounded-lg border border-gray-300 cursor-pointer bg-transparent backdrop-blur-sm transition-all duration-300 hover:border-blue-500"
               variants={itemVariants}
               onClick={() => toggleFAQ(index)}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="px-4 py-3 flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-900">
+              <div className="px-5 py-3 flex justify-between items-center">
+                <span className="text-base sm:text-lg font-medium text-gray-900">
                   {faq.question}
                 </span>
                 <motion.div
                   animate={{ rotate: activeIndex === index ? 90 : 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <FaChevronRight className="text-purple-700 text-xs" />
+                  <FaChevronRight className="text-blue-600 text-sm" />
                 </motion.div>
               </div>
 
-              {/* Expanding Answer */}
               <AnimatePresence>
                 {activeIndex === index && (
                   <motion.div
-                    className="px-4 pb-3 text-sm text-gray-700 bg-white"
+                    className="px-5 pb-4 text-sm sm:text-base text-gray-700 bg-transparent"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}

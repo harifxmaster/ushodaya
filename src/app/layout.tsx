@@ -239,7 +239,7 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 streetAddress:
                   "Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur",
-                addressLocality: "Hyderabad",
+                addressLocality: "Hydreabad",
                 addressRegion: "Telangana",
                 postalCode: "500081",
                 addressCountry: "IN",

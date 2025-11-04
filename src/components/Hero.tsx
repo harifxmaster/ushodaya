@@ -41,10 +41,11 @@ export default function Hero() {
       iconImage: "/icons/data.png",
     },
     {
-      color: "from-purple-100 to-purple-50",
+      // ✅ Changed to match 1st box background
+      color: "from-blue-100 to-blue-50",
       title: "Real Results at a Realistic Pace",
       text: "We don’t provide any timeline for results. We focus on our work and results just follow!",
-      iconColor: "text-purple-600",
+      iconColor: "text-blue-600",
       iconImage: "/icons/real.png",
     },
     {

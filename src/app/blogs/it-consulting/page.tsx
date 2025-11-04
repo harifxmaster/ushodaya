@@ -28,7 +28,7 @@ export default function ItConsultingBlog() {
         {/* ✅ Hero Section */}
         <div className="relative w-full h-[280px] sm:h-[400px] overflow-hidden">
           <Image
-            src="/images/a2.jpg"
+            src="/images/a3.jpg"
             alt="Tech Stack Audit"
             fill
             priority
