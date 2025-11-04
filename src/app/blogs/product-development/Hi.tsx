@@ -43,61 +43,90 @@ export default function GenerativeAIConsultingPage() {
 
   return (
     <main className="min-h-screen bg-white text-gray-900 px-6 py-12 lg:px-24">
-      {/* Header Section */}
+
+      {/* ✅ Title + Image Section */}
+      <section className="relative bg-transparent text-center mb-16">
+        <motion.h1
+          className="text-3xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-8"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Integrating SaaS Testing Throughout the Development Lifecycle
+        </motion.h1>
+
+       {/* ✅ Responsive Image Section */}
+<div className="relative w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] xl:h-[600px]">
+  <Image
+    src="/images/pd2.png" // 🔁 Replace with your image path
+    alt="Generative AI Consulting"
+    fill
+    priority
+    className="object-cover rounded-xl"
+    sizes="(max-width: 640px) 100vw,
+           (max-width: 1024px) 90vw,
+           (max-width: 1280px) 80vw,
+           1200px"
+  />
+</div>
+
+      </section>
+
+      {/* ✅ Header Section */}
       <header className="max-w-4xl mx-auto text-center mb-12">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
           How Generative AI Consulting Accelerates Time-to-Market
         </h1>
-        <p className="mt-4 text-gray-800 text-sm sm:text-base">
+        <p className="mt-4 text-gray-700 text-base sm:text-lg">
           Specialised consulting services bring structured methodologies and
           practical frameworks for faster execution.
         </p>
       </header>
 
-      {/* Key Sections */}
-      <section className="max-w-4xl mx-auto grid gap-10 md:grid-cols-2 mb-16">
-        <article>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+      {/* ✅ Key Sections */}
+      <section className="max-w-4xl mx-auto space-y-8 mb-20">
+        <div>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800">
             Rapid Prototyping
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             Experts develop MVPs to validate your model’s potential before
             full-scale rollout.
           </p>
-        </article>
+        </div>
 
-        <article>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+        <div>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800">
             Model and Tool Selection
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             They recommend optimal model architectures, APIs, and open-source
             frameworks tailored to your goals.
           </p>
-        </article>
+        </div>
 
-        <article>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+        <div>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800">
             Data Pipeline Design
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             Consultants create efficient data workflows that streamline
             ingestion, cleaning, and labelling.
           </p>
-        </article>
+        </div>
 
-        <article>
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+        <div>
+          <h2 className="text-xl font-semibold mb-2 text-gray-800">
             Scalability and Cost Planning
           </h2>
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-gray-700 leading-relaxed">
             They design architectures that scale dynamically while managing
             infrastructure costs effectively.
           </p>
-        </article>
+        </div>
       </section>
 
-      {/* Mid Section */}
+      {/* ✅ Mid Section */}
       <section className="max-w-3xl mx-auto mb-16 text-center">
         <p className="text-gray-800 text-lg leading-relaxed">
           By leveraging Generative AI Consulting, CTOs can turn vision into
@@ -105,65 +134,80 @@ export default function GenerativeAIConsultingPage() {
         </p>
       </section>
 
-      {/* Conclusion Section */}
-      <section className="max-w-4xl mx-auto mb-16">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-6">Conclusion</h3>
+      {/* ✅ Conclusion Section */}
+      <section className="max-w-4xl mx-auto mb-20">
+        <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+          Conclusion
+        </h3>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
+        <p className="text-gray-700 leading-relaxed mb-5">
           Generative AI is the next frontier in enterprise change, providing a
           chance for CTOs to drive innovation rather than follow it.
         </p>
 
-        <p className="text-gray-600 leading-relaxed mb-6">
-          Organisations may create bespoke AI systems that increase
-          productivity, encourage creativity, and preserve data sovereignty by
-          combining a strong CTO AI Strategy, scalable infrastructure, and the
-          correct mix of LLM Development Services and Generative AI Consulting.
+        <p className="text-gray-700 leading-relaxed mb-5">
+          Organisations may create bespoke AI systems that increase productivity,
+          encourage creativity, and preserve data sovereignty by combining a
+          strong CTO AI Strategy, scalable infrastructure, and the correct mix
+          of LLM Development Services and Generative AI Consulting.
         </p>
 
-        <p className="text-gray-600 leading-relaxed">
+        <p className="text-gray-700 leading-relaxed">
           In a world where every firm is increasingly AI-driven, those who build
-          generative AI today will define tomorrows competitive edge — one in
+          generative AI today will define tomorrow’s competitive edge — one in
           which human inventiveness and machine intelligence collaborate to
           create the future.
         </p>
       </section>
 
-      {/* FAQ Section */}
-      <section className="max-w-4xl mx-auto border-t border-gray-200 pt-10 mb-20">
-        <h3 className="text-2xl font-semibold text-gray-800 mb-8 text-center">
-          Frequently Asked Questions (FAQs)
+      {/* ✅ FAQ Section with + / - symbol */}
+      <section className="max-w-4xl mx-auto mb-24">
+        <h3 className="text-2xl font-semibold text-gray-900 mb-10 text-center">
+          Frequently Asked Questions
         </h3>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <div
-              key={index}
-              className="border border-gray-200 rounded-lg p-4 shadow-sm transition-all duration-200 hover:shadow-md"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="flex justify-between items-center w-full text-left"
+        <div className="space-y-8">
+          {faqs.map((faq, index) => {
+            const isOpen = openFAQ === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                viewport={{ once: true }}
+                className="text-left border-b border-gray-200 pb-4"
               >
-                <span className="text-lg font-medium text-gray-800">
-                  {faq.question}
-                </span>
-                <span className="text-gray-600 text-2xl font-bold">
-                  {openFAQ === index ? "−" : "+"}
-                </span>
-              </button>
+                <button
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full flex items-center justify-between text-left focus:outline-none"
+                >
+                  <h4 className="text-lg font-semibold text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                    {faq.question}
+                  </h4>
+                  <span className="text-2xl font-bold text-blue-600">
+                    {isOpen ? "−" : "+"}
+                  </span>
+                </button>
 
-              {openFAQ === index && (
-                <p className="mt-3 text-gray-600 leading-relaxed transition-all duration-200">
-                  {faq.answer}
-                </p>
-              )}
-            </div>
-          ))}
+                {isOpen && (
+                  <motion.p
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="text-gray-700 leading-relaxed pl-2 pt-2"
+                  >
+                    {faq.answer}
+                  </motion.p>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
-      {/* ✅ Fixed Author & Contact Section */}
+      {/* ✅ Author & Contact Section */}
       <section className="max-w-4xl mx-auto text-center pb-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -173,14 +217,14 @@ export default function GenerativeAIConsultingPage() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
           <Image
-            src="/images/sai.png"
+            src="/images/Bigp2.png"
             alt="Author Avatar"
             width={64}
             height={64}
             className="rounded-full object-cover shadow-md"
           />
           <div className="text-left">
-            <p className="font-semibold text-gray-900 text-lg">priyajeet</p>
+            <p className="font-semibold text-gray-900 text-lg">Priyajeet</p>
             <p className="text-gray-500 text-sm">
               Verified Author | 03 November 2025
             </p>

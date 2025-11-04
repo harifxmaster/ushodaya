@@ -1,6 +1,7 @@
 // app/page.tsx
 "use client";
 
+import { motion } from "framer-motion";
 import Head from "next/head";
 import Image from "next/image";
 import Hi from "./Hi";
@@ -16,7 +17,28 @@ export default function Page() {
         />
       </Head>
 
-      <main className="max-w-4xl mx-auto px-6 py-16">
+      {/* Full-bleed banner (spans entire viewport width) - Top */}
+     <div className="relative w-full h-[280px] sm:h-[400px] overflow-hidden">
+               <Image
+                 src="/images/pd3.png"
+                 alt="Tech Stack Audit"
+                 fill
+                 priority
+                 className="object-cover object-center"
+               />
+               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                 <motion.h1
+                   initial={{ opacity: 0, y: 40 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.8, ease: "easeOut" }}
+                   className="text-white text-3xl sm:text-5xl font-bold text-center px-4"
+                 >
+                   Beyond ChatGPT: A CTOs Guide to Building Your Own Generative AI Product
+                 </motion.h1>
+               </div>
+             </div>
+
+      <main className="max-w-4xl bg-transparent mx-auto px-6 py-12">
         {/* Title */}
         <h1 className="text-3xl md:text-3xl font-bold mb-6">
           Beyond ChatGPT: A CTO&apos;s Guide to Building Your Own Generative AI Product
@@ -484,6 +506,10 @@ export default function Page() {
             Engaging consultants at the right stage can save months of development and avoid costly missteps.
           </p>
         </section>
+
+        {/* Full-bleed banner (spans entire viewport width) - Bottom (before Hi) */}
+
+
         <Hi />
       </main>
     </>

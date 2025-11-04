@@ -10,6 +10,7 @@ import { JSX, useState } from "react";
  * - sets meta tags via next/head
  * - renders the full article content
  * - includes an interactive FAQ implemented locally
+ * - now includes a top banner image with overlaid title text
  *
  * Drop this file into `app/page.tsx`.
  */
@@ -91,28 +92,36 @@ export default function Card(): JSX.Element {
         />
       </Head>
 
-      {/* Global styles to ensure white background on all devices (removes black background on mobile). */}
+      {/* Global Styles */}
       <style jsx global>{`
         html,
         body,
         #__next {
           background: #ffffff !important;
-          color: #111827 !important; /* text-gray-900 */
-        }
-        /* Ensure full-height so main's min-h-screen behaves consistently */
-        html,
-        body,
-        #__next {
+          color: #111827 !important;
           height: 100%;
         }
       `}</style>
 
-      <main className="min-h-screen max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-8 md:py-12 text-gray-800 bg-white">
-        {/* Header */}
-        <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-snug sm:leading-snug md:leading-tight">
-          Top 5 IT Trends Transforming Businesses in 2025
-        </h1>
+      {/* Banner Section */}
+      <section className="relative w-full h-[400px] sm:h-[450px] md:h-[500px]">
+        <Image
+          src="/images/a2.jpg" // 👈 replace with your banner image path
+          alt="Top IT Trends 2025 Banner"
+          fill
+          className="object-cover brightness-75"
+          priority
+        />
+        <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white drop-shadow-lg leading-tight max-w-3xl">
+            Top 5 IT Trends Transforming Businesses in 2025
+          </h1>
+        </div>
+      </section>
 
+      {/* Main Content */}
+      <main className="min-h-screen max-w-5xl mx-auto px-4 sm:px-6 md:px-8 py-16 md:py-12 text-gray-800 bg-white">
+        {/* Introduction */}
         <p className="mb-6 text-gray-700 leading-relaxed sm:leading-relaxed">
           In a frantically fast-paced digital economy, knowing about IT trends is
           not a question of choice but imperative for being ahead of the pack.
@@ -151,10 +160,10 @@ export default function Card(): JSX.Element {
             consequence if they are taken advantage of at the right time.
           </li>
           <li>
-            <strong>Talented Manpower Attraction and Retention:</strong>{" "}
-            Developers, engineers and consultants want to work at the leading
-            edge of platform technology and do not want to spend their time in
-            mere legacy program maintenance.
+            <strong>Talented Manpower Attraction and Retention:</strong> Developers,
+            engineers and consultants want to work at the leading edge of platform
+            technology and do not want to spend their time in mere legacy program
+            maintenance.
           </li>
           <li>
             <strong>Risk Management:</strong> New technology products bring new
@@ -164,8 +173,8 @@ export default function Card(): JSX.Element {
           <li>
             <strong>Client Corroboration of Trust:</strong> If WT Softech can
             counsel its clients in the acquisition of leads that are desirable,
-            it finds itself buried in the ranks of those who are
-            forward-thinking or at least not one who merely fulfils orders.
+            it finds itself buried in the ranks of those who are forward-thinking
+            or at least not one who merely fulfils orders.
           </li>
         </ul>
 
@@ -175,7 +184,7 @@ export default function Card(): JSX.Element {
           year 2025.
         </p>
 
-        {/* AI in IT Consulting */}
+        {/* === AI in IT Consulting === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           AI in IT Consulting
         </h2>
@@ -261,7 +270,7 @@ export default function Card(): JSX.Element {
           </li>
         </ul>
 
-        {/* Cloud-Driven IT Services */}
+        {/* === Cloud-Driven IT Services === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           Cloud-Driven IT Services
         </h2>
@@ -335,7 +344,7 @@ export default function Card(): JSX.Element {
           <li>Combine with AI services: cloud-based AI inference, automated ML pipelines.</li>
         </ul>
 
-        {/* Agile Product Development */}
+        {/* === Agile Product Development === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           Agile Product Development
         </h2>
@@ -354,7 +363,7 @@ export default function Card(): JSX.Element {
           <li>Experimentation, A/B testing, Data Feedback Loops: Analytics and telemetry drive iterations.</li>
         </ul>
 
-        {/* Automated Software Testing */}
+        {/* === Automated Software Testing === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           Automated Software Testing
         </h2>
@@ -371,7 +380,7 @@ export default function Card(): JSX.Element {
           <li>Industry Adoption: Automation is now the default in IT operations.</li>
         </ul>
 
-        {/* Digital Marketing */}
+        {/* === Digital Marketing === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           Digital Marketing for Tech Firms
         </h2>
@@ -391,7 +400,7 @@ export default function Card(): JSX.Element {
           <li>AI in Marketing: Tools for content generation, predictive analytics, chatbots, lead scoring.</li>
         </ul>
 
-        {/* Summary */}
+        {/* === Summary === */}
         <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mt-10 mb-4">
           Summary
         </h2>
@@ -405,7 +414,7 @@ export default function Card(): JSX.Element {
           digital transformation.
         </p>
 
-        {/* FAQ Section (client interactive) */}
+        {/* === FAQ Section === */}
         <section className="mt-12">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-6 text-gray-900">
             Frequently Asked Questions
