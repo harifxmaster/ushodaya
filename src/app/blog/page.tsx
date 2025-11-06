@@ -1,14 +1,12 @@
-import Bigcard from "../../components/Bigcard";
 import Blogpic from "../../components/Blogpic";
 import Footer from "../../components/Footer";
-import Threecards from "../../components/Threecards";
+import ThreecardsClient from "../../components/ThreecardsClient"; // client component
 
 export default function BlogsPage() {
   return (
     <>
       <Blogpic />
-      <Threecards />
-      <Bigcard />
+      <ThreecardsClient />
       <Footer />
     </>
   );

@@ -331,7 +331,7 @@ export default function SaaSTestingPage() {
             viewport={{ once: true }}
           >
             <Image
-              src="/images/sai.png"
+              src="/images/saiteja.png"
               alt="Author Avatar"
               width={60}
               height={60}
