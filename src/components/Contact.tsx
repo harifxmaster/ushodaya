@@ -64,6 +64,7 @@ export default function Contact() {
         alert("Error: " + data.error);
       }
     } catch (err) {
+      console.error(err);
       setLoading(false);
       alert("Something went wrong. Please try again later.");
     }

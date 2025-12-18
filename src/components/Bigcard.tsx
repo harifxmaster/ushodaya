@@ -86,11 +86,6 @@ const normalVariants: Variants = {
   }),
 };
 
-const buttonVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition },
-};
-
 export default function ArticlesSection(): JSX.Element {
   const router = useRouter();
   const [showMessage, setShowMessage] = useState(false);
