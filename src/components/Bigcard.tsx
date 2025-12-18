@@ -103,7 +103,7 @@ export default function ArticlesSection(): JSX.Element {
       slug === "software-testing"||
       slug === "product-development"
     ) {
-      router.push(`/blogs/${slug}`);
+      router.push(`/blog/${slug}`);
     } else {
       setShowMessage(true);
       setTimeout(() => setShowMessage(false), 3500);
