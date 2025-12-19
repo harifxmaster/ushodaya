@@ -60,7 +60,7 @@ const blogs = [
     slug: "Hello",
     title: "Smarter Websites with Digital Marketing & Strong Security ",
     author: "Sakshi",
-    date: "25 December",
+    date: "24 December",
     img: "/images/smart.png",
     category: "Digital Marketing",
   },
