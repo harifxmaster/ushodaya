@@ -41,7 +41,7 @@ export default function ITFoundationSection() {
   return (
     <section className="bg-gradient-to-r from-blue-900 to-blue-600 text-white mb-20 py-16 px-6 md:px-20">
       <motion.div
-        className="grid md:grid-cols-2 items-center gap-20"
+        className="grid md:grid-cols-2 items-center gap-8 md:gap-20"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -59,7 +59,7 @@ export default function ITFoundationSection() {
               alt="IT Foundation"
               width={800}
               height={600}
-              className="w-150 h-auto object-cover"
+              className="w-full h-auto object-cover"
               priority
             />
           </motion.div>

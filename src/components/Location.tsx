@@ -124,6 +124,29 @@ const jobs: Job[] = [
       location: "Hyderabad",
     },
   },
+  {
+    title: "Python Developer",
+    tags: ["0-2 Years", "Hyderabad"],
+    shortDesc:
+      "Develop and maintain Python-based applications, ensuring efficient and scalable solutions...",
+    details: {
+      responsibility:
+        "Develop, test, and maintain Python applications. Collaborate with cross-functional teams to design and implement software solutions. Write clean, efficient, and well-documented code. Participate in code reviews and follow best practices. Troubleshoot and debug applications to ensure optimal performance.",
+      specification: [
+        "Freshers / 0–2 years can apply.",
+        "Strong knowledge of Python fundamentals.",
+        "Knowledge of OOP & data structures.",
+        "Familiar with SQL & databases.",
+        "Familiar with Flask/Django & APIs.",
+        "Good problem-solving skills and learning mindset.",
+      ],
+      type: "Full-time",
+      mode: "On-site",
+      salary: "Competitive / Industry Standard",
+      experience: "0–2 years",
+      location: "Hyderabad",
+    },
+  },
 ];
 
 export default function Location() {

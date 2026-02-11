@@ -141,7 +141,7 @@ export default function BlogTabsPage() {
 
               <div className="absolute inset-0 bg-black/50" />
 
-              <div className="absolute bottom-0 p-4 text-white">
+              <div className="absolute bottom-0 p-4 text-white text-center">
                 <h3 className="font-semibold leading-snug">
                   {blog.title}
                 </h3>
