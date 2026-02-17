@@ -207,7 +207,7 @@ export default function Contact() {
                 href="mailto:hr@wtsoftech.com"
                 className="hover:text-blue-600 transition-colors"
               >
-                hr@wtsoftech.com
+                varsha.katkam@fxmaster.co.uk
               </Link>
             </motion.p>
 

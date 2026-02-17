@@ -12,6 +12,7 @@ type JobDetails = {
   salary: string;
   experience: string;
   location: string;
+  email: string; // ✅ Added email field
 };
 
 type Job = {
@@ -44,6 +45,7 @@ const jobs: Job[] = [
       salary: "Competitive + Incentives",
       experience: "2–5 years",
       location: "Hyderabad",
+      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
     },
   },
   {
@@ -69,6 +71,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "2–5 years",
       location: "Hyderabad",
+      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
     },
   },
   {
@@ -95,6 +98,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "10–15 years",
       location: "Hyderabad",
+      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
     },
   },
   {
@@ -122,6 +126,32 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "7–15 years",
       location: "Hyderabad",
+      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
+    },
+  },
+  {
+    title: "SEO Off-Page Executive",
+    tags: ["1-2 Years", "Hyderabad"],
+    shortDesc:
+      "Execute off-page SEO & white-hat link building, guest posting, outreach & backlink acquisition...",
+    details: {
+      responsibility:
+        "Execute off-page SEO & white-hat link building. Guest posting, outreach & backlink acquisition. Competitor backlink analysis. Manage citations & brand mentions. Monitor backlink quality & reports.",
+      specification: [
+        "1–2 years off-page SEO experience.",
+        "Knowledge of Google link-building guidelines.",
+        "Proficiency in SEO tools: Ahrefs/SEMrush, GSC.",
+        "Basic on-page SEO understanding.",
+        "Strong communication and outreach skills.",
+        "Ability to analyze competitor backlink strategies.",
+        "Knowledge of citation management and brand mentions.",
+      ],
+      type: "Full-time",
+      mode: "On-site",
+      salary: "Competitive / Industry Standard",
+      experience: "1–2 years",
+      location: "Hyderabad",
+      email: "varsha.katkam@fxmaster.co.uk", // ✅ Already had it, kept
     },
   },
 ];
@@ -166,7 +196,7 @@ export default function Location() {
     }
 
     // Validate file size (4MB max for UploadThing)
-    const maxSize = 4 * 1024 * 1024; // 4MB
+    const maxSize = 4 * 1024 * 1024;
     if (formData.resume.size > maxSize) {
       alert("Resume file size should be less than 4MB.");
       return;
@@ -177,7 +207,6 @@ export default function Location() {
     try {
       console.log("Uploading resume to UploadThing...");
 
-      // Upload file to UploadThing
       const uploadResult = await startUpload([formData.resume]);
 
       if (!uploadResult || uploadResult.length === 0) {
@@ -187,7 +216,6 @@ export default function Location() {
       const resumeUrl = uploadResult[0].url;
       console.log("Resume uploaded successfully:", resumeUrl);
 
-      // Save application to MongoDB via API
       const applicationData = {
         name: formData.name,
         email: formData.email,
@@ -195,6 +223,8 @@ export default function Location() {
         experience: formData.experience,
         job_title: selectedJob.title,
         resume_url: resumeUrl,
+        // ✅ Send to the job's designated email
+        to_email: selectedJob.details?.email,
       };
 
       console.log("Submitting application:", applicationData);
@@ -269,7 +299,7 @@ export default function Location() {
           ))}
         </div>
 
-        {/* Job Details & Apply Button */}
+        {/* Job Details Panel */}
         <div className="border rounded-lg p-6 shadow-sm flex flex-col">
           <div className="flex-1 overflow-y-auto">
             <h2 className="text-xl font-bold text-blue-900">
@@ -288,6 +318,41 @@ export default function Location() {
 
             {selectedJob.details ? (
               <>
+                {/* Job Meta Info */}
+                <div className="grid grid-cols-2 gap-3 mt-4 bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Type</p>
+                    <p className="text-sm font-semibold text-gray-800">{selectedJob.details.type}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Mode</p>
+                    <p className="text-sm font-semibold text-gray-800">{selectedJob.details.mode}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Experience</p>
+                    <p className="text-sm font-semibold text-gray-800">{selectedJob.details.experience}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Salary</p>
+                    <p className="text-sm font-semibold text-gray-800">{selectedJob.details.salary}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Location</p>
+                    <p className="text-sm font-semibold text-gray-800">{selectedJob.details.location}</p>
+                  </div>
+
+                  {/* ✅ Email field displayed here */}
+                  <div>
+                    <p className="text-xs text-gray-500 font-medium">Apply via Email</p>
+                    <a
+                      href={`mailto:${selectedJob.details.email}`}
+                      className="text-sm font-semibold text-blue-600 hover:text-blue-800 hover:underline break-all"
+                    >
+                      {selectedJob.details.email}
+                    </a>
+                  </div>
+                </div>
+
                 <h3 className="font-semibold mt-4">Responsibilities</h3>
                 <p className="text-sm text-gray-900 mt-2 leading-relaxed">
                   {selectedJob.details.responsibility}
@@ -311,6 +376,7 @@ export default function Location() {
             )}
           </div>
 
+          {/* Apply Button */}
           <div className="mt-6 justify-center flex">
             <button
               onClick={() => setShowModal(true)}
@@ -322,7 +388,7 @@ export default function Location() {
         </div>
       </div>
 
-      {/* Modal */}
+      {/* Application Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-gray-900/40 backdrop-blur-sm flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md relative shadow-lg">
@@ -333,9 +399,19 @@ export default function Location() {
               ✖
             </button>
 
-            <h2 className="text-xl font-bold text-blue-900 mb-4">
+            <h2 className="text-xl font-bold text-blue-900 mb-1">
               Apply for {selectedJob.title}
             </h2>
+
+            {/* ✅ Show the job email in modal too */}
+            {selectedJob.details?.email && (
+              <p className="text-xs text-gray-500 mb-4">
+                Applications will be sent to:{" "}
+                <span className="font-semibold text-blue-600">
+                  {selectedJob.details.email}
+                </span>
+              </p>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
@@ -351,7 +427,7 @@ export default function Location() {
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -370,7 +446,7 @@ export default function Location() {
               <input
                 type="text"
                 name="location"
-                placeholder="Location"
+                placeholder="Your Location"
                 value={formData.location}
                 onChange={handleChange}
                 required
@@ -380,7 +456,7 @@ export default function Location() {
               <input
                 type="text"
                 name="experience"
-                placeholder="Experience"
+                placeholder="Years of Experience"
                 value={formData.experience}
                 onChange={handleChange}
                 required
