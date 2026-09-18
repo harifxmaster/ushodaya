@@ -86,7 +86,8 @@ export default function Hero() {
           </h1>
           <p className="mt-4 text-gray-700 text-base sm:text-lg md:text-lg">
             We are the leading full-service digital marketing and IT solutions
-            company. From small-scale to large-scale firms, we help you grow.
+            company. From small-scale to large-scale firms, we help you grow to heights you
+            never imagined.
           </p>
 
           <motion.div
@@ -158,11 +159,10 @@ export default function Hero() {
             </div>
 
             <h3
-              className={`text-xl font-bold mb-2 ${
-                card.color.includes("text-white")
-                  ? "text-white"
-                  : "text-gray-900"
-              }`}
+              className={`text-xl font-bold mb-2 ${card.color.includes("text-white")
+                ? "text-white"
+                : "text-gray-900"
+                }`}
             >
               {card.title}
             </h3>
