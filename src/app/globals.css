@@ -1,28 +1,77 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* BACKGROUND */
+  --background: #F5F9FE; /* Ice White */
+  /* TEXT */
+  --foreground: #101936; 
+  /* SECONDARY TEXT */
+  --text-secondary: #59657D;
+  
+  /* PRIMARY */
+  --primary: #061047; /* Deep Navy */
+  /* BRAND BLUE */
+  --brand: #1850D9; /* Royal Blue */
+  /* TECH ACCENT */
+  --accent-tech: #0CB0F3; /* Cyan */
+  /* SPECIAL ACCENT */
+  --accent-special: #5E1CE6; /* Violet */
+  /* BORDER */
+  --border: #DCE5F1;
+  /* WHITE */
+  --white: #FFFFFF;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-brand: var(--brand);
+  --color-accent-tech: var(--accent-tech);
+  --color-accent-special: var(--accent-special);
+  --color-white: var(--white);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html, body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
+}
+
+@layer base {
+  /* Apply high-priority styles for titles */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--primary) !important;
+    font-weight: bold;
+  }
+
+  /* Apply high-priority styles for regular text */
+  p, span, div {
+    color: var(--foreground);
+  }
+
+  /* Secondary text color class */
+  .text-secondary {
+    color: var(--text-secondary) !important;
+  }
+
+  /* Apply high-priority styles for buttons */
+  button, .btn, a.btn, input[type="submit"] {
+    background-color: var(--brand) !important;
+    color: var(--white) !important;
+    border: 1px solid var(--border) !important;
+    transition: all 0.3s ease;
+  }
+
+  button:hover, .btn:hover, a.btn:hover, input[type="submit"]:hover {
+    background-color: var(--primary) !important;
+    border-color: var(--accent-tech) !important;
+  }
 }

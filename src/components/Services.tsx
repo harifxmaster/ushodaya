@@ -52,7 +52,7 @@ export default function Services() {
           Services We Offer
         </h2>
         <p className="text-gray-600 mt-3 text-sm sm:text-base max-w-3xl mx-auto">
-          WT Softech has expertises in IT consulting, product development, software testing,
+          Ushodaya Services has expertises in IT consulting, product development, software testing,
           digital marketing, staffing solutions, IT services, and more.
         </p>
       </div>

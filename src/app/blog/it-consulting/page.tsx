@@ -17,7 +17,7 @@ export default function ItConsultingBlog() {
     <>
       {/* ✅ Meta Tags for SEO */}
       <Head>
-        <title>Tech Stacks Audit: Asset or Legacy Trap | WT Softech</title>
+        <title>Tech Stacks Audit: Asset or Legacy Trap | Ushodaya Services</title>
         <meta
           name="description"
           content="Discover how modern tech stacks impact business performance. Learn to audit, modernise, and optimise your technology with expert IT consulting services."
@@ -83,7 +83,7 @@ export default function ItConsultingBlog() {
             </p>
             <p className="text-gray-700 leading-8 mb-6">
               How can you tell if your tech stack is conducive to your success or
-              hindering it? This blog by WT Softech discusses what a tech stack really
+              hindering it? This blog by Ushodaya Services discusses what a tech stack really
               is, how it affects your agility in business, and how the best IT
               consulting services can transform your entire digital foundation.
             </p>

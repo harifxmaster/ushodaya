@@ -108,7 +108,7 @@ export default function ServicesPage() {
             Quality is non-negotiable, and we make sure your software is
             flawless. Our rigorous QA software testing services and processes
             help identify bugs, security loopholes, and inefficiencies before
-            they impact your users. At WT Softech, we ensure your software is
+            they impact your users. At Ushodaya Services, we ensure your software is
             robust, reliable, and market-ready—because perfection is the only
             acceptable standard.
           </p>
@@ -163,7 +163,7 @@ export default function ServicesPage() {
           <p className="text-gray-700 mt-4">
             As one of the best IT consulting companies in Hyderabad, we help
             businesses strategise, implement, and optimise technology solutions
-            tailored to their needs. WT Softech provides expert guidance to
+            tailored to their needs. Ushodaya Services provides expert guidance to
             streamline operations and drive growth. Let’s turn your tech
             challenges into opportunities.
           </p>
@@ -215,7 +215,7 @@ export default function ServicesPage() {
             We keep your business running efficiently with cloud computing,
             network management, and enterprise IT support. We ensure smooth
             operations, enhanced security, and scalable solutions that align
-            with your business goals. WT Softech is your trusted partner for all
+            with your business goals. Ushodaya Services is your trusted partner for all
             remote IT infrastructure management services, so get in touch today!
           </p>
 
@@ -313,7 +313,7 @@ export default function ServicesPage() {
           </h2>
           <p className="text-gray-700">
             In a digital-first world, visibility is everything. Your brand
-            deserves more than generic ads and outdated SEO tricks. WT Softech’s
+            deserves more than generic ads and outdated SEO tricks. Ushodaya Services’s
             digital marketing services help businesses grow through
             data-driven strategies, SEO, PPC, social media, and content
             marketing. We blend creativity with data-driven strategies to get

@@ -51,7 +51,7 @@ export default function InHouseVsOutsourcedIT() {
         </p>
 
         <p className="mt-4 text-lg leading-relaxed text-gray-700">
-          The SME IT Decision Guide from <strong>WT Softech</strong> can assist SMEs
+          The SME IT Decision Guide from <strong>Ushodaya Services</strong> can assist SMEs
           in their decision-making process by educating them on when to use each type
           of service, how to evaluate the strengths and weaknesses of both
           alternatives, and how to make sure their IT system supports their growth

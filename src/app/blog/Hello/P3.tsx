@@ -112,14 +112,14 @@ export default function SmarterWebsitesPage() {
           </p>
         </div>
 
-        {/* ================= WT SOFTECH APPROACH ================= */}
+        {/* ================= Ushodaya Services APPROACH ================= */}
         <div className="space-y-8">
           <h2 className="text-2xl md:text-3xl font-semibold">
-            How WT Softech Combines Digital Marketing & Web Development
+            How Ushodaya Services Combines Digital Marketing & Web Development
           </h2>
 
           <p className="text-lg leading-relaxed">
-            WT Softech follows a holistic framework where developers and digital
+            Ushodaya Services follows a holistic framework where developers and digital
             marketers collaborate from day one to build high-performing,
             SEO-ready, secure websites.
           </p>
@@ -204,7 +204,7 @@ export default function SmarterWebsitesPage() {
               "Absolutely. Faster websites improve engagement, rankings, and sales."],
             ["Can SEO and security be added later?",
               "They can, but fixing them later costs significantly more."],
-            ["What makes WT Softech different?",
+            ["What makes Ushodaya Services different?",
               "We integrate SEO, security, performance, and CRO from day one."]
           ].map(([q, a], i) => (
             <div key={i} className="border rounded-lg p-5">
@@ -228,7 +228,7 @@ export default function SmarterWebsitesPage() {
             Ready to Build a High-Performing Website?
           </h2>
           <p className="text-lg text-gray-300">
-            Let WT Softech build a secure, SEO-ready, conversion-focused website
+            Let Ushodaya Services build a secure, SEO-ready, conversion-focused website
             that scales with your business.
           </p>
           <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold">
@@ -252,7 +252,7 @@ export default function SmarterWebsitesPage() {
             </p>
           </div>
           <div>
-            <p className="font-semibold text-lg">WT Softech Team</p>
+            <p className="font-semibold text-lg">Ushodaya Services Team</p>
             <p className="text-gray-600">
               Experts in SEO-driven web development, digital marketing, and
               enterprise-grade website security.

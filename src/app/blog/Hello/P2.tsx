@@ -145,7 +145,7 @@ export default function SmarterWebsitesPage() {
           </h2>
 
           <p className="text-lg leading-relaxed">
-            At <strong>WT Softech</strong>, we build websites that are secure,
+            At <strong>Ushodaya Services</strong>, we build websites that are secure,
             visible, fast, and conversion-focused—creating better customer journeys
             and higher revenue.
           </p>

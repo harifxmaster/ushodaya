@@ -26,9 +26,9 @@ const faqs = [
       "CI/CD pipelines, static code analysis, real-user monitoring, and automated regression suites all play key roles.",
   },
   {
-    question: "Why partner with WT Softech for QA testing?",
+    question: "Why partner with Ushodaya Services for QA testing?",
     answer:
-      "WT Softech combines automation, manual testing, and process improvement expertise to deliver reliable, scalable SaaS quality.",
+      "Ushodaya Services combines automation, manual testing, and process improvement expertise to deliver reliable, scalable SaaS quality.",
   },
 ];
 
@@ -118,7 +118,7 @@ export default function SaaSTestingPage() {
           </p>
 
           <p>
-            WT Softech recommends a flexible testing ecosystem that balances
+            Ushodaya Services recommends a flexible testing ecosystem that balances
             manual software testing services and automation-driven QA testing
             for maximum efficiency.
           </p>
@@ -262,10 +262,10 @@ export default function SaaSTestingPage() {
 
           {/* --- Section 7 --- */}
           <h2 className="text-3xl font-bold text-gray-900 mt-10">
-            Bringing It All Together: The WT Softech Perspective
+            Bringing It All Together: The Ushodaya Services Perspective
           </h2>
           <p>
-            At WT Softech, SaaS testing isn’t just about finding bugs—it’s about
+            At Ushodaya Services, SaaS testing isn’t just about finding bugs—it’s about
             building confidence. Our QA testing services help businesses prevent
             defects, streamline delivery, and strengthen customer trust.
           </p>
@@ -294,7 +294,7 @@ export default function SaaSTestingPage() {
           </p>
 
           <p>
-            Partner with WT Softech, where testing becomes the engine of your
+            Partner with Ushodaya Services, where testing becomes the engine of your
             growth. Our manual and automation QA services ensure your SaaS
             thrives with trust, speed, and user satisfaction.
           </p>

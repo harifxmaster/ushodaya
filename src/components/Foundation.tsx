@@ -79,7 +79,7 @@ export default function ITFoundationSection() {
             className="mt-6 text-lg text-gray-200 leading-relaxed"
             variants={fadeInUp}
           >
-            WT Softech creates an IT foundation that is almost impossible to break.
+            Ushodaya Services creates an IT foundation that is almost impossible to break.
             Additionally, our digital solutions pile upon it, giving you security
             and a presence that speaks louder to your audience. The solutions we
             curate are personalised for your needs—because we listen and craft

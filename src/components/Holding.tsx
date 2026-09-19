@@ -37,7 +37,7 @@ export default function HoldingPage() {
             <div className="w-[3px] bg-blue-600 flex-shrink-0"></div>
 
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-              WT Softech is where innovation meets technology! We’re a passionate
+              Ushodaya Services is where innovation meets technology! We’re a passionate
               team of problem-solvers, who help businesses thrive with
               cutting-edge IT solutions. From product development and software
               testing to IT consulting, staffing, and digital marketing, we craft

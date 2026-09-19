@@ -15,9 +15,9 @@ export default function Footer() {
         <div>
           <div className="mb-4 flex justify-center md:justify-start">
             <Image
-              src="/images/llogo.png"
-              alt="WT Softech"
-              width={180}
+              src="/images/ushodaya-logo-new.png"
+              alt="Ushodaya Services Logo"
+              width={240}
               height={60}
               className="object-contain"
             />
@@ -43,7 +43,7 @@ export default function Footer() {
           */}
 
           <p className="text-gray-700 text-sm font-semibold leading-relaxed max-w-sm mx-auto md:mx-0">
-            Registered address: Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur, Hyderabad
+            Registered address: 2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor&apos;s Colony, Madhapur, Hyderabad, Telangana 500033
           </p>
         </div>
 
@@ -96,7 +96,7 @@ export default function Footer() {
 
       {/* Bottom Gradient Section */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-center py-4 text-white text-sm">
-        © 2025 WT Softech. All rights reserved.
+        © 2025 Ushodaya Services. All rights reserved.
       </div>
     </footer>
   );

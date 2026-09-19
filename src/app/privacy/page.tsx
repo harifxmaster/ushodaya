@@ -7,13 +7,13 @@ export default function PrivacyPolicy() {
     <div className="min-h-screen bg-white text-gray-800 px-6 py-24 md:px-16 lg:px-32">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-10">
-          Privacy Policy - WT Softech
+          Privacy Policy - Ushodaya Services
         </h1>
 
         {/* Introduction */}
         <section className="mb-8">
           <p className="leading-relaxed">
-            WT Softech Pvt. Ltd. (“WT Softech”, “we”, “our”, or “us”) values
+            Ushodaya Services Pvt. Ltd. (“Ushodaya Services”, “we”, “our”, or “us”) values
             your privacy and is committed to protecting your personal
             information. This Privacy Policy explains how we collect, use,
             disclose, and protect your data when you visit our website or engage
@@ -209,7 +209,7 @@ export default function PrivacyPolicy() {
           </ul>
           <p className="leading-relaxed mt-2">
             You can exercise these rights by contacting us at{" "}
-            <strong>hr@wtsoftech.com</strong>.
+            <strong>hr@ushodayaservices.com</strong>.
           </p>
         </section>
 
@@ -219,7 +219,7 @@ export default function PrivacyPolicy() {
             9. Links to Third-Party Websites
           </h2>
           <p className="leading-relaxed">
-            Our Site may contain links to third-party websites. WT Softech is
+            Our Site may contain links to third-party websites. Ushodaya Services is
             not responsible for the privacy practices or content of those
             external sites. We encourage you to review their respective privacy
             policies.
@@ -271,21 +271,20 @@ export default function PrivacyPolicy() {
             Privacy Policy or how your data is handled, please contact us at:
           </p>
           <p className="leading-relaxed mt-2">
-            <strong>Address:</strong> Registered address: Plot No.172, First
-            Floor, Kavuri Hills (Phase II), Madhapur, Hyderabad
+            <strong>Address:</strong> Registered address: 2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor&apos;s Colony, Madhapur, Hyderabad, Telangana 500033
           </p>
           <p className="leading-relaxed mt-1">
-            <strong>Email:</strong> hr@wtsoftech.com
+            <strong>Email:</strong> hr@ushodayaservices.com
           </p>
           <p className="leading-relaxed mt-1">
             <strong>Website:</strong>{" "}
             <a
-              href="https://wtsoftech.com"
+              href="https://ushodayaservices.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline"
             >
-              https://wtsoftech.com
+              https://ushodayaservices.com
             </a>
           </p>
         </section>

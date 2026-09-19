@@ -20,33 +20,33 @@ const faqs = [
     question: "How is Artificial Intelligence changing IT consulting in 2025?",
     answer: `AI has shifted from “experimental” to “essential” in IT consulting. In 2025, consulting firms no longer run isolated AI pilot projects - they design AI-driven strategies that integrate directly with ERP, CRM, and supply chain systems. AI is also used for predictive insights, automated code generation, and intelligent decision support.
 
-Firms like WT Softech now help clients scale AI responsibly—covering governance, bias prevention, and explainability. In short, AI is no longer an add-on; it’s the core foundation of digital transformation consulting.`,
+Firms like Ushodaya Services now help clients scale AI responsibly—covering governance, bias prevention, and explainability. In short, AI is no longer an add-on; it’s the core foundation of digital transformation consulting.`,
   },
   {
     question: "What makes cloud-driven IT services a top business priority in 2025?",
     answer: `Cloud computing has evolved from a hosting solution to the intelligent backbone of modern enterprises.
 In 2025, most organisations use multi-cloud and hybrid environments to stay agile and resilient. The rise of platform engineering, CloudOps, and AI-powered monitoring means businesses can scale, recover, and optimise automatically.
 
-For service providers like WT Softech, this evolution creates opportunities to deliver end-to-end managed cloud services - from migration to 24/7 optimisation—helping clients innovate faster while reducing costs and downtime.`,
+For service providers like Ushodaya Services, this evolution creates opportunities to deliver end-to-end managed cloud services - from migration to 24/7 optimisation—helping clients innovate faster while reducing costs and downtime.`,
   },
   {
     question:
       "Why are companies still relying on Agile product development in 2025? Isn’t it old news?",
     answer: `Agile isn’t old—it’s evolved. While the core principles remain the same (flexibility, iteration, customer feedback), 2025’s agile ecosystem now includes DevOps integration, AI-assisted testing, and MVP-focused development.
 
-Businesses use agile not just in software, but across entire organisations - marketing, HR, and operations included—to improve adaptability. WT Softech helps clients apply agile frameworks like SAFe and Spotify Model to deliver faster, data-driven outcomes. Agile remains the operating DNA of digital enterprises.`,
+Businesses use agile not just in software, but across entire organisations - marketing, HR, and operations included—to improve adaptability. Ushodaya Services helps clients apply agile frameworks like SAFe and Spotify Model to deliver faster, data-driven outcomes. Agile remains the operating DNA of digital enterprises.`,
   },
   {
     question: "How does automated software testing improve product quality and speed?",
     answer: `Automated testing has become the default expectation in 2025’s fast-paced DevOps pipelines. Manual testing can’t keep up with continuous deployment cycles. Automation tools, powered by AI and ML, run thousands of test cases in minutes - detecting bugs, predicting anomalies, and even self-healing failed test scripts.
 
-This means faster releases, fewer defects, and stronger performance. For IT firms like WT Softech, automated QA ensures that clients launch reliable software at scale - without compromising quality or security.`,
+This means faster releases, fewer defects, and stronger performance. For IT firms like Ushodaya Services, automated QA ensures that clients launch reliable software at scale - without compromising quality or security.`,
   },
   {
     question: "How can digital marketing help IT and consulting firms grow in 2025?",
     answer: `In 2025, innovation alone isn’t enough - visibility drives credibility. IT and consulting firms rely heavily on SEO, content marketing, and account-based marketing (ABM) to reach decision-makers in niche industries. AI tools are reshaping how campaigns are run—enabling predictive lead scoring, personalised content, and smart attribution tracking.
 
-WT Softech and similar firms leverage these digital strategies to turn technical expertise into measurable business impact - building thought leadership and driving qualified leads in a competitive tech marketplace.`,
+Ushodaya Services and similar firms leverage these digital strategies to turn technical expertise into measurable business impact - building thought leadership and driving qualified leads in a competitive tech marketplace.`,
   },
 ];
 
@@ -85,10 +85,10 @@ export default function Card(): JSX.Element {
   return (
     <>
       <Head>
-        <title>Top IT Innovations Transforming Business 2025 | WT Softech</title>
+        <title>Top IT Innovations Transforming Business 2025 | Ushodaya Services</title>
         <meta
           name="description"
-          content="Explore the top 5 IT trends transforming businesses in 2025, from AI IT strategy to agile software development. Stay ahead with WT Softech’s expert insights."
+          content="Explore the top 5 IT trends transforming businesses in 2025, from AI IT strategy to agile software development. Stay ahead with Ushodaya Services’s expert insights."
         />
       </Head>
 
@@ -138,7 +138,7 @@ export default function Card(): JSX.Element {
         </p>
 
         <p className="mb-6 text-gray-700 leading-relaxed sm:leading-relaxed">
-          For a company like WT Softech, in the IT services, consulting and
+          For a company like Ushodaya Services, in the IT services, consulting and
           software development business, knowing the forces which are influencing
           the future is at once an obligation and an opportunity.
         </p>
@@ -171,7 +171,7 @@ export default function Card(): JSX.Element {
             a company to anticipate and mitigate problems.
           </li>
           <li>
-            <strong>Client Corroboration of Trust:</strong> If WT Softech can
+            <strong>Client Corroboration of Trust:</strong> If Ushodaya Services can
             counsel its clients in the acquisition of leads that are desirable,
             it finds itself buried in the ranks of those who are forward-thinking
             or at least not one who merely fulfils orders.
@@ -250,7 +250,7 @@ export default function Card(): JSX.Element {
         </ul>
 
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mt-6 mb-2">
-          How WT Softech Can Leverage AI
+          How Ushodaya Services Can Leverage AI
         </h3>
         <ul className="list-disc pl-5 sm:pl-6 space-y-2 mb-6 text-gray-700 leading-relaxed">
           <li>
@@ -333,7 +333,7 @@ export default function Card(): JSX.Element {
         </ul>
 
         <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mt-6 mb-2">
-          WT Softech Approach
+          Ushodaya Services Approach
         </h3>
 
         <ul className="list-disc pl-5 sm:pl-6 space-y-2 mb-6 text-gray-700 leading-relaxed">
@@ -409,7 +409,7 @@ export default function Card(): JSX.Element {
           In 2025, technology is reshaping how businesses operate, innovate, and
           compete. From AI integration to cloud scalability, agile MVP
           development, QA automation, and smart digital marketing, each trend
-          empowers companies to stay future-ready. For WT Softech, mastering these
+          empowers companies to stay future-ready. For Ushodaya Services, mastering these
           trends means leading clients confidently through the next era of
           digital transformation.
         </p>

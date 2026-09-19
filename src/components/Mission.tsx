@@ -22,7 +22,7 @@ export default function Mission() {
         <div className="flex items-start">
           <div className="w-[3px] bg-blue-600 mr-4 mt-1"></div>
           <p className="text-gray-800 leading-6 sm:leading-8 text-base sm:text-lg">
-            At WT Softech, our mission is to empower businesses with
+            At Ushodaya Services, our mission is to empower businesses with
             cutting-edge technology and innovative solutions. We are always
             working to bridge the gap between ideas and execution. Our aim is to
             deliver excellence through cut-fit strategies, expert consulting,
