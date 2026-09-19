@@ -44,7 +44,7 @@ export default function Blogpic() {
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-16 sm:pt-20">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-snug text-gray-900">
             Insights, News & Articles by{" "}
-            <span className="font-serif text-blue-800">WT Softech</span>
+            <span className="font-serif text-blue-800">Ushodaya Services</span>
           </h1>
 
           <Link href="/contact">

@@ -33,7 +33,7 @@ export default function Vision() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-gray-800 text-base md:text-lg leading-relaxed"
         >
-          At WT Softech, innovation isn’t just a goal—it’s our foundation. Since our inception,
+          At Ushodaya Services, innovation isn’t just a goal—it’s our foundation. Since our inception,
           we’ve been empowering businesses with smart, tailored solutions that drive real results.
           Our journey has been defined by collaboration, expertise, and a passion for helping
           organisations thrive in an ever-evolving digital landscape. With a client–first approach

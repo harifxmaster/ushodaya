@@ -89,7 +89,7 @@ export default function QAFinalSections() {
           </h2>
           <p className="mt-4 text-lg max-w-3xl mx-auto text-gray-200">
             Reduce costs, prevent failures, and accelerate growth with
-            enterprise-grade QA and automation solutions from WT Softech.
+            enterprise-grade QA and automation solutions from Ushodaya Services.
           </p>
           <button className="mt-6 px-8 py-3 bg-white text-[#1A3C8C] font-semibold rounded-lg hover:bg-gray-100 transition">
             Contact Our QA Experts

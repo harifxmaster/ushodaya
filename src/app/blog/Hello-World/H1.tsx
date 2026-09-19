@@ -7,7 +7,7 @@ export default function QAAutomationBlogPage() {
     <main className="w-full bg-white">
 
       {/* ================= SEO (App Router handled by metadata normally) ================= */}
-      {/* Meta Title: How QA and Automated Testing Reduce Costs | WT Softech */}
+      {/* Meta Title: How QA and Automated Testing Reduce Costs | Ushodaya Services */}
       {/* Meta Description: Discover how QA and Automated Testing help companies cut development costs... */}
 
       {/* ================= HERO BANNER ================= */}
@@ -48,7 +48,7 @@ export default function QAAutomationBlogPage() {
         </p>
 
         <p className="mt-6 text-lg leading-relaxed text-gray-700">
-          At <strong>WT Softech</strong>, we see measurable long-term cost
+          At <strong>Ushodaya Services</strong>, we see measurable long-term cost
           reductions through early testing, automation strategy, and structured
           QA solutions. This article explores how QA saves money using real
           business case studies.
@@ -127,7 +127,7 @@ export default function QAAutomationBlogPage() {
         </ul>
 
         <h3 className="mt-10 text-xl font-semibold text-gray-900">
-          WT Softech’s Shift-Left QA Strategy
+          Ushodaya Services’s Shift-Left QA Strategy
         </h3>
 
         <ul className="mt-4 space-y-4 text-gray-700 text-lg list-disc pl-6">

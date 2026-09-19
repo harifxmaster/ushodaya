@@ -59,7 +59,7 @@ export default function Page() {
         </p>
 
         <p className="text-lg text-gray-700 mb-10">
-          In this guide by WT Softech, we go beyond ChatGPT to discuss how CTOs can formulate their own
+          In this guide by Ushodaya Services, we go beyond ChatGPT to discuss how CTOs can formulate their own
           generative AI strategy, build scalable AI architectures and make use of LLM Development
           Services and Generative AI Consulting Services to accelerate innovation throughout their
           enterprise.
@@ -461,7 +461,7 @@ export default function Page() {
           </p>
 
           <p className="text-lg text-gray-800">
-            Partnering with LLM experts like WT Softech allows CTOs to accelerate innovation while
+            Partnering with LLM experts like Ushodaya Services allows CTOs to accelerate innovation while
             maintaining quality and compliance.
           </p>
         </section>

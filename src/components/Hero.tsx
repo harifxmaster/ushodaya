@@ -58,46 +58,35 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full bg-gradient-to-b from-blue-50 to-white mb-10">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
-        <Image
-          src="/images/Girl.png"
-          alt="Business Woman"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/60 to-transparent"></div>
-      </div>
+    <section className="relative w-full bg-[var(--background)] mb-10 overflow-hidden">
 
       {/* Hero Text & Buttons */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 py-20 md:py-32 flex flex-col items-center justify-center text-center">
         <motion.div
-          className="flex flex-col justify-center text-center md:text-left"
+          className="flex flex-col items-center justify-center w-full"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={textVariants}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#252B42] leading-tight">
-            Holistic Growth <br className="hidden md:block" /> for Your Business
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[var(--primary)] leading-tight tracking-tight">
+            Holistic Growth <br className="hidden xl:block" /> for Your Business
           </h1>
-          <p className="mt-4 text-gray-700 text-base sm:text-lg md:text-lg">
+          <p className="mt-6 text-[var(--foreground)] text-base sm:text-lg max-w-2xl mx-auto">
             We are the leading full-service digital marketing and IT solutions
             company. From small-scale to large-scale firms, we help you grow to heights you
             never imagined.
           </p>
 
           <motion.div
-            className="mt-9 flex flex-col sm:flex-row sm:justify-center md:justify-start gap-9"
+            className="mt-10 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto"
             variants={buttonVariants}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/contact"
-                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition"
+                className="inline-flex items-center justify-center bg-[var(--brand)] text-white font-semibold px-8 py-3 rounded-lg shadow-md transition-all hover:shadow-lg w-full sm:w-auto"
+                style={{ backgroundColor: 'var(--brand)', color: '#fff', border: 'none' }}
               >
                 Get Quote Now
               </Link>
@@ -106,7 +95,8 @@ export default function Hero() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/about"
-                className="border border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg shadow-md transition"
+                className="inline-flex items-center justify-center bg-white text-[var(--brand)] font-semibold px-8 py-3 rounded-lg shadow-sm border border-[var(--border)] transition-all hover:bg-gray-50 w-full sm:w-auto"
+                style={{ backgroundColor: '#fff', color: 'var(--brand)', borderColor: 'var(--border)' }}
               >
                 Learn More
               </Link>
@@ -116,67 +106,65 @@ export default function Hero() {
       </div>
 
       {/* Feature Cards */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mt-10 md:mt-[-100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {cards.map((card, index) => (
-          <motion.div
-            key={index}
-            className={`bg-gradient-to-br ${card.color} shadow-lg rounded-xl p-6 text-center md:text-left hover:shadow-xl transition`}
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ ...transition, delay: index * 0.2 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <div
-              className={`mb-4 flex justify-center md:justify-start ${card.iconColor}`}
-            >
-              {card.iconImage ? (
-                <Image
-                  src={card.iconImage}
-                  alt={card.title}
-                  width={48}
-                  height={48}
-                  className="w-12 h-12 object-contain"
-                />
-              ) : (
-                card.svgPath && (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-10 h-10"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d={card.svgPath}
-                    />
-                  </svg>
-                )
-              )}
-            </div>
+      <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-12 mt-10 md:mt-[-80px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pb-12">
+        {cards.map((card, index) => {
+          // Card 3 is brand blue, Card 1 & 2 are ice white
+          const isBrandCard = index === 2;
+          const cardBg = isBrandCard ? "bg-[var(--brand)]" : "bg-[var(--background)] border border-[var(--border)]";
+          const titleColor = isBrandCard ? "text-white" : "text-[var(--primary)]";
+          const textColor = isBrandCard ? "text-white/90" : "text-[var(--foreground)]";
 
-            <h3
-              className={`text-xl font-bold mb-2 ${card.color.includes("text-white")
-                ? "text-white"
-                : "text-gray-900"
-                }`}
+          return (
+            <motion.div
+              key={index}
+              className={`${cardBg} shadow-sm rounded-xl p-8 text-left hover:shadow-md transition-all`}
+              variants={cardVariants}
+              initial="hidden"
+              whileInView="visible"
+              transition={{ ...transition, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              style={isBrandCard ? { backgroundColor: 'var(--brand)' } : { backgroundColor: 'var(--background)' }}
             >
-              {card.title}
-            </h3>
-            <p
-              className={
-                card.color.includes("text-white")
-                  ? "text-white/90"
-                  : "text-gray-800"
-              }
-            >
-              {card.text}
-            </p>
-          </motion.div>
-        ))}
+              <div className={`mb-6 flex justify-start`}>
+                {card.iconImage ? (
+                  <div className={`relative w-12 h-12 flex items-center justify-center`}>
+                    <Image
+                      src={card.iconImage}
+                      alt={card.title}
+                      width={48}
+                      height={48}
+                      className={`w-10 h-10 object-contain ${isBrandCard ? 'brightness-0 invert' : ''}`}
+                    />
+                  </div>
+                ) : (
+                  card.svgPath && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className={`w-10 h-10 ${isBrandCard ? 'text-white' : 'text-[var(--brand)]'}`}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d={card.svgPath}
+                      />
+                    </svg>
+                  )
+                )}
+              </div>
+
+              <h3 className={`text-xl font-bold mb-3 ${titleColor}`} style={isBrandCard ? { color: '#fff' } : { color: 'var(--primary)' }}>
+                {card.title}
+              </h3>
+              <p className={`text-sm leading-relaxed ${textColor}`} style={isBrandCard ? { color: 'rgba(255,255,255,0.9)' } : { color: 'var(--foreground)' }}>
+                {card.text}
+              </p>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

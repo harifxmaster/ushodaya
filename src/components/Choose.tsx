@@ -86,21 +86,28 @@ export default function Choose() {
               }}
               className="border-b border-gray-200 py-4"
             >
-              <button
+              <div
+                role="button"
+                tabIndex={0}
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
                 }
-                className="w-full flex items-center justify-between text-left text-gray-800 font-medium focus:outline-none"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setOpenIndex(openIndex === index ? null : index);
+                  }
+                }}
+                className="w-full flex items-center justify-between text-left text-[var(--primary)] font-bold text-lg select-none focus:outline-none cursor-pointer group hover:text-[var(--brand)] transition-colors"
               >
                 {item.title}
                 <motion.span
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                   transition={{ duration: 0.3 }}
-                  className="text-gray-500 text-xl"
+                  className="text-[var(--brand)] text-2xl group-hover:scale-110 transition-transform"
                 >
                   +
                 </motion.span>
-              </button>
+              </div>
 
               {/* Animated Accordion Content */}
               <AnimatePresence>

@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 export default function Contactus(){
   return(
     <>
-    <Contact />
+    <Contact isStandalone={true} />
     <Footer />
 
     </>

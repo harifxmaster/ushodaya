@@ -7,14 +7,14 @@ export default function TermsAndConditions() {
     <div className="min-h-screen bg-white text-gray-800 px-6 py-24 md:px-16 lg:px-32">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold text-center mb-10">
-          Terms and Conditions - WT Softech
+          Terms and Conditions - Ushodaya Services
         </h1>
 
         {/* Introduction */}
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">Introduction</h2>
           <p className="leading-relaxed">
-            Welcome to WT Softech (“Company”, “we”, “us”, or “our”). These Terms
+            Welcome to Ushodaya Services (“Company”, “we”, “us”, or “our”). These Terms
             & Conditions (“Terms”) govern your access to and use of our website,
             and any services provided by us (collectively, the “Services”). By
             using or accessing the Site or our Services, you agree to be bound
@@ -107,7 +107,7 @@ export default function TermsAndConditions() {
           </h2>
           <p className="leading-relaxed">
             All Content, trademarks, logos, service marks, and trade names on
-            the Site are the property of WT Softech or its licensors and are
+            the Site are the property of Ushodaya Services or its licensors and are
             protected by applicable intellectual property laws.
           </p>
           <p className="leading-relaxed mt-2">
@@ -169,7 +169,7 @@ export default function TermsAndConditions() {
           </h2>
           <p className="leading-relaxed">
             To the maximum extent permitted by applicable law, in no event shall
-            WT Softech (or its directors, employees, agents) be liable for any
+            Ushodaya Services (or its directors, employees, agents) be liable for any
             indirect, incidental, special, consequential, or punitive damages,
             including but not limited to loss of profits, data, or goodwill.
           </p>
@@ -186,7 +186,7 @@ export default function TermsAndConditions() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-3">Indemnification</h2>
           <p className="leading-relaxed">
-            You agree to defend, indemnify, and hold harmless WT Softech and its
+            You agree to defend, indemnify, and hold harmless Ushodaya Services and its
             officers, directors, employees and agents from and against any
             claims, liabilities, damages, losses, or expenses (including legal
             fees) arising out of or related to your use of the Site or Services,
@@ -249,11 +249,11 @@ export default function TermsAndConditions() {
           <p className="leading-relaxed mt-2">
             These Terms, together with any applicable Service Agreement or other
             document you agree to, constitute the entire agreement between you
-            and WT Softech relating to your use of the Site and Services,
+            and Ushodaya Services relating to your use of the Site and Services,
             superseding any prior agreements.
           </p>
           <p className="leading-relaxed mt-2">
-            No waiver by WT Softech of any right under these Terms shall be
+            No waiver by Ushodaya Services of any right under these Terms shall be
             deemed a further or continuing waiver of such right or any other
             right.
           </p>
@@ -267,11 +267,10 @@ export default function TermsAndConditions() {
             contact us at:
           </p>
           <p className="leading-relaxed mt-2">
-            <strong>Address:</strong> Registered address: Plot No.172, First
-            Floor, Kavuri Hills (Phase II), Madhapur, Hyderabad
+            <strong>Address:</strong> Registered address: 2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor&apos;s Colony, Madhapur, Hyderabad, Telangana 500033
           </p>
           <p className="leading-relaxed mt-1">
-            <strong>Email:</strong> hr@wtsoftech.com
+            <strong>Email:</strong> hr@ushodayaservices.com
           </p>
         </section>
       </div>

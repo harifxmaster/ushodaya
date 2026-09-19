@@ -9,11 +9,11 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: {
     default:
-      "WT SOFTECH - Leading IT Services, Digital Marketing & Consulting Solutions",
-    template: "%s | WT SOFTECH",
+      "Ushodaya Services - Leading IT Services, Digital Marketing & Consulting Solutions",
+    template: "%s | Ushodaya Services",
   },
   description:
-    "WT Softech is a leading full-service digital marketing and IT solutions company in Hyderabad. We provide data-backed growth strategies, secure IT foundations, software development, consulting, and digital marketing services for businesses of all scales.",
+    "Ushodaya Services is a leading full-service digital marketing and IT solutions company in Hyderabad. We provide data-backed growth strategies, secure IT foundations, software development, consulting, and digital marketing services for businesses of all scales.",
 
   keywords: [
     "IT services Hyderabad",
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     "ERP development",
   ],
 
-  authors: [{ name: "WT Softech", url: "https://wtsoftech.com" }],
-  creator: "WT Softech",
-  publisher: "WT Softech",
+  authors: [{ name: "Ushodaya Services", url: "https://ushodayaservices.com" }],
+  creator: "Ushodaya Services",
+  publisher: "Ushodaya Services",
 
   formatDetection: {
     email: false,
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
 
-  metadataBase: new URL("https://wtsoftech.com"),
+  metadataBase: new URL("https://ushodayaservices.com"),
 
   alternates: {
     canonical: "/",
@@ -70,31 +70,31 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "WT SOFTECH - Leading IT Services & Digital Marketing Solutions",
+    title: "Ushodaya Services - Leading IT Services & Digital Marketing Solutions",
     description:
       "Transform your business with our comprehensive IT services, digital marketing strategies, and consulting solutions. Data-backed growth for businesses of all scales in Hyderabad and beyond.",
-    url: "https://wtsoftech.com",
-    siteName: "WT Softech",
+    url: "https://ushodayaservices.com",
+    siteName: "Ushodaya Services",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "/og-image.png",
+        url: "/images/ushodaya-logo-new.png",
         width: 1200,
         height: 630,
-        alt: "WT Softech - IT Services & Digital Marketing Solutions",
+        alt: "Ushodaya Services - IT Services & Digital Marketing Solutions",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "WT SOFTECH - Leading IT Services & Digital Marketing Solutions",
+    title: "Ushodaya Services - Leading IT Services & Digital Marketing Solutions",
     description:
       "Transform your business with our comprehensive IT services, digital marketing strategies, and consulting solutions. Data-backed growth for all business scales.",
-    creator: "@wtsoftech",
-    site: "@wtsoftech",
-    images: ["/og-image.png"],
+    creator: "@ushodayaservices",
+    site: "@ushodayaservices",
+    images: ["/images/ushodaya-logo-new.png"],
   },
 
   robots: {
@@ -114,11 +114,11 @@ export const metadata: Metadata = {
   category: "Technology",
   classification: "Business",
   referrer: "origin-when-cross-origin",
-  applicationName: "WT Softech",
+  applicationName: "Ushodaya Services",
   generator: "Next.js",
 
   abstract:
-    "WT Softech provides comprehensive IT services, digital marketing, and consulting solutions with data-backed strategies and secure IT foundations for businesses.",
+    "Ushodaya Services provides comprehensive IT services, digital marketing, and consulting solutions with data-backed strategies and secure IT foundations for businesses.",
 
   other: {
     "geo.region": "IN-TG",
@@ -126,15 +126,15 @@ export const metadata: Metadata = {
     "geo.position": "17.385044;78.486671",
     ICBM: "17.385044, 78.486671",
     "business:contact_data:street_address":
-      "Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur",
+      "2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor's Colony, Madhapur, Hyderabad, Telangana 500033",
     "business:contact_data:locality": "Hyderabad",
     "business:contact_data:region": "Telangana",
     "business:contact_data:postal_code": "500081",
     "business:contact_data:country_name": "India",
-    "business:contact_data:email": "hr@wtsoftech.com",
+    "business:contact_data:email": "hr@ushodayaservices.com",
     "business:contact_data:phone_number": "+20-34 4040 3030",
-    "business:contact_data:website": "https://wtsoftech.com",
-    company: "WT Softech",
+    "business:contact_data:website": "https://ushodayaservices.com",
+    company: "Ushodaya Services",
     industry: "Information Technology",
     coverage: "Worldwide",
     distribution: "Global",
@@ -143,8 +143,8 @@ export const metadata: Metadata = {
     "mobile-web-app-capable": "yes",
     "apple-mobile-web-app-capable": "yes",
     "apple-mobile-web-app-status-bar-style": "default",
-    "apple-mobile-web-app-title": "WT Softech",
-    "application-name": "WT Softech",
+    "apple-mobile-web-app-title": "Ushodaya Services",
+    "application-name": "Ushodaya Services",
     "msapplication-TileColor": "#1e40af",
     "msapplication-config": "/browserconfig.xml",
   },
@@ -153,7 +153,7 @@ export const metadata: Metadata = {
 
   appleWebApp: {
     capable: true,
-    title: "WT Softech",
+    title: "Ushodaya Services",
     statusBarStyle: "default",
   },
 };
@@ -182,26 +182,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        {/* Favicon and Icons - Only existing files */}
-        <link rel="icon" href="/favicon.ico" sizes="48x48" />
-        <link rel="icon" href="/favicon.ico" type="image/svg+xml" />
-        <link
-          rel="icon"
-          href="/favicon-16x16.png"
-          sizes="16x16"
-          type="image/png"
-        />
-        <link
-          rel="icon"
-          href="/favicon-32x32.png"
-          sizes="32x32"
-          type="image/png"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-touch-icon.png"
-          sizes="180x180"
-        />
+        {/* Favicon and Icons */}
+        <link rel="icon" href="/favicon-new.png" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-new.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-new.png" />
+        <link rel="apple-touch-icon" href="/favicon-new.png" />
         <link rel="manifest" href="/manifest.json" />
 
         {/* Theme and Browser Configuration */}
@@ -230,15 +215,15 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "WT Softech",
-              url: "https://wtsoftech.com",
-              logo: "https://wtsoftech.com/og-image.png",
+              name: "Ushodaya Services",
+              url: "https://ushodayaservices.com",
+              logo: "https://ushodayaservices.com/images/ushodaya-logo-new.png",
               description:
                 "Leading full-service digital marketing and IT solutions company providing data-backed growth strategies and secure IT foundations.",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur",
+                  "2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor's Colony, Madhapur, Hyderabad, Telangana 500033",
                 addressLocality: "Hydreabad",
                 addressRegion: "Telangana",
                 postalCode: "500081",
@@ -248,16 +233,16 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 telephone: "+20-34 4040 3030",
                 contactType: "customer service",
-                email: "hr@wtsoftech.com",
+                email: "hr@ushodayaservices.com",
                 availableLanguage: ["English", "Hindi"],
               },
               sameAs: [
-                "https://www.facebook.com/wtsoftech",
-                "https://twitter.com/wtsoftech",
-                "https://www.linkedin.com/company/wtsoftech",
-                "https://www.instagram.com/wtsoftech",
-                "https://www.youtube.com/@wtsoftech",
-                "https://github.com/wtsoftech",
+                "https://www.facebook.com/ushodayaservices",
+                "https://twitter.com/ushodayaservices",
+                "https://www.linkedin.com/company/ushodayaservices",
+                "https://www.instagram.com/ushodayaservices",
+                "https://www.youtube.com/@ushodayaservices",
+                "https://github.com/ushodayaservices",
               ],
               foundingDate: "2020",
               numberOfEmployees: "50-100",
@@ -324,15 +309,15 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              name: "WT Softech",
-              image: "https://wtsoftech.com/og-image.png",
+              name: "Ushodaya Services",
+              image: "https://ushodayaservices.com/images/ushodaya-logo-new.png",
               telephone: "+20-34 4040 3030",
-              email: "hr@wtsoftech.com",
-              url: "https://wtsoftech.com",
+              email: "hr@ushodayaservices.com",
+              url: "https://ushodayaservices.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "Plot No.172, First Floor, Kavuri Hills (Phase II), Madhapur",
+                  "2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor's Colony, Madhapur, Hyderabad, Telangana 500033",
                 addressLocality: "Hyderabad",
                 addressRegion: "Telangana",
                 postalCode: "500081",
@@ -351,12 +336,12 @@ export default function RootLayout({
                 reviewCount: "150",
               },
               sameAs: [
-                "https://www.facebook.com/wtsoftech",
-                "https://twitter.com/wtsoftech",
-                "https://www.linkedin.com/company/wtsoftech",
-                "https://www.instagram.com/wtsoftech",
-                "https://www.youtube.com/@wtsoftech",
-                "https://github.com/wtsoftech",
+                "https://www.facebook.com/ushodayaservices",
+                "https://twitter.com/ushodayaservices",
+                "https://www.linkedin.com/company/ushodayaservices",
+                "https://www.instagram.com/ushodayaservices",
+                "https://www.youtube.com/@ushodayaservices",
+                "https://github.com/ushodayaservices",
               ],
             }),
           }}
@@ -392,7 +377,7 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://wtsoftech.com",
+                  item: "https://ushodayaservices.com",
                 },
               ],
             }),

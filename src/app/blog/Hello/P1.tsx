@@ -51,10 +51,10 @@ export default function DigitalMarketingSEOPage() {
           </p>
         </div>
 
-        {/* WT SOFTECH EXPERIENCE */}
+        {/* Ushodaya Services EXPERIENCE */}
         <div className="space-y-6">
           <p className="text-lg leading-relaxed">
-            Through our work at <strong>WT Softech</strong>, we’ve seen many businesses struggle online
+            Through our work at <strong>Ushodaya Services</strong>, we’ve seen many businesses struggle online
             because SEO was treated as an afterthought and security was implemented only after a cyber threat.
           </p>
 

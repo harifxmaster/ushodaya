@@ -17,7 +17,7 @@ export default function QACaseStudiesContinuation() {
         </p>
 
         <h3 className="mt-8 text-xl font-semibold text-gray-900">
-          WT Softech’s Automation Framework
+          Ushodaya Services’s Automation Framework
         </h3>
 
         <ul className="mt-4 space-y-4 text-lg text-gray-700 list-disc pl-6">
@@ -66,7 +66,7 @@ export default function QACaseStudiesContinuation() {
         </p>
 
         <h3 className="mt-8 text-xl font-semibold text-gray-900">
-          WT Softech’s Performance Testing Approach
+          Ushodaya Services’s Performance Testing Approach
         </h3>
 
         <ul className="mt-4 space-y-4 text-lg text-gray-700 list-disc pl-6">
@@ -110,7 +110,7 @@ export default function QACaseStudiesContinuation() {
         </p>
 
         <h3 className="mt-8 text-xl font-semibold text-gray-900">
-          WT Softech’s Testing Approach
+          Ushodaya Services’s Testing Approach
         </h3>
 
         <ul className="mt-4 space-y-4 text-lg text-gray-700 list-disc pl-6">
@@ -155,7 +155,7 @@ export default function QACaseStudiesContinuation() {
         </p>
 
         <h3 className="mt-8 text-xl font-semibold text-gray-900">
-          WT Softech’s Compliance-Focused QA Framework
+          Ushodaya Services’s Compliance-Focused QA Framework
         </h3>
 
         <ul className="mt-4 space-y-4 text-lg text-gray-700 list-disc pl-6">
