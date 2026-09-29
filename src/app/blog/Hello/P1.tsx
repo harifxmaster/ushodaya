@@ -21,7 +21,7 @@ export default function DigitalMarketingSEOPage() {
         />
         <div className="absolute inset-0 bg-black/50" />
 
-        <div className="relative z-10 h-full flex items-center">
+        <div className="relative z-10 h-full flex items-center pt-16 sm:pt-20">
           <div className="max-w-6xl mx-auto px-6 text-white">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">
               Combining Digital Marketing & Web Development

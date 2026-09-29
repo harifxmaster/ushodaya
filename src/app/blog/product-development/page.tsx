@@ -1,42 +1,34 @@
-// app/page.tsx
 "use client";
 
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import Head from "next/head";
 import Image from "next/image";
 import Hi from "./Hi";
 
 export default function Page() {
   return (
     <>
-      <Head>
-        <title>How CTOs Can Build Powerful Generative AI Products</title>
-        <meta
-          name="description"
-          content="Learn how CTOs can develop Generative AI products beyond ChatGPT. Read about CTO AI strategy, infrastructure, and consulting for scalable innovation."
-        />
-      </Head>
 
       {/* Full-bleed banner (spans entire viewport width) - Top */}
-     <div className="relative w-full h-[280px] sm:h-[400px] overflow-hidden">
-               <Image
-                 src="/images/pd3.png"
-                 alt="Tech Stack Audit"
-                 fill
-                 priority
-                 className="object-cover object-center"
-               />
-               <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                 <motion.h1
-                   initial={{ opacity: 0, y: 40 }}
-                   animate={{ opacity: 1, y: 0 }}
-                   transition={{ duration: 0.8, ease: "easeOut" }}
-                   className="text-white text-3xl sm:text-5xl font-bold text-center px-4"
-                 >
-                   Beyond ChatGPT: A CTOs Guide to Building Your Own Generative AI Product
-                 </motion.h1>
-               </div>
-             </div>
+      <div className="relative w-full h-[320px] sm:h-[400px] overflow-hidden">
+        <Image
+          src="/images/pd3.png"
+          alt="Tech Stack Audit"
+          fill
+          priority
+          className="object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center pt-16 sm:pt-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-white text-2xl sm:text-4xl md:text-5xl font-bold text-center px-4 max-w-4xl"
+          >
+            Beyond ChatGPT: A CTO&apos;s Guide to Building Your Own Generative AI Product
+          </motion.h1>
+        </div>
+      </div>
 
       <main className="max-w-4xl bg-transparent mx-auto px-6 py-12">
         {/* Title */}
@@ -512,6 +504,8 @@ export default function Page() {
 
         <Hi />
       </main>
+
+      <Footer />
     </>
   );
 }

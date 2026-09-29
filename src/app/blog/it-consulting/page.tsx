@@ -1,7 +1,7 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import Head from "next/head";
 import Image from "next/image";
 import { useEffect } from "react";
 import Conclusion from "./Conclusion";
@@ -15,18 +15,9 @@ export default function ItConsultingBlog() {
 
   return (
     <>
-      {/* ✅ Meta Tags for SEO */}
-      <Head>
-        <title>Tech Stacks Audit: Asset or Legacy Trap | Ushodaya Services</title>
-        <meta
-          name="description"
-          content="Discover how modern tech stacks impact business performance. Learn to audit, modernise, and optimise your technology with expert IT consulting services."
-        />
-      </Head>
-
       <section className="bg-white text-gray-800">
         {/* ✅ Hero Section */}
-        <div className="relative w-full h-[280px] sm:h-[400px] overflow-hidden">
+        <div className="relative w-full h-[320px] sm:h-[400px] overflow-hidden">
           <Image
             src="/images/a3.jpg"
             alt="Tech Stack Audit"
@@ -34,7 +25,7 @@ export default function ItConsultingBlog() {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 flex items-center justify-center pt-16 sm:pt-20">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
@@ -409,9 +400,10 @@ export default function ItConsultingBlog() {
           <Content />
           <Conpect />
           <Conclusion />
-
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }

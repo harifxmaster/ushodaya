@@ -1,5 +1,6 @@
 "use client";
 
+import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -46,7 +47,7 @@ export default function SaaSTestingPage() {
           priority
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 bg-transparent flex items-center justify-center">
+        <div className="absolute inset-0 bg-black/50 flex items-center justify-center pt-16 sm:pt-20">
           <motion.h1
             className="text-3xl sm:text-5xl md:text-6xl font-bold text-white text-center px-4"
             initial={{ opacity: 0, y: -30 }}
@@ -357,6 +358,8 @@ export default function SaaSTestingPage() {
           </motion.a>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
