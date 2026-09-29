@@ -91,7 +91,7 @@ export default function JobSearchHero() {
   };
 
   return (
-    <section className="relative bg-[#113D8F] text-white py-16 overflow-hidden">
+    <section className="relative bg-gray-50 text-gray-900 pt-28 pb-16 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {!showLocation ? (
           <>
@@ -103,8 +103,8 @@ export default function JobSearchHero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug">
-                  Carve the Path <br /> to a Brighter <br /> Future with Us
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-gray-900">
+                  Carve the Path <br /> to a <span className="text-blue-600">Brighter</span> <br /> Future with Us
                 </h2>
               </motion.div>
 
@@ -115,13 +115,13 @@ export default function JobSearchHero() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
               >
-                <div className="w-[650px] h-[450px] bg-blue-900 rounded-l-[300px] overflow-hidden flex-shrink-0 relative shadow-lg">
+                <div className="w-[650px] h-[450px] bg-blue-100/60 rounded-l-[300px] overflow-hidden flex-shrink-0 relative shadow-xl border border-blue-100">
                   <Image
-                    src="/images/class.png"
-                    alt="Hero"
+                    src="/images/career-hero-team.jpg"
+                    alt="Careers Team Collaboration"
                     width={650}
                     height={450}
-                    className="object-cover"
+                    className="object-cover w-full h-full object-center"
                     priority
                   />
                 </div>
@@ -130,7 +130,7 @@ export default function JobSearchHero() {
 
             {/* Job Search Box */}
             <motion.div
-              className="bg-white shadow-lg rounded-lg p-6 mt-12 w-full max-w-6xl mx-auto"
+              className="bg-white shadow-xl rounded-2xl p-6 md:p-8 mt-12 w-full max-w-6xl mx-auto border border-gray-200/80"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}

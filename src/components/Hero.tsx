@@ -59,6 +59,17 @@ export default function Hero() {
 
   return (
     <section className="relative w-full bg-[var(--background)] mb-10 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/images/hero-wave-bg.jpg"
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover object-center opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-100/20 via-transparent to-white/90" />
+      </div>
 
       {/* Hero Text & Buttons */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 md:px-12 py-20 md:py-32 flex flex-col items-center justify-center text-center">
