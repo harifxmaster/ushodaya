@@ -138,7 +138,7 @@ export default function Contact({ isStandalone = false }: ContactProps) {
               <div className="w-full h-px bg-[var(--border)] opacity-60"></div>
 
               {/* Email */}
-              <div className="flex items-center gap-5 group">
+              <div className="flex items-start gap-5 group">
                 <div className={iconWrapperClass}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -146,12 +146,20 @@ export default function Contact({ isStandalone = false }: ContactProps) {
                 </div>
                 <div>
                   <h4 className="text-[var(--primary)] font-bold text-lg mb-1">Email Us</h4>
-                  <Link
-                    href="mailto:hr@ushodayaservices.com"
-                    className="text-[var(--foreground)] hover:text-[var(--brand)] transition-colors"
-                  >
-                    hr@ushodayaservices.com
-                  </Link>
+                  <div className="flex flex-col gap-1 text-[var(--foreground)]">
+                    <Link
+                      href="mailto:info@ushodayaservices.com"
+                      className="hover:text-[var(--brand)] font-medium transition-colors"
+                    >
+                      info@ushodayaservices.com
+                    </Link>
+                    <Link
+                      href="mailto:hr@ushodayaservices.com"
+                      className="hover:text-[var(--brand)] text-sm text-gray-500 font-medium transition-colors"
+                    >
+                      hr@ushodayaservices.com (Careers & HR)
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -167,10 +175,10 @@ export default function Contact({ isStandalone = false }: ContactProps) {
                 <div>
                   <h4 className="text-[var(--primary)] font-bold text-lg mb-1">Call Us</h4>
                   <Link
-                    href="tel:+9193440403030"
+                    href="tel:+919390452110"
                     className="text-[var(--foreground)] hover:text-[var(--brand)] transition-colors"
                   >
-                    +91 93440 403030
+                    +91 93904 52110
                   </Link>
                 </div>
               </div>

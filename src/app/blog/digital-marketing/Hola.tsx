@@ -18,7 +18,7 @@ export default function InHouseVsOutsourcedIT() {
         <div className="absolute inset-0 bg-black/50"></div>
 
         {/* BANNER CONTENT */}
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center pt-16 sm:pt-20">
           <div className="max-w-6xl mx-auto px-6">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight">
               When to Choose In-house vs Outsourced IT

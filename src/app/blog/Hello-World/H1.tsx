@@ -24,7 +24,7 @@ export default function QAAutomationBlogPage() {
         <div className="absolute inset-0 bg-black/60" />
 
         {/* Content */}
-        <div className="absolute inset-0 flex items-center">
+        <div className="absolute inset-0 flex items-center pt-16 sm:pt-20">
           <div className="max-w-[1180px] mx-auto px-4 text-white">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight max-w-4xl">
               How QA & Automated Testing Saves Costs

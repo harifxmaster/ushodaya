@@ -45,7 +45,7 @@ const jobs: Job[] = [
       salary: "Competitive + Incentives",
       experience: "2–5 years",
       location: "Hyderabad",
-      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
+      email: "hr@ushodayaservices.com",
     },
   },
   {
@@ -71,7 +71,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "2–5 years",
       location: "Hyderabad",
-      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
+      email: "hr@ushodayaservices.com",
     },
   },
   {
@@ -98,7 +98,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "10–15 years",
       location: "Hyderabad",
-      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
+      email: "hr@ushodayaservices.com",
     },
   },
   {
@@ -126,7 +126,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "7–15 years",
       location: "Hyderabad",
-      email: "varsha.katkam@fxmaster.co.uk", // ✅ Added
+      email: "hr@ushodayaservices.com",
     },
   },
   {
@@ -151,7 +151,7 @@ const jobs: Job[] = [
       salary: "Competitive / Industry Standard",
       experience: "1–2 years",
       location: "Hyderabad",
-      email: "varsha.katkam@fxmaster.co.uk", // ✅ Already had it, kept
+      email: "hr@ushodayaservices.com",
     },
   },
 ];

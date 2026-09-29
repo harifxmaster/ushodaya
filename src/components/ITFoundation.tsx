@@ -46,21 +46,17 @@ export default function About() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug !text-white">
             We Create A Goal-Focused IT Foundation & <br />
             Digital Presence
           </h2>
-          <p className="mb-6 text-lg text-gray-200">
-            Ushodaya Services creates an IT foundation that is almost impossible to break.
-            Additionally, our digital solutions pile upon it, giving you security and
-            a presence that speaks louder to your audience. The solutions we curate
-            are personalised for your needs—because we listen and craft strategies
-            that align with you.
+          <p className="mb-6 text-lg text-blue-100 leading-relaxed">
+            Ushodaya Services creates an IT foundation that is built for resilience, scalability, and security.
+            Additionally, our digital solutions empower your brand with high performance and commanding presence.
+            Every solution is tailored to your strategic needs through dedicated craftsmanship.
           </p>
-          <p className="mb-6 text-lg text-gray-200">
-            We make sure reliability, scalability, and innovativeness tangle through
-            every step. You can stay on top of every advancement that is in line with
-            the future you envision.
+          <p className="mb-6 text-lg text-blue-100 leading-relaxed">
+            We make sure reliability, scalability, and innovation guide every step so you stay at the forefront of modern technology.
           </p>
           <motion.button
             className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100"

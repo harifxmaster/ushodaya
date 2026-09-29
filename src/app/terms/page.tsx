@@ -270,7 +270,14 @@ export default function TermsAndConditions() {
             <strong>Address:</strong> Registered address: 2nd Floor, Aikya Vihar, State, Kavuri Hills Phase 2 Rd, Doctor&apos;s Colony, Madhapur, Hyderabad, Telangana 500033
           </p>
           <p className="leading-relaxed mt-1">
-            <strong>Email:</strong> hr@ushodayaservices.com
+            <strong>Email:</strong>{" "}
+            <a href="mailto:info@ushodayaservices.com" className="text-blue-600 underline">
+              info@ushodayaservices.com
+            </a>{" "}
+            /{" "}
+            <a href="mailto:hr@ushodayaservices.com" className="text-blue-600 underline">
+              hr@ushodayaservices.com
+            </a>
           </p>
         </section>
       </div>
