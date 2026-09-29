@@ -96,7 +96,7 @@ export default function Footer() {
 
       {/* Bottom Gradient Section */}
       <div className="bg-gradient-to-r from-blue-900 to-blue-600 text-center py-4 text-white text-sm">
-        © 2026 &quot;Ushodaya is a brand owned and operated by Ushodaya Services Pvt Ltd.&quot; All rights reserved.
+        © 2026 &quot;Ushodaya is a brand owned and operated by Ushodaya Services India Pvt Ltd.&quot; All rights reserved.
       </div>
     </footer>
   );

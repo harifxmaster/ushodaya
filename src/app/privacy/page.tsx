@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
         {/* Introduction */}
         <section className="mb-8">
           <p className="leading-relaxed">
-            Ushodaya Services Pvt. Ltd. (“Ushodaya Services”, “we”, “our”, or “us”) values
+            Ushodaya Services India Pvt. Ltd. (“Ushodaya Services”, “we”, “our”, or “us”) values
             your privacy and is committed to protecting your personal
             information. This Privacy Policy explains how we collect, use,
             disclose, and protect your data when you visit our website or engage
