@@ -46,32 +46,27 @@ html, body {
 }
 
 @layer base {
-  /* Apply high-priority styles for titles */
+  /* Apply default styles for titles */
   h1, h2, h3, h4, h5, h6 {
-    color: var(--primary) !important;
+    color: var(--primary);
     font-weight: bold;
-  }
-
-  /* Apply high-priority styles for regular text */
-  p, span, div {
-    color: var(--foreground);
   }
 
   /* Secondary text color class */
   .text-secondary {
-    color: var(--text-secondary) !important;
+    color: var(--text-secondary);
   }
 
-  /* Apply high-priority styles for buttons */
-  button, .btn, a.btn, input[type="submit"] {
-    background-color: var(--brand) !important;
-    color: var(--white) !important;
-    border: 1px solid var(--border) !important;
+  /* Default button class for opt-in primary buttons */
+  .btn-primary {
+    background-color: var(--brand);
+    color: var(--white);
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
   }
 
-  button:hover, .btn:hover, a.btn:hover, input[type="submit"]:hover {
-    background-color: var(--primary) !important;
-    border-color: var(--accent-tech) !important;
+  .btn-primary:hover {
+    background-color: var(--primary);
+    border-color: var(--accent-tech);
   }
 }

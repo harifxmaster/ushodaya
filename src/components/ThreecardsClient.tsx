@@ -107,21 +107,24 @@ export default function BlogTabsPage() {
       <div className="max-w-[1180px] mx-auto px-4">
 
         {/* ---------------- CATEGORY TABS ---------------- */}
-        <div className="flex flex-wrap gap-3 mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition
-                ${
-                  activeCategory === cat
-                    ? "bg-[#1A3C8C] text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        <div className="flex flex-wrap gap-2.5 mb-8">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
+                  isActive
+                    ? "bg-blue-600 text-white shadow-sm"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200 border border-gray-200"
                 }`}
-            >
-              {cat}
-            </button>
-          ))}
+              >
+                {cat}
+              </button>
+            );
+          })}
         </div>
 
         {/* ---------------- BLOG GRID ---------------- */}
