@@ -175,10 +175,10 @@ export default function Contact({ isStandalone = false }: ContactProps) {
                 <div>
                   <h4 className="text-[var(--primary)] font-bold text-lg mb-1">Call Us</h4>
                   <Link
-                    href="tel:+919390452110"
+                    href="tel:+918922319278"
                     className="text-[var(--foreground)] hover:text-[var(--brand)] transition-colors"
                   >
-                    +91 93904 52110
+                    +91 89223 19278
                   </Link>
                 </div>
               </div>
