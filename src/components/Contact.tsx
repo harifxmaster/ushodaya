@@ -193,26 +193,30 @@ export default function Contact({ isStandalone = false }: ContactProps) {
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[var(--primary)] font-semibold text-sm">Full Name</label>
+                  <label className="text-[var(--primary)] font-semibold text-sm">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[var(--border)] shadow-sm rounded-xl p-4 text-[var(--primary)] placeholder-gray-400 focus:outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)] transition-all"
+                    className="w-full bg-gray-50/90 border border-gray-200 shadow-xs rounded-xl p-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/20 transition-all"
                     required
                     placeholder="John Doe"
                     title="Name"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-[var(--primary)] font-semibold text-sm">Email Address</label>
+                  <label className="text-[var(--primary)] font-semibold text-sm">
+                    Email Address <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="email"
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    className="w-full bg-white border border-[var(--border)] shadow-sm rounded-xl p-4 text-[var(--primary)] placeholder-gray-400 focus:outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)] transition-all"
+                    className="w-full bg-gray-50/90 border border-gray-200 shadow-xs rounded-xl p-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/20 transition-all"
                     required
                     placeholder="john@example.com"
                     title="Email"
@@ -221,12 +225,14 @@ export default function Contact({ isStandalone = false }: ContactProps) {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[var(--primary)] font-semibold text-sm">How can we help?</label>
+                <label className="text-[var(--primary)] font-semibold text-sm">
+                  How can we help? <span className="text-red-500">*</span>
+                </label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  className="w-full bg-white border border-[var(--border)] shadow-sm rounded-xl p-4 text-[var(--primary)] placeholder-gray-400 focus:outline-none focus:border-[var(--brand)] focus:ring-1 focus:ring-[var(--brand)] transition-all resize-none"
+                  className="w-full bg-gray-50/90 border border-gray-200 shadow-xs rounded-xl p-4 text-gray-900 placeholder-gray-400 focus:bg-white focus:outline-none focus:border-[var(--brand)] focus:ring-2 focus:ring-[var(--brand)]/20 transition-all resize-none"
                   required
                   placeholder="Tell us about your project or inquiry..."
                   title="Message"

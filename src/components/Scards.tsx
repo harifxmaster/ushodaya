@@ -2,8 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+
+const testimonials = [
+  {
+    quote: "You made it so simple. Our new platform is so much faster, scalable, and easier to work with.",
+    name: "Priya Sharma",
+    avatar: "/images/toolg.png",
+  },
+  {
+    quote: "Outstanding engineering support. The team delivered our project seamlessly with exceptional quality.",
+    name: "Rahul Verma",
+    avatar: "/images/Boy.png",
+  },
+  {
+    quote: "From concept to deployment, their IT solutions boosted our business operations significantly.",
+    name: "Ananya Iyer",
+    avatar: "/images/Avatar2.png",
+  },
+];
 
 export default function Scards() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+
   return (
     <div className="min-h-screen px-4 sm:px-6 md:px-10 py-10 bg-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10">
@@ -66,50 +87,64 @@ export default function Scards() {
         <div className="w-full lg:w-1/3 space-y-6">
 
           {/* Category Section */}
-          <div className="border rounded-lg p-5 shadow-sm bg-gray-50">
-            <h3 className="font-bold text-gray-800 mb-3 border-b pb-2 text-lg">
+          <div className="border rounded-xl p-5 shadow-xs bg-gray-50 border-gray-200">
+            <h3 className="font-bold text-[#061047] mb-3 border-b border-gray-200 pb-2 text-lg">
               Category
             </h3>
             <ul className="text-sm sm:text-base space-y-2">
               {[
-                "Product Development",
-                "Software Testing",
-                "IT Consulting",
-                "IT Services",
-                "Staffing Solutions",
+                { name: "Product Development", href: "/blog/how-ctos-can-build-powerful-generative-ai-products" },
+                { name: "Software Testing", href: "/blog/role-of-saas-software-testing-in-building-secure-products" },
+                { name: "IT Consulting", href: "/blog/tech-stacks-audit-asset-or-legacy-trap" },
+                { name: "IT Services", href: "/blog/top-5-it-trends-transforming-businesses-in-2025" },
+                { name: "Staffing Solutions", href: "/blog/choosing-between-in-house-vs-outsourced-it" },
               ].map((item, index) => (
-                <li
-                  key={index}
-                  className="flex justify-between items-center px-3 py-2 rounded-md bg-white text-gray-800 border border-gray-200 cursor-pointer hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-400 hover:text-white transition duration-300 ease-in-out"
-                >
-                  {item}
-                  <span className="text-xs">{'»'}</span>
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    className="flex justify-between items-center px-4 py-2.5 rounded-lg bg-white text-gray-800 border border-gray-200 cursor-pointer hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all duration-200 group shadow-xs font-medium"
+                  >
+                    <span>{item.name}</span>
+                    <span className="text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all">»</span>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Testimonial Section */}
-          <div className="border rounded-lg p-5 shadow-sm text-center border-blue-500 bg-white">
-            <p className="italic text-gray-700 text-sm sm:text-base mb-4">
-              &quot;You made it so simple. My new site is so much faster & easier to work&quot;
+          {/* Testimonial Section with 3 Indian Client Profiles */}
+          <div className="border rounded-xl p-5 shadow-sm text-center border-blue-500 bg-white transition-all">
+            <p className="italic text-gray-700 text-sm sm:text-base mb-4 min-h-[48px] flex items-center justify-center">
+              &quot;{testimonials[currentTestimonial].quote}&quot;
             </p>
-            <div className="flex items-center justify-center gap-2 mb-2">
+            <div className="flex items-center justify-center gap-2 mb-3">
               <Image
-                src="/images/toolg.png"
-                alt="Arianna Craig"
+                src={testimonials[currentTestimonial].avatar}
+                alt={testimonials[currentTestimonial].name}
                 width={36}
                 height={36}
-                className="rounded-full"
+                className="rounded-full object-cover"
               />
               <span className="text-sm sm:text-base font-semibold text-gray-900">
-                Arianna Craigg
+                {testimonials[currentTestimonial].name}
               </span>
             </div>
-            <div className="flex justify-center space-x-2">
-              <div className="w-3 h-3 rounded-full bg-blue-700" />
-              <div className="w-3 h-3 rounded-full bg-gray-300" />
-              <div className="w-3 h-3 rounded-full bg-gray-300" />
+            
+            {/* Interactive pagination dots */}
+            <div className="flex justify-center space-x-2 pt-1">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setCurrentTestimonial(idx)}
+                  aria-label={`Show testimonial ${idx + 1}`}
+                  className={`rounded-full transition-all duration-300 cursor-pointer ${
+                    currentTestimonial === idx
+                      ? "w-6 h-2.5 bg-blue-700"
+                      : "w-2.5 h-2.5 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 

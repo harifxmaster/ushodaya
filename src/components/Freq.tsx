@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useState } from "react";
-import { FaChevronRight } from "react-icons/fa";
 
 // FAQ Data
 const faqs = [
@@ -43,17 +42,17 @@ const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.15,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4, ease: "easeOut" },
+    transition: { duration: 0.35, ease: "easeOut" },
   },
 };
 
@@ -65,60 +64,87 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="py-10 px-4 bg-white">
+    <section className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <motion.div
-        className="max-w-4xl mx-auto rounded-lg p-6 bg-white shadow-sm"
+        className="max-w-4xl mx-auto"
         initial="hidden"
-        animate="show"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
       >
-        {/* Title */}
-        <motion.h2
-          className="text-3xl font-bold text-center text-gray-900 mb-8"
-          variants={itemVariants}
-        >
-          Frequently Asked Questions
-        </motion.h2>
+        {/* Title Header */}
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-100">
+            Got Questions?
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061047] tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-gray-600 text-sm sm:text-base mt-2 max-w-xl mx-auto">
+            Find quick answers to common questions about our development process and services.
+          </p>
+        </div>
 
         {/* FAQ List */}
-        <motion.div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              className="rounded-lg border border-gray-300 bg-white transition-all duration-300 hover:border-blue-500 cursor-pointer"
-              variants={itemVariants}
-              onClick={() => toggleFAQ(index)}
-            >
-              <div className="px-5 py-3 flex justify-between items-center">
-                <span className="text-base sm:text-lg font-medium text-gray-900">
-                  {faq.question}
-                </span>
-
-                <motion.div
-                  animate={{ rotate: activeIndex === index ? 90 : 0 }}
-                  transition={{ duration: 0.3 }}
+        <motion.div className="space-y-3.5">
+          {faqs.map((faq, index) => {
+            const isOpen = activeIndex === index;
+            return (
+              <motion.div
+                key={index}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "border-blue-500 bg-blue-50/40 shadow-sm"
+                    : "border-gray-200 bg-white hover:border-blue-300 hover:shadow-xs"
+                }`}
+                variants={itemVariants}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  className="w-full px-5 sm:px-6 py-4 sm:py-5 flex justify-between items-center text-left gap-4 cursor-pointer focus:outline-none"
+                  aria-expanded={isOpen}
                 >
-                  <FaChevronRight className="text-blue-600 text-sm" />
-                </motion.div>
-              </div>
+                  <span className="text-base sm:text-lg font-bold text-[#061047]">
+                    {faq.question}
+                  </span>
 
-              <AnimatePresence>
-                {activeIndex === index && (
-                  <motion.div
-                    className="px-5 pb-4 text-sm sm:text-base text-gray-700"
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                  {/* Plus / Minus Indicator Badge */}
+                  <div
+                    className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 font-bold transition-all duration-300 ${
+                      isOpen
+                        ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
+                        : "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                    }`}
                   >
-                    {faq.answer}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
+                    {isOpen ? (
+                      <span className="text-xl leading-none font-bold select-none">−</span>
+                    ) : (
+                      <span className="text-xl leading-none font-bold select-none">+</span>
+                    )}
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="content"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    >
+                      <div className="px-5 sm:px-6 pb-5 pt-1 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-blue-100/60 mt-1">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
-    </div>
+    </section>
   );
 }

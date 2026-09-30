@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState, useMemo, useEffect } from "react";
 
 const BLOGS_PER_PAGE = 6;
@@ -21,7 +22,7 @@ export interface BlogPost {
 
 const blogs: BlogPost[] = [
   {
-    slug: "future-of-work",
+    slug: "top-5-it-trends-transforming-businesses-in-2025",
     title: "Top 5 IT Trends Transforming Businesses in 2025",
     author: "Sakshi",
     date: "23 October 2025",
@@ -31,7 +32,7 @@ const blogs: BlogPost[] = [
     readTime: "5 min read",
   },
   {
-    slug: "it-consulting",
+    slug: "tech-stacks-audit-asset-or-legacy-trap",
     title: "Tech Stacks Audit: Asset or Legacy Trap",
     author: "Sakshi",
     date: "28 October 2025",
@@ -41,7 +42,7 @@ const blogs: BlogPost[] = [
     readTime: "6 min read",
   },
   {
-    slug: "software-testing",
+    slug: "role-of-saas-software-testing-in-building-secure-products",
     title: "Role of SaaS Software Testing in Building Secure Products",
     author: "Sai Teja",
     date: "30 October 2025",
@@ -51,7 +52,7 @@ const blogs: BlogPost[] = [
     readTime: "7 min read",
   },
   {
-    slug: "product-development",
+    slug: "how-ctos-can-build-powerful-generative-ai-products",
     title: "How CTOs Can Build Powerful Generative AI Products",
     author: "Priyajeet",
     date: "03 November 2025",
@@ -61,7 +62,7 @@ const blogs: BlogPost[] = [
     readTime: "8 min read",
   },
   {
-    slug: "digital-marketing",
+    slug: "choosing-between-in-house-vs-outsourced-it",
     title: "Choosing Between In-house vs Outsourced IT",
     author: "Sakshi",
     date: "18 December 2025",
@@ -71,7 +72,7 @@ const blogs: BlogPost[] = [
     readTime: "5 min read",
   },
   {
-    slug: "Hello-World",
+    slug: "how-qa-and-automated-testing-reduce-costs",
     title: "How QA and Automated Testing Reduce Costs",
     author: "Sakshi",
     date: "22 December 2025",
@@ -81,7 +82,7 @@ const blogs: BlogPost[] = [
     readTime: "6 min read",
   },
   {
-    slug: "Hello",
+    slug: "smarter-websites-with-digital-marketing-and-strong-security",
     title: "Smarter Websites with Digital Marketing & Strong Security",
     author: "Sakshi",
     date: "24 December 2025",
@@ -102,9 +103,28 @@ const categories = [
 ];
 
 export default function BlogPageClient() {
+  const searchParams = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+
+  // Sync with URL query parameters on load
+  useEffect(() => {
+    const cat = searchParams.get("category");
+    const q = searchParams.get("search");
+
+    if (cat) {
+      const matched = categories.find(
+        (c) => c.toLowerCase() === cat.toLowerCase()
+      );
+      if (matched) {
+        setSelectedCategory(matched);
+      }
+    }
+    if (q) {
+      setSearchQuery(q);
+    }
+  }, [searchParams]);
 
   const scrollToArticles = () => {
     const el = document.getElementById("articles-section");
@@ -244,16 +264,16 @@ export default function BlogPageClient() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-10 max-w-3xl mx-auto"
+            className="mt-10 max-w-4xl mx-auto"
           >
             <form
               onSubmit={handleSearchSubmit}
-              className="bg-white p-2.5 sm:p-3 rounded-2xl sm:rounded-full shadow-xl shadow-blue-900/5 border border-gray-200/90 flex flex-col sm:flex-row items-center gap-2.5 backdrop-blur-md"
+              className="bg-white p-2 sm:p-2.5 rounded-3xl sm:rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.06)] border border-gray-200/90 flex flex-col sm:flex-row items-center gap-2.5"
             >
-              {/* Search Input */}
+              {/* Search Input Pill */}
               <div className="relative flex-1 w-full">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div className="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-gray-400">
+                  <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </div>
@@ -262,16 +282,16 @@ export default function BlogPageClient() {
                   placeholder="Search articles, topics (e.g. AI, QA, Cloud, SEO)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-800 placeholder-gray-400"
+                  className="w-full pl-11 pr-4 py-2.5 sm:py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-2xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-800 placeholder-gray-400"
                 />
               </div>
 
-              {/* Category Select */}
-              <div className="w-full sm:w-52 relative">
+              {/* Category Select Pill */}
+              <div className="w-full sm:w-56 relative">
                 <select
                   value={selectedCategory}
                   onChange={handleCategoryDropdown}
-                  className="w-full px-4 py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-700 cursor-pointer appearance-none pr-9 font-medium"
+                  className="w-full px-5 py-2.5 sm:py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-2xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-700 cursor-pointer appearance-none pr-10 font-medium"
                 >
                   <option value="All">All Categories</option>
                   <option value="IT Consulting">IT Consulting</option>
@@ -280,17 +300,17 @@ export default function BlogPageClient() {
                   <option value="Product Development">Product Development</option>
                   <option value="Software Testing">Software Testing</option>
                 </select>
-                <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-gray-400">
+                <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-500">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Search Button Pill */}
               <button
                 type="submit"
-                className="w-full sm:w-auto px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl sm:rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full sm:w-auto px-8 py-2.5 sm:py-3 bg-[#1A56DB] hover:bg-blue-700 text-white font-semibold text-sm sm:text-base rounded-2xl sm:rounded-full shadow-md shadow-blue-600/20 hover:shadow-lg transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer"
               >
                 <span>Search</span>
               </button>

@@ -9,7 +9,7 @@ const BLOGS_PER_PAGE = 3;
 /* ---------------- BLOG DATA ---------------- */
 const blogs = [
   {
-    slug: "future-of-work",
+    slug: "top-5-it-trends-transforming-businesses-in-2025",
     title: "Top 5 IT Trends Transforming Businesses in 2025.",
     author: "Sakshi",
     date: "23 October",
@@ -17,7 +17,7 @@ const blogs = [
     category: "IT Services",
   },
   {
-    slug: "it-consulting",
+    slug: "tech-stacks-audit-asset-or-legacy-trap",
     title: "Tech Stacks Audit: Asset or Legacy Trap",
     author: "Sakshi",
     date: "28 October",
@@ -25,7 +25,7 @@ const blogs = [
     category: "IT Consulting",
   },
   {
-    slug: "software-testing",
+    slug: "role-of-saas-software-testing-in-building-secure-products",
     title: "Role of SaaS Software Testing in Building Secure Products",
     author: "Sai Teja",
     date: "30 October",
@@ -33,7 +33,7 @@ const blogs = [
     category: "Software Testing",
   },
   {
-    slug: "product-development",
+    slug: "how-ctos-can-build-powerful-generative-ai-products",
     title: "How CTOs Can Build Powerful Generative AI Products",
     author: "Priyajeet",
     date: "03 November",
@@ -41,7 +41,7 @@ const blogs = [
     category: "Product Development",
   },
   {
-    slug: "digital-marketing",
+    slug: "choosing-between-in-house-vs-outsourced-it",
     title: "Choosing Between In-house vs Outsourced IT",
     author: "Sakshi",
     date: "18 December",
@@ -49,16 +49,16 @@ const blogs = [
     category: "Digital Marketing",
   },
   {
-    slug: "Hello-World",
-    title: " How QA and Automated Testing Reduce Costs",
+    slug: "how-qa-and-automated-testing-reduce-costs",
+    title: "How QA and Automated Testing Reduce Costs",
     author: "Sakshi",
     date: "22 December",
     img: "/images/QA.png",
-    category: "Product Development",
+    category: "Software Testing",
   },
   {
-    slug: "Hello",
-    title: "Smarter Websites with Digital Marketing & Strong Security ",
+    slug: "smarter-websites-with-digital-marketing-and-strong-security",
+    title: "Smarter Websites with Digital Marketing & Strong Security",
     author: "Sakshi",
     date: "24 December",
     img: "/images/smart.png",

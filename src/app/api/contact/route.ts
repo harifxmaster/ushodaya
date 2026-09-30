@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import connectDB from "@/lib/mongodb";
-import Contact from "@/models/Contact";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(req: Request) {
   try {
@@ -13,18 +12,30 @@ export async function POST(req: Request) {
       );
     }
 
-    await connectDB();
+    const { data, error } = await supabase
+      .from("contacts")
+      .insert([
+        {
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+        },
+      ])
+      .select()
+      .single();
 
-    const contact = await Contact.create({
-      name,
-      email,
-      message,
-    });
+    if (error) {
+      console.error("Supabase Error:", error);
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
       message: "Message submitted successfully",
-      data: contact,
+      data,
     });
   } catch (err: unknown) {
     if (err instanceof Error) {

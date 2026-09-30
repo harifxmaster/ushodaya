@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
-import connectDB from "@/lib/mongodb";
-import Application from "@/models/Application";
+import { supabase } from "@/lib/supabaseClient";
 
 export async function POST(req: Request) {
   try {
@@ -15,23 +14,33 @@ export async function POST(req: Request) {
       );
     }
 
-    // Connect to MongoDB
-    await connectDB();
+    const { data, error } = await supabase
+      .from("applications")
+      .insert([
+        {
+          name: name.trim(),
+          email: email.trim(),
+          location: location.trim(),
+          experience: experience.trim(),
+          job_title: job_title.trim(),
+          resume_url: resume_url.trim(),
+        },
+      ])
+      .select()
+      .single();
 
-    // Create new application
-    const application = await Application.create({
-      name,
-      email,
-      location,
-      experience,
-      job_title,
-      resume_url,
-    });
+    if (error) {
+      console.error("Supabase Error:", error);
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({
       success: true,
       message: "Application submitted successfully",
-      data: application,
+      data,
     });
   } catch (err: unknown) {
     if (err instanceof Error) {

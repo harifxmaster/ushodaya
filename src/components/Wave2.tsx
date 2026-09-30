@@ -1,31 +1,17 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-
-// Floating wave motion
-const floatingWave: Variants = {
-  initial: { y: 0 },
-  animate: {
-    y: [0, -10, 0],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
-  },
-};
 
 // Fade-in + slide-up animation
 const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   show: {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
-      ease: "easeInOut",
+      duration: 0.6,
+      ease: "easeOut",
     },
   },
 };
@@ -33,73 +19,51 @@ const fadeInUp: Variants = {
 export default function Wave2() {
   return (
     <motion.div
-      className="min-w-full flex flex-col items-center justify-start text-center bg-white relative px-4 pt-20 pb-10 overflow-hidden"
+      className="w-full flex flex-col items-center justify-start text-center bg-gradient-to-b from-blue-50/50 via-white to-white relative px-4 pt-32 sm:pt-36 pb-8 overflow-hidden"
       initial="hidden"
       animate="show"
       variants={fadeInUp}
     >
-      {/* Back link */}
-      <motion.div variants={fadeInUp} transition={{ delay: 0.2 }}>
+      {/* Background Soft Ambient Light */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[250px] bg-blue-400/10 rounded-full blur-3xl -z-10 pointer-events-none" />
+
+      {/* Back button */}
+      <motion.div variants={fadeInUp} transition={{ delay: 0.1 }}>
         <Link
           href="/services"
-          className="text-sm text-blue-700 font-semibold mb-4 hover:underline inline-block"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-semibold text-xs sm:text-sm transition-all duration-200 border border-blue-200/80 shadow-xs mb-4 group"
         >
-          &lt; BACK
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-4 w-4 transform group-hover:-translate-x-0.5 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2.5}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Services
         </Link>
       </motion.div>
 
-      {/* Heading */}
+      {/* Main Heading */}
       <motion.h1
-        className="text-3xl text-gray-600 font-extrabold mb-3"
+        className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#061047] tracking-tight mb-3"
         variants={fadeInUp}
-        transition={{ delay: 0.4 }}
+        transition={{ delay: 0.2 }}
       >
         Service Details
       </motion.h1>
 
       {/* Description */}
       <motion.p
-        className="text-gray-500 text-sm max-w-md"
+        className="text-gray-600 text-base sm:text-lg max-w-xl leading-relaxed"
         variants={fadeInUp}
-        transition={{ delay: 0.6 }}
+        transition={{ delay: 0.3 }}
       >
-        We will help a client’s problems to develop the products they have with
-        high quality. Change the appearance.
+        We build high-performance, future-proof digital solutions tailored to solve your unique business challenges.
       </motion.p>
-
-      {/* Left floating wave */}
-      <motion.div
-        className="absolute left-3 top-2/4 transform -translate-y-1/2 bg-transparent"
-        variants={floatingWave}
-        initial="initial"
-        animate="animate"
-      >
-        <Image
-          src="/images/wave.png"
-          alt="left squiggle"
-          width={80}
-          height={40}
-          className="object-contain"
-          priority
-        />
-      </motion.div>
-
-      {/* Right floating wave */}
-      <motion.div
-        className="absolute right-0.5 top-2/4 transform -translate-y-1/2 bg-transparent"
-        variants={floatingWave}
-        initial="initial"
-        animate="animate"
-      >
-        <Image
-          src="/images/wave.png"
-          alt="right squiggle"
-          width={80}
-          height={40}
-          className="object-contain"
-          priority
-        />
-      </motion.div>
     </motion.div>
   );
 }
