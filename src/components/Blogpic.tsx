@@ -14,9 +14,7 @@ export default function Blogpic() {
   const handleSearch = (e?: React.FormEvent) => {
     e?.preventDefault();
 
-    const query = (searchQuery || (selectedCategory !== "Select Category" ? selectedCategory : "")).toLowerCase().trim();
-
-    const categories = [
+    const categoryList = [
       "it consulting",
       "it services",
       "software testing",
@@ -24,11 +22,19 @@ export default function Blogpic() {
       "product development"
     ];
 
-    if (categories.includes(query)) {
-      const formatted = query.replace(/\s+/g, "-");
-      router.push(`/blog?category=${formatted}#recent-articles`);
+    const categoryToUse = selectedCategory !== "Select Category" ? selectedCategory : "";
+    const searchToUse = searchQuery.trim();
+
+    if (categoryToUse && categoryList.includes(categoryToUse.toLowerCase())) {
+      router.push(`/blog?category=${encodeURIComponent(categoryToUse)}#articles-section`);
+    } else if (searchToUse) {
+      if (categoryList.includes(searchToUse.toLowerCase())) {
+        router.push(`/blog?category=${encodeURIComponent(searchToUse)}#articles-section`);
+      } else {
+        router.push(`/blog?search=${encodeURIComponent(searchToUse)}#articles-section`);
+      }
     } else {
-      alert("Please select or enter a valid category (e.g. IT Consulting, IT Services, Software Testing, Digital Marketing, Product Development).");
+      router.push(`/blog#articles-section`);
     }
   };
 
@@ -88,34 +94,34 @@ export default function Blogpic() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-10 max-w-3xl mx-auto"
+          className="mt-10 max-w-4xl mx-auto"
         >
           <form
             onSubmit={handleSearch}
-            className="bg-white p-2.5 sm:p-3 rounded-2xl sm:rounded-full shadow-xl shadow-blue-900/5 border border-gray-200/90 flex flex-col sm:flex-row items-center gap-2.5 backdrop-blur-md"
+            className="bg-white p-2 sm:p-2.5 rounded-3xl sm:rounded-full shadow-[0_10px_35px_rgba(0,0,0,0.06)] border border-gray-200/90 flex flex-col sm:flex-row items-center gap-2.5"
           >
             {/* Search Input */}
             <div className="relative flex-1 w-full">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="absolute inset-y-0 left-0 pl-4.5 flex items-center pointer-events-none text-gray-400">
+                <svg className="h-4.5 w-4.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </div>
               <input
                 type="search"
-                placeholder="Search articles, topics..."
+                placeholder="Search articles, topics (e.g. AI, QA, Cloud, SEO)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-11 pr-4 py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-800 placeholder-gray-400"
+                className="w-full pl-11 pr-4 py-2.5 sm:py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-2xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-800 placeholder-gray-400"
               />
             </div>
 
             {/* Category Select */}
-            <div className="w-full sm:w-52 relative">
+            <div className="w-full sm:w-56 relative">
               <select
                 value={selectedCategory}
                 onChange={handleCategoryChange}
-                className="w-full px-4 py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-700 cursor-pointer appearance-none pr-9"
+                className="w-full px-5 py-2.5 sm:py-3 bg-gray-50/80 hover:bg-gray-50 focus:bg-white text-sm sm:text-base rounded-2xl sm:rounded-full border border-gray-200/80 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-100 transition-all text-gray-700 cursor-pointer appearance-none pr-10 font-medium"
               >
                 <option value="Select Category">All Categories</option>
                 <option value="IT Consulting">IT Consulting</option>
@@ -124,7 +130,7 @@ export default function Blogpic() {
                 <option value="Product Development">Product Development</option>
                 <option value="Software Testing">Software Testing</option>
               </select>
-              <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-gray-400">
+              <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-500">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
@@ -134,7 +140,7 @@ export default function Blogpic() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full sm:w-auto px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl sm:rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-8 py-2.5 sm:py-3 bg-[#1A56DB] hover:bg-blue-700 text-white font-semibold text-sm sm:text-base rounded-2xl sm:rounded-full shadow-md shadow-blue-600/20 hover:shadow-lg transition-all duration-200 flex items-center justify-center shrink-0 cursor-pointer"
             >
               <span>Search</span>
             </button>

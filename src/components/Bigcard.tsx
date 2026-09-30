@@ -22,7 +22,7 @@ const ARTICLES: Article[] = [
   {
     id: 1,
     title: "IT Services",
-    slug: "future-of-work",
+    slug: "top-5-it-trends-transforming-businesses-in-2025",
     image: "/images/a1.jpg",
     author: "Sakshi",
     avatar: "/images/Bigp1.png",
@@ -32,7 +32,7 @@ const ARTICLES: Article[] = [
   {
     id: 2,
     title: "IT Consulting",
-    slug: "it-consulting",
+    slug: "tech-stacks-audit-asset-or-legacy-trap",
     image: "/images/a2.jpg",
     author: "Sakshi",
     avatar: "/images/Bigp1.png",
@@ -42,7 +42,7 @@ const ARTICLES: Article[] = [
   {
     id: 3,
     title: "Digital Marketing",
-    slug: "digital-marketing",
+    slug: "choosing-between-in-house-vs-outsourced-it",
     image: "/images/a3.jpg",
     author: "Lina Hicks",
     avatar: "/images/Bigp1.png",
@@ -51,7 +51,7 @@ const ARTICLES: Article[] = [
   {
     id: 4,
     title: "Product Development",
-    slug: "product-development",
+    slug: "how-ctos-can-build-powerful-generative-ai-products",
     image: "/images/a4.jpg",
     author: "Tyler Murray",
     avatar: "/images/Bigp2.png",
@@ -60,7 +60,7 @@ const ARTICLES: Article[] = [
   {
     id: 5,
     title: "Software Testing",
-    slug: "software-testing",
+    slug: "role-of-saas-software-testing-in-building-secure-products",
     image: "/images/a5.jpg",
     author: "Warren Casey",
     avatar: "/images/Bigp3.png",
@@ -92,12 +92,7 @@ export default function ArticlesSection(): JSX.Element {
 
   // ✅ Handle Clicks
   const handleRedirect = (slug: string) => {
-    if (
-      slug === "future-of-work" ||
-      slug === "it-consulting" ||
-      slug === "software-testing"||
-      slug === "product-development"
-    ) {
+    if (slug) {
       router.push(`/blog/${slug}`);
     } else {
       setShowMessage(true);

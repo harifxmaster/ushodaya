@@ -1,6 +1,6 @@
 "use client";
 
-import { useUploadThing } from "@/lib/uploadthing";
+import { supabase } from "@/lib/supabaseClient";
 import { useState } from "react";
 
 // Job Types
@@ -174,8 +174,6 @@ export default function Location() {
     experience: "",
   });
 
-  const { startUpload } = useUploadThing("resumeUploader");
-
   // Handle Form Changes
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, files } = e.target;
@@ -195,25 +193,34 @@ export default function Location() {
       return;
     }
 
-    // Validate file size (4MB max for UploadThing)
-    const maxSize = 4 * 1024 * 1024;
+    // Validate file size (10MB max)
+    const maxSize = 10 * 1024 * 1024;
     if (formData.resume.size > maxSize) {
-      alert("Resume file size should be less than 4MB.");
+      alert("Resume file size should be less than 10MB.");
       return;
     }
 
     setIsUploading(true);
 
     try {
-      console.log("Uploading resume to UploadThing...");
+      console.log("Uploading resume to Supabase Storage...");
 
-      const uploadResult = await startUpload([formData.resume]);
+      const fileExt = formData.resume.name.split(".").pop() || "pdf";
+      const fileName = `${Date.now()}_${Math.random().toString(36).substring(2, 9)}.${fileExt}`;
 
-      if (!uploadResult || uploadResult.length === 0) {
-        throw new Error("Failed to upload resume. Please try again.");
+      const { error: uploadError } = await supabase.storage
+        .from("resumes")
+        .upload(fileName, formData.resume);
+
+      if (uploadError) {
+        throw new Error(`Failed to upload resume: ${uploadError.message}`);
       }
 
-      const resumeUrl = uploadResult[0].url;
+      const { data: publicUrlData } = supabase.storage
+        .from("resumes")
+        .getPublicUrl(fileName);
+
+      const resumeUrl = publicUrlData.publicUrl;
       console.log("Resume uploaded successfully:", resumeUrl);
 
       const applicationData = {
@@ -267,7 +274,17 @@ export default function Location() {
   };
 
   return (
-    <main className="min-h-screen bg-white p-6 flex justify-center">
+    <main id="open-positions" className="min-h-screen bg-white pt-10 sm:pt-16 pb-16 px-4 sm:px-6 lg:px-8 flex flex-col items-center scroll-mt-24">
+      {/* Section Header Title */}
+      <div className="max-w-4xl w-full text-center mb-8 sm:mb-10">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#061047] tracking-tight">
+          Explore Open Positions
+        </h2>
+        <p className="text-gray-600 text-base sm:text-lg mt-3 max-w-2xl mx-auto">
+          Find the role that fits your ambition. Work alongside passionate engineers, designers, and strategists on high-impact projects.
+        </p>
+      </div>
+
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Job List */}
         <div className="space-y-4">
@@ -413,60 +430,85 @@ export default function Location() {
               </p>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Full Name <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="e.g. John Doe"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full !bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Your Email <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="e.g. john@example.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full !bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-              <input
-                type="file"
-                name="resume"
-                accept=".pdf,.doc,.docx"
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Upload Resume (PDF, DOC, DOCX) <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="file"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  onChange={handleChange}
+                  required
+                  className="w-full !bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-900 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="location"
-                placeholder="Your Location"
-                value={formData.location}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Current Location <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="e.g. Hyderabad, India"
+                  value={formData.location}
+                  onChange={handleChange}
+                  required
+                  className="w-full !bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
-              <input
-                type="text"
-                name="experience"
-                placeholder="Years of Experience"
-                value={formData.experience}
-                onChange={handleChange}
-                required
-                className="w-full border border-gray-300 rounded-md px-3 py-2 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1">
+                  Years of Experience <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="experience"
+                  placeholder="e.g. 2 years / Fresher"
+                  value={formData.experience}
+                  onChange={handleChange}
+                  required
+                  className="w-full !bg-white border border-gray-300 rounded-md px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+              </div>
 
               <button
                 type="submit"
                 disabled={isUploading}
-                className="w-full bg-blue-600 text-white py-2 rounded-md font-semibold hover:bg-blue-700 transition shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed"
+                className="w-full bg-blue-600 text-white py-2.5 rounded-md font-semibold hover:bg-blue-700 transition shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed text-sm mt-2"
               >
                 {isUploading ? "Uploading..." : "Submit Application"}
               </button>
