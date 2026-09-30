@@ -81,7 +81,7 @@ export default function Wave() {
           </Link>
           <span>/</span>
           <Link
-            href="/services/service2"
+            href="/services/service-details"
             className="underline text-blue-600 hover:text-blue-800 transition-colors"
           >
             Services

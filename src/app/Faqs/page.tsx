@@ -1,365 +1,544 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiSearch, FiX, FiPlus, FiMinus, FiArrowRight } from "react-icons/fi";
+import Footer from "@/components/Footer";
 
-interface FAQ {
+interface FAQItem {
   question: string;
   answer: string;
+  keywords?: string[];
 }
 
-const FAQSection = ({ faqs }: { faqs: FAQ[] }) => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+interface CategoryGroup {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description?: string;
+  faqs: FAQItem[];
+}
+
+const FAQ_CATEGORIES: CategoryGroup[] = [
+  {
+    id: "product-development",
+    title: "Product Development",
+    shortTitle: "Product Development",
+    description:
+      "From initial discovery and MVP prototypes to enterprise-grade web, mobile, and AI-driven platforms.",
+    faqs: [
+      {
+        question: "What industries do you develop products for?",
+        answer:
+          "If it has a market, we build for it—including Fintech, Healthcare, E-Commerce, Logistics, SaaS, Retail, and Real Estate. Our engineering and domain expertise are tailored to create scalable and compliant software suited to your specific vertical.",
+        keywords: ["industry", "fintech", "healthcare", "domains", "market", "saas"],
+      },
+      {
+        question: "How long does custom product development take?",
+        answer:
+          "Development timelines depend on the project scope and complexity. Typically, an MVP (Minimum Viable Product) can be designed, built, and launched in 4 to 8 weeks. Comprehensive enterprise software suites generally take between 3 to 6 months using agile, two-week sprint cycles.",
+        keywords: ["timeline", "duration", "mvp", "weeks", "months", "speed", "agile"],
+      },
+      {
+        question: "Can you help with scaling and maintenance after launch?",
+        answer:
+          "Absolutely! We don’t just launch and walk away. We offer comprehensive post-launch SLA support, DevOps orchestration, database optimization, CI/CD automation, and cloud autoscaling to ensure uninterrupted performance as your user base expands.",
+        keywords: ["scale", "maintenance", "post-launch", "support", "devops", "growth"],
+      },
+      {
+        question: "Do you offer interactive prototypes before full development?",
+        answer:
+          "Yes! We build high-fidelity, clickable wireframes and prototypes in Figma. This allows stakeholders to test user flows, validate usability, and refine product specifications before committing full engineering resources.",
+        keywords: ["prototype", "figma", "wireframe", "ui/ux", "validation", "design"],
+      },
+      {
+        question: "What technologies and modern tech stacks do you use?",
+        answer:
+          "We leverage cutting-edge, battle-tested modern stacks: Next.js, React, TypeScript, Node.js, Python, FastAPI, Go, PostgreSQL, MongoDB, Redis, AWS, Google Cloud, Docker, Kubernetes, and state-of-the-art AI/ML toolchains.",
+        keywords: ["tech stack", "react", "nextjs", "python", "node", "aws", "cloud", "database"],
+      },
+    ],
+  },
+  {
+    id: "software-testing",
+    title: "Software Testing & QA",
+    shortTitle: "Software Testing",
+    description:
+      "Comprehensive end-to-end quality assurance, test automation, performance stress-testing, and vulnerability analysis.",
+    faqs: [
+      {
+        question: "What types of software testing do you offer?",
+        answer:
+          "We provide automated testing, manual functional testing, regression testing, API & integration testing, performance & load testing (JMeter/k6), cross-browser/cross-platform testing, and security vulnerability audits.",
+        keywords: ["testing types", "automation", "manual", "security", "performance", "api"],
+      },
+      {
+        question: "Do you provide automated QA testing suites?",
+        answer:
+          "Yes! We build automated test suites using industry-leading frameworks like Playwright, Cypress, Selenium, and Appium. These tests are seamlessly integrated into your CI/CD pipelines to catch regressions instantly.",
+        keywords: ["automated", "automation", "playwright", "cypress", "selenium", "ci/cd"],
+      },
+      {
+        question: "How do you ensure cross-device and cross-browser compatibility?",
+        answer:
+          "We test across real physical devices, operating systems (iOS, Android, macOS, Windows, Linux), and browser engines (Chromium, WebKit, Gecko) using automated test farms and physical test labs.",
+        keywords: ["devices", "browsers", "mobile", "compatibility", "responsive", "cross-platform"],
+      },
+      {
+        question: "Can you audit and test an existing legacy application?",
+        answer:
+          "Definitely. We conduct full QA health checks, detect legacy performance bottlenecks, identify security vulnerabilities, and provide prioritized remediation blueprints along with test coverage reports.",
+        keywords: ["existing app", "legacy", "audit", "health check", "refactor"],
+      },
+      {
+        question: "What is the cost structure of software QA testing?",
+        answer:
+          "We offer flexible engagement models: project-based QA packages, dedicated QA engineers on monthly retainers, or on-demand hourly audits. Contact us for a transparent, customized estimate based on your test coverage goals.",
+        keywords: ["cost", "pricing", "packages", "quote", "hourly", "retainer"],
+      },
+    ],
+  },
+  {
+    id: "it-consulting",
+    title: "IT Consulting",
+    shortTitle: "IT Consulting",
+    description:
+      "Strategic digital roadmaps, architecture reviews, legacy modernization, cloud migration, and IT cost optimization.",
+    faqs: [
+      {
+        question: "What industries do you consult for?",
+        answer:
+          "We consult for enterprises, mid-market companies, and venture-backed startups across technology, healthcare, manufacturing, BFSI, education, logistics, and retail.",
+        keywords: ["industries", "consulting", "enterprises", "startups", "domains"],
+      },
+      {
+        question: "Can you help optimize and reduce our IT infrastructure costs?",
+        answer:
+          "Yes. We conduct thorough cloud and infrastructure cost audits (AWS/Azure/GCP), identifying unutilized compute, over-provisioned databases, and redundant third-party SaaS subscriptions to achieve significant monthly cost reductions without sacrificing performance.",
+        keywords: ["cost optimization", "cloud bill", "reduce expense", "infrastructure", "aws cost"],
+      },
+      {
+        question: "Do you offer cybersecurity and compliance consulting?",
+        answer:
+          "Yes. Our security consultants assist with vulnerability scanning, penetration testing, compliance readiness (SOC 2, ISO 27001, GDPR, HIPAA), identity management (IAM), and robust zero-trust architecture implementations.",
+        keywords: ["cybersecurity", "compliance", "soc 2", "gdpr", "hipaa", "security audit"],
+      },
+      {
+        question: "How does IT consulting improve our core business operations?",
+        answer:
+          "By eliminating technological debt, automating manual workflows, integrating modern cloud native tools, and aligning your technical roadmap directly with your revenue and business milestones.",
+        keywords: ["business growth", "tech roadmap", "efficiency", "automation", "modernization"],
+      },
+      {
+        question: "Do you provide ongoing fractional CTO & architectural support?",
+        answer:
+          "Yes! We act as long-term strategic technology partners, offering Fractional CTO guidance, regular architectural steering, quarterly tech audits, and executive advisory.",
+        keywords: ["ongoing support", "fractional cto", "long term", "advisory", "partnership"],
+      },
+    ],
+  },
+  {
+    id: "it-services",
+    title: "IT Services & Cloud",
+    shortTitle: "IT Services",
+    description:
+      "High-availability cloud engineering, managed IT services, network security, and enterprise infrastructure management.",
+    faqs: [
+      {
+        question: "Do you offer 24/7/365 managed IT support and monitoring?",
+        answer:
+          "Yes, we provide 24/7 Network Operations Center (NOC) and Security Operations (SOC) monitoring with guaranteed SLAs, fast response times, and automated incident alerting.",
+        keywords: ["24/7", "support", "noc", "soc", "sla", "monitoring", "uptime"],
+      },
+      {
+        question: "Can you migrate our on-premise infrastructure to the cloud?",
+        answer:
+          "Yes. We specialize in zero-downtime cloud migration to AWS, Microsoft Azure, and Google Cloud, following proven multi-phase migration frameworks with full data integrity verification.",
+        keywords: ["cloud migration", "aws", "azure", "gcp", "zero downtime", "transfer"],
+      },
+      {
+        question: "What cybersecurity and network defense measures do you deploy?",
+        answer:
+          "We implement next-generation firewalls, Web Application Firewalls (WAF), end-to-end encryption at rest & in transit, DDoS mitigation (Cloudflare/CloudFront), multi-factor authentication (MFA), and continuous vulnerability monitoring.",
+        keywords: ["firewall", "encryption", "ddos", "cloudflare", "mfa", "protection"],
+      },
+      {
+        question: "Do you cater to startups and small businesses as well as enterprises?",
+        answer:
+          "Yes! Our managed services scale dynamically with your organizational size, ensuring lean startups receive enterprise-grade security and reliability on cost-effective tiers.",
+        keywords: ["small business", "startups", "enterprises", "tiers", "scaling"],
+      },
+      {
+        question: "How do you handle critical IT emergencies and disaster recovery?",
+        answer:
+          "We implement robust Disaster Recovery (DR) and Business Continuity Plans (BCP) with multi-region failovers, automated snapshots, and RTO/RPO targets measured in minutes.",
+        keywords: ["emergency", "disaster recovery", "backup", "failover", "bcp"],
+      },
+    ],
+  },
+  {
+    id: "staffing-solutions",
+    title: "Staffing Solutions",
+    shortTitle: "Staffing",
+    description:
+      "Vetted full-stack developers, DevOps engineers, QA specialists, and IT leaders available for contract, contract-to-hire, and full-time placement.",
+    faqs: [
+      {
+        question: "What tech roles and skills do you staff for?",
+        answer:
+          "We supply vetted software engineers (Frontend, Backend, Fullstack), Mobile developers (React Native, Flutter, Swift, Kotlin), Cloud & DevOps architects, Data Engineers, AI/ML developers, QA testers, and Scrum Masters.",
+        keywords: ["roles", "talent", "developers", "engineers", "devops", "fullstack"],
+      },
+      {
+        question: "Can you support remote and distributed team hiring?",
+        answer:
+          "Yes! We have global talent pipelines with pre-vetted professionals ready to work in your timezone with seamless remote collaboration tools and workflows.",
+        keywords: ["remote", "offshore", "timezone", "distributed", "hire"],
+      },
+      {
+        question: "What does your candidate screening and vetting process look like?",
+        answer:
+          "Our multi-tier vetting includes technical coding assessments, live architecture design interviews, soft-skills evaluations, and comprehensive background & reference verification. Only the top 3% of candidates make it to client interviews.",
+        keywords: ["vetting", "screening", "interviews", "quality", "background check"],
+      },
+      {
+        question: "Do you offer contract, contract-to-hire, and permanent staffing?",
+        answer:
+          "Yes, we provide flexible engagement terms: project-based contract augmentation, direct permanent placement, or contract-to-hire arrangements tailored to your hiring strategy.",
+        keywords: ["contract", "full-time", "permanent", "contract to hire", "flexibility"],
+      },
+      {
+        question: "How quickly can we interview and onboard a qualified candidate?",
+        answer:
+          "For standard tech stacks, we can provide curated, pre-screened candidate profiles within 48 to 72 hours, enabling rapid hiring and onboarding within 1 to 2 weeks.",
+        keywords: ["speed", "turnaround", "time to hire", "48 hours", "onboarding"],
+      },
+    ],
+  },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing",
+    shortTitle: "Digital Marketing",
+    description:
+      "Data-backed SEO campaigns, PPC advertising, content marketing, brand positioning, and social media growth strategies.",
+    faqs: [
+      {
+        question: "What digital marketing channels and services do you manage?",
+        answer:
+          "We offer comprehensive 360-degree digital marketing: Technical & Content SEO, Google Ads (SEM), Meta/LinkedIn paid campaigns, Social Media Management, Email Marketing, CRO (Conversion Rate Optimization), and Performance Analytics.",
+        keywords: ["channels", "seo", "ppc", "google ads", "social media", "content"],
+      },
+      {
+        question: "How do you increase qualified organic website traffic and rankings?",
+        answer:
+          "Through deep keyword research, on-page optimization, technical site speed audits, high-intent editorial content creation, high-authority backlink outreach, and structured data schema implementation.",
+        keywords: ["organic traffic", "ranking", "seo strategy", "backlinks", "speed"],
+      },
+      {
+        question: "How do you manage paid ads (PPC) and ensure positive ROI?",
+        answer:
+          "We build precision audience targeting funnels, perform continuous A/B testing on ad copy and creative assets, optimize negative keywords, and implement server-side tracking (CAPI) to maximize Return on Ad Spend (ROAS).",
+        keywords: ["ppc", "roi", "roas", "google ads", "facebook ads", "conversion"],
+      },
+      {
+        question: "Do you create and execute end-to-end B2B social media campaigns?",
+        answer:
+          "Yes! We handle strategy, graphic design, copywriting, video editing, community engagement, and thought leadership campaigns across LinkedIn, Twitter/X, Instagram, and YouTube.",
+        keywords: ["social media", "b2b", "linkedin", "branding", "copywriting"],
+      },
+      {
+        question: "How do we measure campaign progress and performance metrics?",
+        answer:
+          "You receive real-time interactive Looker Studio / GA4 dashboards, bi-weekly performance reviews, and transparent monthly ROI reports highlighting traffic, leads, conversion rates, and revenue impact.",
+        keywords: ["metrics", "reporting", "dashboard", "ga4", "analytics", "roi"],
+      },
+    ],
+  },
+];
+
+export default function FAQPage() {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [openItems, setOpenItems] = useState<Record<string, boolean>>({
+    "product-development-0": true,
+  });
+
+  const toggleItem = (key: string) => {
+    setOpenItems((prev) => ({
+      ...prev,
+      [key]: !prev[key],
+    }));
+  };
+
+  // Filter categories and questions based on active category & search query
+  const filteredCategories = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    return FAQ_CATEGORIES.map((cat) => {
+      if (activeCategory !== "all" && cat.id !== activeCategory) {
+        return null;
+      }
+
+      if (!query) {
+        return cat;
+      }
+
+      const matchingFaqs = cat.faqs.filter((faq) => {
+        const inQuestion = faq.question.toLowerCase().includes(query);
+        const inAnswer = faq.answer.toLowerCase().includes(query);
+        const inKeywords = faq.keywords?.some((k) => k.toLowerCase().includes(query));
+        const inCatTitle = cat.title.toLowerCase().includes(query);
+        return inQuestion || inAnswer || inKeywords || inCatTitle;
+      });
+
+      if (matchingFaqs.length === 0) {
+        return null;
+      }
+
+      return {
+        ...cat,
+        faqs: matchingFaqs,
+      };
+    }).filter(Boolean) as CategoryGroup[];
+  }, [activeCategory, searchQuery]);
+
+  const totalMatchingFaqs = useMemo(() => {
+    return filteredCategories.reduce((acc, cat) => acc + cat.faqs.length, 0);
+  }, [filteredCategories]);
+
+  const handleSearchChange = (val: string) => {
+    setSearchQuery(val);
+    if (val.trim()) {
+      setActiveCategory("all");
+    }
+  };
 
   return (
-    <div className="space-y-4 mt-6">
-      {faqs.map((faq, index) => (
-        <div key={index} className="border-b pb-3 bg-white">
-          <button
-            onClick={() => setOpenIndex(openIndex === index ? null : index)}
-            className="flex justify-between items-center w-full text-left"
-          >
-            <span className="font-bold text-gray-800">{faq.question}</span>
-            <span className="text-gray-500 text-2xl font-bold">
-              {openIndex === index ? "˄" : "˅"}
-            </span>
-          </button>
-          {openIndex === index && (
-            <p className="text-gray-600 mt-2 transition-all">{faq.answer}</p>
-          )}
+    <div className="min-h-screen bg-white text-gray-900">
+      {/* ================= GRAY TOP HEADER & CATEGORY SECTION ================= */}
+      <section className="w-full bg-gray-100 border-b border-gray-300 pt-24 pb-8 sm:pt-28 sm:pb-10 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Breadcrumb */}
+          <div className="flex items-center justify-center gap-1.5 text-sm font-medium text-blue-600 mb-4">
+            <Link href="/" className="hover:underline">
+              Home
+            </Link>
+            <span className="text-gray-400">/</span>
+            <span className="text-gray-700">FAQs</span>
+          </div>
+
+          {/* Main Title */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#061047] tracking-tight">
+            Frequently Asked Questions
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mt-3 text-base sm:text-lg text-gray-600 max-w-xl mx-auto leading-relaxed">
+            Find quick answers to common questions about our services, process, and support.
+          </p>
+
+          {/* Simple Clean Search Bar */}
+          <div className="mt-8 max-w-xl mx-auto">
+            <div className="relative flex items-center bg-white rounded-xl border border-gray-300 shadow-xs focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100 transition-all">
+              <div className="pl-4 pr-2 text-gray-400">
+                <FiSearch className="w-5 h-5 text-gray-400" />
+              </div>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => handleSearchChange(e.target.value)}
+                placeholder="Search questions or keywords..."
+                className="w-full bg-transparent py-3 pr-4 text-sm sm:text-base outline-none text-gray-800 placeholder-gray-400"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="p-2 text-gray-400 hover:text-gray-700 transition mr-2 cursor-pointer"
+                  aria-label="Clear search"
+                >
+                  <FiX className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Category Pills Filter */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
+            <button
+              type="button"
+              onClick={() => setActiveCategory("all")}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
+                activeCategory === "all"
+                  ? "bg-blue-600 text-white shadow-xs"
+                  : "bg-white text-gray-800 hover:bg-gray-50 border border-gray-300 shadow-2xs"
+              }`}
+            >
+              All FAQs
+            </button>
+
+            {FAQ_CATEGORIES.map((cat) => (
+              <button
+                key={cat.id}
+                type="button"
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-2 rounded-lg text-sm font-semibold transition cursor-pointer ${
+                  activeCategory === cat.id
+                    ? "bg-blue-600 text-white shadow-xs"
+                    : "bg-white text-gray-800 hover:bg-gray-50 border border-gray-300 shadow-2xs"
+                }`}
+              >
+                {cat.shortTitle}
+              </button>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  );
-};
-
-export default function ServicesPage() {
-  return (
-    <div className="bg-white text-gray-800 min-h-screen">
-      {/* Page Header */}
-      <section className="text-center py-16 bg-white border-b">
-        <h1 className="text-4xl font-bold text-gray-900">Our Services</h1>
-        <p className="text-gray-600 mt-2">
-          We turn ideas into impact with technology-driven excellence.
-        </p>
       </section>
 
-      <main className="max-w-5xl mx-auto px-6 py-12 space-y-20 bg-white">
-        {/* Product Development */}
-        <section id="product-development" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Product Development
-          </h2>
-          <p className="text-gray-700">
-            Got a groundbreaking idea? We turn napkin sketches into fully
-            functional, market-ready products. From concept to code, our custom
-            software development team builds sleek, scalable, and future-proof
-            solutions—without the drama. Whether it’s a next-gen app or an
-            AI-powered platform, we bring your vision to life. You dream it, we
-            develop it. Simple as that.
-          </p>
+      {/* ================= MAIN CONTENT ================= */}
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
 
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "What industries do you develop products for?",
-                answer:
-                  "If it has a market, we build for it—tech, healthcare, finance, retail, you name it. Our focus is on all the industries where our services and expertise can be of value.",
-              },
-              {
-                question: "How long does product development take?",
-                answer:
-                  "Speed depends on the complexity of the custom software development process. But we don’t do “forever” in developing one product. We do agile sprints to keep us moving fast.",
-              },
-              {
-                question: "Can you help with scaling after the launch?",
-                answer:
-                  "Absolutely! We don’t just launch—we help you grow. As you grow, our scaling vision gets activated, so you can smoothly run your product.",
-              },
-              {
-                question: "Do you offer prototypes before full development?",
-                answer:
-                  "Of course! Think of our custom software development services as a test drive before we hit full speed. Our prototypes will give you a trial picture of the complete product, so you can share your thoughts, suggestions, and reviews.",
-              },
-              {
-                question: "What technologies do you use?",
-                answer:
-                  "The latest and greatest—React, Python, AI, and everything in between. We update ourselves continuously to implement the latest technologies in our processes.",
-              },
-            ]}
-          />
-        </section>
+        {/* Search Feedback */}
+        {searchQuery && (
+          <div className="mb-8 flex items-center justify-between p-3.5 rounded-lg bg-blue-50 text-sm text-blue-900">
+            <span>
+              Showing results for &ldquo;<strong>{searchQuery}</strong>&rdquo; ({totalMatchingFaqs} question{totalMatchingFaqs === 1 ? "" : "s"} found)
+            </span>
+            <button
+              type="button"
+              onClick={() => setSearchQuery("")}
+              className="text-xs font-bold text-blue-700 hover:underline"
+            >
+              Reset
+            </button>
+          </div>
+        )}
 
-        {/* Software Testing */}
-        <section id="software-testing" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Software Testing
-          </h2>
-          <p className="text-gray-700">
-            Bug-free software is a myth—but we get you pretty darn close. Our
-            team of QA ninjas hunts down every glitch, crash, and weird bug that
-            could ruin your user’s day. Whether it’s manual, automation, or
-            performance testing, our software QA testing services make sure your
-            software is battle-ready before launch.
-          </p>
-          <p className="text-gray-700 mt-4">
-            Quality is non-negotiable, and we make sure your software is
-            flawless. Our rigorous QA software testing services and processes
-            help identify bugs, security loopholes, and inefficiencies before
-            they impact your users. At Ushodaya Services, we ensure your software is
-            robust, reliable, and market-ready—because perfection is the only
-            acceptable standard.
-          </p>
+        {/* FAQ Category Sections */}
+        {filteredCategories.length > 0 ? (
+          <div className="space-y-12">
+            {filteredCategories.map((category) => (
+              <section key={category.id} id={category.id}>
+                {/* Category Title */}
+                <div className="mb-4">
+                  <h2 className="text-2xl font-bold text-[#061047]">
+                    {category.title}
+                  </h2>
+                  {category.description && (
+                    <p className="text-gray-600 text-sm mt-1">
+                      {category.description}
+                    </p>
+                  )}
+                </div>
 
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "What types of testing do you offer?",
-                answer:
-                  "Functional, automation, security, performance—you name it, we test it. Every software QA test is a testament to our quality checking and assurance.",
-              },
-              {
-                question: "Do you provide automated testing?",
-                answer:
-                  "Yep! Because testing manually is so last decade. We fasten the process with automated software QA testing services, tools, and techniques.",
-              },
-              {
-                question: "How do you ensure our app works on all devices?",
-                answer:
-                  "We test it across different OS, browsers, and devices without excuses. This way, if we find malfunctions or bugs anywhere, we resolve them then and there.",
-              },
-              {
-                question: "Can you test my existing app?",
-                answer:
-                  "Of course! We’ll find what’s broken and tell you how to fix it. Our software testing and consultation will ensure your application is stable.",
-              },
-              {
-                question: "What’s the cost of software testing?",
-                answer:
-                  "The cost of software testing is less than the cost of a buggy launch and angry customers. It depends on your needs, ultimately, so let’s get on a call and discuss things.",
-              },
-            ]}
-          />
-        </section>
+                {/* FAQ Accordion List */}
+                <div className="space-y-3 mt-4">
+                  {category.faqs.map((faq, idx) => {
+                    const itemKey = `${category.id}-${idx}`;
+                    const isOpen = searchQuery.trim()
+                      ? openItems[itemKey] !== false
+                      : !!openItems[itemKey];
 
-        {/* IT Consulting */}
-        <section id="it-consulting" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            IT Consulting
-          </h2>
-          <p className="text-gray-700">
-            Navigating the fast-paced world of technology can be overwhelming.
-            It can give you tech headaches, but we’ve got the aspirin. Our IT
-            consulting services help you navigate the digital world without
-            breaking a sweat. Whether you need cloud migration, cybersecurity
-            upgrades, or an IT strategy, we’ll simplify the complex and set you
-            up for success.
-          </p>
-          <p className="text-gray-700 mt-4">
-            As one of the best IT consulting companies in Hyderabad, we help
-            businesses strategise, implement, and optimise technology solutions
-            tailored to their needs. Ushodaya Services provides expert guidance to
-            streamline operations and drive growth. Let’s turn your tech
-            challenges into opportunities.
-          </p>
+                    return (
+                      <div
+                        key={idx}
+                        className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+                          isOpen
+                            ? "border-blue-500 bg-blue-50/30"
+                            : "border-gray-200 bg-white hover:border-gray-300"
+                        }`}
+                      >
+                        <button
+                          type="button"
+                          onClick={() => toggleItem(itemKey)}
+                          className="w-full px-5 py-4 flex justify-between items-center text-left gap-4 cursor-pointer focus:outline-none"
+                          aria-expanded={isOpen}
+                        >
+                          <span className="text-base sm:text-lg font-semibold text-gray-900">
+                            {faq.question}
+                          </span>
 
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "What industries do you consult for?",
-                answer:
-                  "We offer consultation for every industry that relies on tech, which is pretty much all of them.",
-              },
-              {
-                question: "Can you help with IT cost optimisation?",
-                answer:
-                  "Absolutely! We cut the fat and keep what’s essential. So, you only need to pay for the necessary costs.",
-              },
-              {
-                question: "Do you offer cybersecurity consulting?",
-                answer:
-                  "Yes, because data breaches are not a good look for us. We analyse your existing cybersecurity practices and offer recommendations wherever needed.",
-              },
-              {
-                question: "How does IT consulting improve my business?",
-                answer:
-                  "We make your tech stack work smarter, not harder. So, our consultations ensure your business grows with a stronger foundation, secure and smooth in all aspects.",
-              },
-              {
-                question: "Do you provide ongoing support?",
-                answer:
-                  "As one of the top IT consulting companies in India, we won’t ghost you after the first meeting; our aim is to give you long-term support.",
-              },
-            ]}
-          />
-        </section>
+                          <div
+                            className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${
+                              isOpen
+                                ? "bg-blue-600 text-white"
+                                : "bg-gray-100 text-gray-600"
+                            }`}
+                          >
+                            {isOpen ? (
+                              <FiMinus className="w-3.5 h-3.5 stroke-[2.5]" />
+                            ) : (
+                              <FiPlus className="w-3.5 h-3.5 stroke-[2.5]" />
+                            )}
+                          </div>
+                        </button>
 
-        {/* IT Services */}
-        <section id="it-services" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">IT Services</h2>
-          <p className="text-gray-700">
-            Tech should work for you, not against you. Whether it’s cloud
-            computing, network security, or managed IT services, we keep your
-            systems running smoothly so you can focus on running your business.
-            No tech meltdowns. No downtime. Just seamless IT solutions.
-          </p>
-          <p className="text-gray-700 mt-4">
-            We keep your business running efficiently with cloud computing,
-            network management, and enterprise IT support. We ensure smooth
-            operations, enhanced security, and scalable solutions that align
-            with your business goals. Ushodaya Services is your trusted partner for all
-            remote IT infrastructure management services, so get in touch today!
-          </p>
+                        <AnimatePresence initial={false}>
+                          {isOpen && (
+                            <motion.div
+                              key="content"
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              transition={{ duration: 0.2, ease: "easeInOut" }}
+                            >
+                              <div className="px-5 pb-5 pt-1 text-sm sm:text-base text-gray-600 leading-relaxed border-t border-gray-100 mt-1">
+                                {faq.answer}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  })}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          /* Empty State */
+          <div className="text-center py-12 px-4 bg-gray-50 rounded-2xl border border-gray-200">
+            <h3 className="text-xl font-bold text-gray-900">
+              No matching questions found
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              We couldn&apos;t find any FAQs matching &ldquo;{searchQuery}&rdquo;.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchQuery("");
+                setActiveCategory("all");
+              }}
+              className="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition"
+            >
+              Clear Search
+            </button>
+          </div>
+        )}
 
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "Do you offer 24/7 IT support?",
-                answer:
-                  "Yep! Because tech issues don’t follow business hours, we make sure our IT support is available to you as soon as possible.",
-              },
-              {
-                question: "Can you migrate my data to the cloud?",
-                answer:
-                  "Absolutely, and we won’t lose a single byte. So, you can trust us to migrate your data to the cloud without affecting your existing work.",
-              },
-              {
-                question: "What IT security measures do you provide?",
-                answer:
-                  "Firewalls, encryption, and other fancy words that keep hackers out. You can rely on us for your complete IT security.",
-              },
-              {
-                question: "Do you work with small businesses too?",
-                answer:
-                  "Big or small, we optimise IT for all. So, you can get in touch with us without worrying whether we will work with you or not.",
-              },
-              {
-                question: "How do you handle IT emergencies?",
-                answer:
-                  "Swiftly and strategically, we take care of IT emergencies before they become disasters.",
-              },
-            ]}
-          />
-        </section>
-
-        {/* Staffing Solutions */}
-        <section id="staffing-solutions" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Staffing Solutions
-          </h2>
-          <p className="text-gray-700">
-            Finding the right tech talent is like dating—you need the perfect
-            match. We cut through the noise and connect you with top-tier IT
-            professionals who actually know their stuff. The right talent makes
-            all the difference, so you need our IT staffing solutions.
-          </p>
-          <p className="text-gray-700 mt-4">
-            The top-tier IT professionals we pick for you bring expertise,
-            innovation, and dedication. Whether you need contract-based
-            specialists or full-time employees, our staffing solutions ensure
-            you have the right people to power your success. Let’s build your
-            dream team today!
-          </p>
-
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "What industries do you staff for?",
-                answer:
-                  "Our IT staffing solutions services range across various industries. You can contact us, and we’ll clarify it if needed.",
-              },
-              {
-                question: "Can you help with remote hiring?",
-                answer:
-                  "100%! The world is your talent pool. Let us help you find remote staff for your jobs.",
-              },
-              {
-                question: "What’s your vetting process?",
-                answer:
-                  "We screen, test, and double-check skills before sending anyone your way. Thus, the vetting headache lies on our shoulders, not yours.",
-              },
-              {
-                question: "Do you offer temporary staffing?",
-                answer:
-                  "Yes! Short-term, long-term, or “I need someone now” situations. We help you with temporary or permanent staffing per your needs.",
-              },
-              {
-                question: "How fast can you find someone?",
-                answer:
-                  "Our procedure is quick. However, since we want you to have quality candidates as prospects only, we might take time to recruit for crucial positions.",
-              },
-            ]}
-          />
-        </section>
-
-        {/* Digital Marketing */}
-        <section id="digital-marketing" className="bg-white">
-          <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            Digital Marketing
-          </h2>
-          <p className="text-gray-700">
-            In a digital-first world, visibility is everything. Your brand
-            deserves more than generic ads and outdated SEO tricks. Ushodaya Services’s
-            digital marketing services help businesses grow through
-            data-driven strategies, SEO, PPC, social media, and content
-            marketing. We blend creativity with data-driven strategies to get
-            you noticed.
-          </p>
-          <p className="text-gray-700 mt-4">
-            Our digital marketing agency makes your brand pop with compelling
-            campaigns to engage audiences, drive conversions, and boost brand
-            recognition. Let’s take your online presence to the next level and
-            turn clicks into customers!
-          </p>
-
-          <h3 className="text-2xl font-semibold mt-8 mb-3 text-gray-800">
-            FAQs
-          </h3>
-          <FAQSection
-            faqs={[
-              {
-                question: "What digital marketing services do you offer?",
-                answer:
-                  "SEO, PPC, content, email, and more—we do it all. You can contact our digital marketing agency in India to learn how we can boost your digital marketing.",
-              },
-              {
-                question: "How do you improve website traffic?",
-                answer:
-                  "Smart strategies + killer content = more eyeballs on your brand. From an impressive intuitive interface to catchy designs and valuable content, our digital marketing agency in Hyderabad ensures more and more audiences reach your site and convert into customers.",
-              },
-              {
-                question: "Do you handle social media marketing?",
-                answer:
-                  "Yes! We make brands go viral (in a good way). You can consult with our experts about your social media vision and goals.",
-              },
-              {
-                question: "What’s your approach to paid ads?",
-                answer:
-                  "Data-driven and ROI-focused, we ensure the paid ads we run for you do not result in a wasted budget.",
-              },
-              {
-                question: "Can you improve our brand’s online presence?",
-                answer:
-                  "Absolutely! We’ll make you unforgettable in your target audience’s memory. Give us, the best digital marketing agency in India, a chance to imprint you in your customers’ minds.",
-              },
-            ]}
-          />
-        </section>
+        {/* Simple Contact Box */}
+        <div className="mt-16 p-8 rounded-2xl bg-gray-50 border border-gray-200 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div>
+            <h3 className="text-xl font-bold text-gray-900">
+              Still have questions?
+            </h3>
+            <p className="text-gray-600 text-sm mt-1">
+              Can&apos;t find the answer you&apos;re looking for? Reach out to our support team.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition flex items-center gap-2 flex-shrink-0"
+          >
+            Contact Us <FiArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
       </main>
+
+      {/* ================= FOOTER ================= */}
+      <Footer />
     </div>
   );
 }
