@@ -132,7 +132,7 @@ export const metadata: Metadata = {
     "business:contact_data:postal_code": "500081",
     "business:contact_data:country_name": "India",
     "business:contact_data:email": "info@ushodayaservices.com",
-    "business:contact_data:phone_number": "+91 93904 52110",
+    "business:contact_data:phone_number": "+91 89223 19278",
     "business:contact_data:website": "https://ushodayaservices.com",
     company: "Ushodaya Services",
     industry: "Information Technology",
@@ -231,7 +231,7 @@ export default function RootLayout({
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91 93904 52110",
+                telephone: "+91 89223 19278",
                 contactType: "customer service",
                 email: "info@ushodayaservices.com",
                 availableLanguage: ["English", "Hindi"],
@@ -311,7 +311,7 @@ export default function RootLayout({
               "@type": "LocalBusiness",
               name: "Ushodaya Services",
               image: "https://ushodayaservices.com/images/ushodaya-logo-new.png",
-              telephone: "+91 93904 52110",
+              telephone: "+91 89223 19278",
               email: "info@ushodayaservices.com",
               url: "https://ushodayaservices.com",
               address: {
