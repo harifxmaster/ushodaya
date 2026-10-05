@@ -6,4 +6,4 @@
 - [ ] Replace email and website in other metadata from "hr@wt-softtech.vercel.app" and "https://wt-softtech.vercel.app" to "hr@wtsoftech.com" and "https://wtsoftech.com"
 - [ ] Replace url and logo in Organization schema from "https://wt-softtech.vercel.app" to "https://wtsoftech.com"
 - [ ] Replace url and image in LocalBusiness schema from "https://wt-softtech.vercel.app" to "https://wtsoftech.com"
-- [ ] Fix breadcrumb item url from "https://wt-softtech.vercel." to "https://wtsoftech.com"
+- [ ] Fix breadcrumb item url from "https://wt-softtech.vercel." to "https://wtsoftech.com" 
