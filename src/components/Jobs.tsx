@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function JobSearchHero() {
-  const [selectedJobTitle, setSelectedJobTitle] = useState("Sales Executive");
+  const [selectedJobTitle, setSelectedJobTitle] = useState("Full Stack Developer (SEO Stack)");
   const [experience, setExperience] = useState("All Experience Level");
   const [location, setLocation] = useState("All Location");
   const [category, setCategory] = useState("All Categories");
@@ -109,10 +109,10 @@ export default function JobSearchHero() {
                 onChange={(e) => setSelectedJobTitle(e.target.value)}
                 className="w-full bg-gray-50/90 border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm text-gray-900 font-medium focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all cursor-pointer"
               >
-                <option>Sales Executive</option>
-                <option>Front End Developer</option>
-                <option>Technical SEO Manager</option>
-                <option>Senior QA Manager</option>
+                <option>Full Stack Developer (SEO Stack)</option>
+                <option>Field Sales - BharatCover</option>
+                <option>Content Writer</option>
+                <option>Social Media Executive - BharatCover</option>
               </select>
             </div>
 
@@ -127,10 +127,10 @@ export default function JobSearchHero() {
                 className="w-full bg-gray-50/90 border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm text-gray-900 font-medium focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all cursor-pointer"
               >
                 <option>All Experience Level</option>
-                <option>Fresher</option>
-                <option>Junior (1-3 Yrs)</option>
-                <option>Mid (3-5 Yrs)</option>
-                <option>Senior (5+ Yrs)</option>
+                <option>1–2 Years</option>
+                <option>1–3 Years</option>
+                <option>2–4 Years</option>
+                <option>5–6 Years</option>
               </select>
             </div>
 
@@ -147,7 +147,6 @@ export default function JobSearchHero() {
                 <option>All Locations</option>
                 <option>Hyderabad</option>
                 <option>Bangalore</option>
-                <option>Chennai</option>
                 <option>Remote</option>
               </select>
             </div>
@@ -163,10 +162,10 @@ export default function JobSearchHero() {
                 className="w-full bg-gray-50/90 border border-gray-200 rounded-xl px-3.5 py-2.5 text-sm text-gray-900 font-medium focus:bg-white focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all cursor-pointer"
               >
                 <option>All Categories</option>
-                <option>Engineering</option>
-                <option>Marketing & SEO</option>
-                <option>Sales & Business</option>
-                <option>Quality Assurance</option>
+                <option>Engineering & Tech</option>
+                <option>Sales & Business Development</option>
+                <option>Content & Copywriting</option>
+                <option>Social Media & Marketing</option>
               </select>
             </div>
 
